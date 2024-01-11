@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:paddingTop="@dimen/std_space_medium"
+    android:paddingBottom="@dimen/std_space_semi">
+
+    <TextView
+        android:id="@+id/txtPickerTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/std_space_small"
+        android:paddingStart="@dimen/std_space_large"
+        android:paddingEnd="@dimen/std_space_medium"
+        android:text="@string/img_pkr_select_options"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/std_txt_medium_x"
+        app:layout_constraintBottom_toTopOf="@id/imgCamera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgCamera"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/std_space_medium"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@id/txtCamera"
+        app:layout_constraintDimensionRatio="H,1.6:1"
+        app:layout_constraintEnd_toStartOf="@id/imgGallery"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPickerTitle"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_image_picker_camera" />
+
+    <TextView
+        android:id="@+id/txtCamera"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/img_pkr_camera"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/std_txt_small_xxx"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imgCamera"
+        app:layout_constraintStart_toStartOf="@id/imgCamera"
+        app:layout_constraintTop_toBottomOf="@id/imgCamera"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgGallery"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/std_space_medium"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@id/txtGallery"
+        app:layout_constraintDimensionRatio="H,1.6:1"
+        app:layout_constraintEnd_toStartOf="@id/imgRemove"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/imgCamera"
+        app:layout_constraintTop_toTopOf="@id/imgCamera"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_image_picker_gallery" />
+
+    <TextView
+        android:id="@+id/txtGallery"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/img_pkr_gallery"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/std_txt_small_xxx"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imgGallery"
+        app:layout_constraintStart_toStartOf="@id/imgGallery"
+        app:layout_constraintTop_toBottomOf="@id/imgGallery"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgRemove"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/std_space_medium"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@id/txtRemove"
+        app:layout_constraintDimensionRatio="H,1.6:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/imgGallery"
+        app:layout_constraintTop_toTopOf="@id/imgCamera"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_image_picker_delete" />
+
+    <TextView
+        android:id="@+id/txtRemove"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/img_pkr_remove"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/std_txt_small_xxx"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imgRemove"
+        app:layout_constraintStart_toStartOf="@id/imgRemove"
+        app:layout_constraintTop_toBottomOf="@id/imgRemove"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

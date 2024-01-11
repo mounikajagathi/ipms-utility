@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.establishment.EstablishmentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layoutBtnContainer"
+            android:layout_alignParentTop="true"
+            android:background="@color/cmnPageBgColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/layoutContainer"
+                android:padding="@dimen/std_space_medium">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEstablishmentName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    app:layout_constraintBottom_toTopOf="@id/layoutEstablishmentType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etEstablishmentName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_establishment_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.establishmentName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnEstNameInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutEstablishmentName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutEstablishmentName"
+                    app:layout_constraintTop_toTopOf="@id/layoutEstablishmentName"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutEstablishmentName"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrEstablishmentName"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutEstablishmentName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutEstablishmentName"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutEstablishmentName"
+                    app:layout_constraintTop_toTopOf="@id/layoutEstablishmentName"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEstablishmentType"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    app:layout_constraintBottom_toTopOf="@id/layoutEstablishmentYear"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutEstablishmentName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etEstablishmentType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_establishment_type"
+                        android:inputType="text"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.establishmentType}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnEstTypeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutEstablishmentType"
+                    app:layout_constraintEnd_toEndOf="@id/nrEstablishmentType"
+                    app:layout_constraintTop_toTopOf="@id/layoutEstablishmentType"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutEstablishmentType"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrEstablishmentType"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutEstablishmentType"
+                    app:layout_constraintEnd_toEndOf="@id/layoutEstablishmentType"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutEstablishmentType"
+                    app:layout_constraintTop_toTopOf="@id/layoutEstablishmentType"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEstablishmentYear"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutInCharge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutEstablishmentType"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etEstablishmentYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_establishment_year"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.establishmentYear}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnEstYeareInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutEstablishmentYear"
+                    app:layout_constraintEnd_toEndOf="@id/layoutEstablishmentYear"
+                    app:layout_constraintTop_toTopOf="@id/layoutEstablishmentYear"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutEstablishmentYear"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutInCharge"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutInChargeRole"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutEstablishmentYear"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etInCharge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_in_charge"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.inCharge}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnInChargeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutInCharge"
+                    app:layout_constraintEnd_toEndOf="@id/layoutInCharge"
+                    app:layout_constraintTop_toTopOf="@id/layoutInCharge"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutInCharge"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrInCharge"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutInCharge"
+                    app:layout_constraintEnd_toEndOf="@id/layoutInCharge"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutInCharge"
+                    app:layout_constraintTop_toTopOf="@id/layoutInCharge"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutInChargeRole"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutEmployeeCount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutInCharge"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etInChargeRole"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_in_charge_role"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.inChargeRole}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnInChargeRoleInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutInChargeRole"
+                    app:layout_constraintEnd_toEndOf="@id/layoutInChargeRole"
+                    app:layout_constraintTop_toTopOf="@id/layoutInChargeRole"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutInChargeRole"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrInChargeRole"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutInChargeRole"
+                    app:layout_constraintEnd_toEndOf="@id/layoutInChargeRole"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutInChargeRole"
+                    app:layout_constraintTop_toTopOf="@id/layoutInChargeRole"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEmployeeCount"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutLicenseNumber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutInChargeRole"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etEmployeeCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_employee_count"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.employeeCount}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnEmployeeCountInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutEmployeeCount"
+                    app:layout_constraintEnd_toEndOf="@id/layoutEmployeeCount"
+                    app:layout_constraintTop_toTopOf="@id/layoutEmployeeCount"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutEmployeeCount"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutLicenseNumber"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutEstablishmentGSTStatus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutEmployeeCount"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etLicenseNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_license_number"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.licenseNumber}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnLicenseNoInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutLicenseNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutLicenseNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutLicenseNumber"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutLicenseNumber"
+                    app:layout_constraintVertical_bias=".5"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrLicenseNumber"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutLicenseNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutLicenseNumber"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutLicenseNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutLicenseNumber"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEstablishmentGSTStatus"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutEmail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutLicenseNumber"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etEstablishmentGSTStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_gst_number_status"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.gstStatus}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.gstStatusList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnEstGSTStatusInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutEstablishmentGSTStatus"
+                    app:layout_constraintEnd_toEndOf="@id/layoutEstablishmentGSTStatus"
+                    app:layout_constraintTop_toTopOf="@id/layoutEstablishmentGSTStatus"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutEstablishmentGSTStatus"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEmail"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutLandLine"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutEstablishmentGSTStatus"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.establishmentEmail}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrEstablishmentEmail"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutEmail"
+                    app:layout_constraintEnd_toEndOf="@id/layoutEmail"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutEmail"
+                    app:layout_constraintTop_toTopOf="@id/layoutEmail"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutLandLine"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutMobile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutEmail"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etLandLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_land_line"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.establishmentLandline}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrLandline"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutLandLine"
+                    app:layout_constraintEnd_toEndOf="@id/layoutLandLine"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutLandLine"
+                    app:layout_constraintTop_toTopOf="@id/layoutLandLine"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutMobile"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutLandLine"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etMobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/establishment_mobile"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.establishmentMobile}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrMobile"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGLNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutMobile"
+                    app:layout_constraintEnd_toEndOf="@id/layoutMobile"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutMobile"
+                    app:layout_constraintTop_toTopOf="@id/layoutMobile"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutBtnContainer"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPartialSave"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnPartialSaveButtonColor"
+                android:onClick="@{()->viewModel.onPartialSaveClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_partial_save_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnNextButtonColor"
+                android:onClick="@{()->viewModel.onNextClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_next_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</layout>

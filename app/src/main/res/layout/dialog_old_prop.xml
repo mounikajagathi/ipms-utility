@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/std_space_medium"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtOldPropertyId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/std_space_mini"
+            android:layout_marginTop="@dimen/std_space_medium"
+            android:drawablePadding="@dimen/std_space_medium"
+            android:text="@string/property_old_property_id_from_field"
+            android:layout_centerVertical="true"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium_x"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutOldPropertyIdvalues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/std_edt_txt_height_medium"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutOldropertyId1"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/std_space_small"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:layout_marginEnd="@dimen/std_space_small"
+                    android:layout_marginBottom="@dimen/std_space_small"
+                  >
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etOldPropertyId1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_new_property_id2"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutOldPropertyId2"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/std_space_small"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:layout_marginEnd="@dimen/std_space_small"
+                    android:layout_marginBottom="@dimen/std_space_small">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etOldPropertyId2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_new_property_id3"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutOldPropertyId3"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/std_space_small"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:layout_marginEnd="@dimen/std_space_small"
+                    android:layout_marginBottom="@dimen/std_space_small">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etOldPropertyId3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_new_property_id4"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNaOldProprty3"
+                    android:layout_width="@dimen/std_edt_txt_multi_line_h_min_small"
+                    android:layout_height="@dimen/std_edt_txt_multi_line_h_min_small"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/std_space_micro"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_no_data" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/nrOldPropertyIdValue"
+            android:layout_width="@dimen/std_edt_txt_height_medium"
+            android:layout_height="@dimen/std_edt_txt_height_medium"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/std_space_small"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_no_data" />
+
+    </RelativeLayout>
+
+    <Button
+
+        style="@style/verification_btn"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/std_space_medium"
+        android:layout_height="@dimen/std_btn_medium"
+        android:id="@+id/buttonOldPropSubmit"
+        android:text="@string/cmn_confirm" />
+</LinearLayout>

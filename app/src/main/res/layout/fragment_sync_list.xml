@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cmnPageBgColor">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSyncList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:adapter="@{viewModel.syncList}"
+            tools:listitem="@layout/item_sync_list"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_sync"
+            android:tint="@color/colorWhite"
+            android:layout_margin="@dimen/std_space_medium"
+            android:layout_gravity="bottom|end"
+            app:elevation="6dp"
+            android:onClick="@{()-> viewModel.syncDataOnClick()}"
+            app:pressedTranslationZ="12dp"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.synclist.SyncListViewModel" />
+    </data>
+
+</layout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.groundfloorselection.GroundFloorSelectionItemViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/adapterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ground_selection_view_height"
+        android:background="@color/colorTransparent"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/imgFloor"
+            app:imageDrawable="@{viewModel.floorImageType}"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/txtFloor"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="@{viewModel.isSelected ? @color/cmnLightGrey : @color/colorTransparent }"
+            android:gravity="center"
+            android:text="@{viewModel.floorNumber}"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </LinearLayout>
+
+</layout>

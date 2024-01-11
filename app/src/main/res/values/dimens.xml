@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Common Size-->
+    <dimen name="common_alert_icon_size">70dp</dimen>
+    <dimen name="toolbar_badge_text_size">12dp</dimen>
+    <dimen name="grid_icon_size">112dp</dimen>
+
+
+    <!--Standard Size-->
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="quarter_dp">.25dp</dimen>
+    <dimen name="half_dp">.5dp</dimen>
+    <dimen name="third_quarter_dp">.75dp</dimen>
+    <dimen name="one_dp">1dp</dimen>
+    <dimen name="two_dp">2dp</dimen>
+    <dimen name="three_dp">3dp</dimen>
+    <dimen name="four_dp">4dp</dimen>
+    <dimen name="five_dp">5dp</dimen>
+    <dimen name="six_dp">6dp</dimen>
+
+
+    <!--Standard Spacing-->
+    <dimen name="std_space_atom">1dp</dimen>
+    <dimen name="std_space_nano">2dp</dimen>
+    <dimen name="std_space_micro">4dp</dimen>
+    <dimen name="std_space_macro">6dp</dimen>
+    <dimen name="std_space_small">8dp</dimen>
+    <dimen name="std_space_mini">10dp</dimen>
+    <dimen name="std_space_normal">12dp</dimen>
+    <dimen name="std_space_medium">16dp</dimen>
+    <dimen name="std_space_semi">20dp</dimen>
+    <dimen name="std_space_max">24dp</dimen>
+    <dimen name="std_space_large">32dp</dimen>
+    <dimen name="std_space_xlarge">48dp</dimen>
+    <dimen name="std_space_huge">64dp</dimen>
+
+
+    <!--Common Text Size-->
+    <dimen name="std_txt_nano">4sp</dimen>
+    <dimen name="std_txt_micro">6sp</dimen>
+    <dimen name="std_txt_small">8sp</dimen>
+    <dimen name="std_txt_small_x">10sp</dimen>
+    <dimen name="std_txt_small_xx">12sp</dimen>
+    <dimen name="std_txt_small_xxx">14sp</dimen>
+    <dimen name="std_txt_medium">16sp</dimen>
+    <dimen name="std_txt_medium_x">18sp</dimen>
+    <dimen name="std_txt_medium_xx">20sp</dimen>
+    <dimen name="std_txt_medium_xxx">22sp</dimen>
+    <dimen name="std_txt_large">24sp</dimen>
+    <dimen name="std_txt_large_x">26sp</dimen>
+    <dimen name="std_txt_large_xx">28sp</dimen>
+    <dimen name="std_txt_large_xxx">30sp</dimen>
+    <dimen name="std_txt_max">32sp</dimen>
+    <dimen name="std_txt_max_x">34sp</dimen>
+    <dimen name="std_txt_max_xx">36sp</dimen>
+    <dimen name="std_txt_max_xxx">38sp</dimen>
+    <dimen name="std_txt_huge">40sp</dimen>
+    <dimen name="std_txt_huge_x">42sp</dimen>
+    <dimen name="std_txt_huge_xx">44sp</dimen>
+    <dimen name="std_txt_huge_xxx">46sp</dimen>
+
+
+    <!--Standard Button Height-->
+    <dimen name="std_btn_small">36dp</dimen>
+    <dimen name="std_btn_semi">40dp</dimen>
+    <dimen name="std_btn_medium">46dp</dimen>
+    <dimen name="std_btn_large">56dp</dimen>
+    <dimen name="std_btn_huge">66dp</dimen>
+
+
+    <!--Standard progress bar Height-->
+    <dimen name="std_progress_bar_min">20dp</dimen>
+    <dimen name="std_progress_bar_small">30dp</dimen>
+    <dimen name="std_progress_bar_medium">40dp</dimen>
+    <dimen name="std_progress_bar_large">50dp</dimen>
+    <dimen name="std_progress_bar_stroke_min">2.5dp</dimen>
+    <dimen name="std_progress_bar_stroke_small">3dp</dimen>
+    <dimen name="std_progress_bar_stroke_medium">4dp</dimen>
+    <dimen name="std_progress_bar_stroke_large">5dp</dimen>
+    
+    
+    <!--Standard Edit Text Sizes-->
+    <dimen name="std_edt_txt_height_small">45dp</dimen>
+    <dimen name="std_edt_txt_height_medium">55dp</dimen>
+    <dimen name="std_edt_txt_height_large">65dp</dimen>
+    <dimen name="std_edt_txt_multi_line_h_min_small">60dp</dimen>
+    <dimen name="std_edt_txt_multi_line_h_min_medium">75dp</dimen>
+    <dimen name="std_edt_txt_multi_line_h_min_large">100dp</dimen>
+    <dimen name="std_edt_txt_multi_line_h_max_small">120dp</dimen>
+    <dimen name="std_edt_txt_multi_line_h_max_medium">150dp</dimen>
+    <dimen name="std_edt_txt_multi_line_h_max_large">200dp</dimen>
+
+    <!--Standard Fab Sizes-->
+    <dimen name="std_fab_small">40dp</dimen>
+    <dimen name="std_fab_medium">56dp</dimen>
+    <dimen name="std_fab_large">70dp</dimen>
+
+    <!--Login Page-->
+    <dimen name="login_image_h_w">100dp</dimen>
+
+    <!--Tenant Page-->
+    <dimen name="tenant_image_h_w">100dp</dimen>
+
+    <!--Menu Drawer-->
+    <dimen name="drawer_header_h">210dp</dimen>
+    <dimen name="drawer_image_h_w">64dp</dimen>
+
+
+    <!--Home Page-->
+    <dimen name="home_image_h_w">75dp</dimen>
+    <dimen name="home_arrow_h_w">35dp</dimen>
+
+    <!--Floor Count Page-->
+    <dimen name="floor_count_image_h">150dp</dimen>
+    <dimen name="floor_count_counter_btn_h_w">40dp</dimen>
+
+    <!--Ground Selection-->
+    <dimen name="ground_selection_view_height">80dp</dimen>
+
+    <!--Partial Survey List-->
+    <dimen name="partial_survey_list_image_h_w">75dp</dimen>
+    <dimen name="partial_survey_list_edit_h_w">32dp</dimen>
+
+    <!--Location Page -->
+    <dimen name="location_photo_h_w">75dp</dimen>
+
+    <!--Sync Page-->
+    <dimen name="sync_progress_image_size">120dp</dimen>
+    <dimen name="sync_close_size">60dp</dimen>
+
+
+
+    <!--Standard Size-->
+    <dimen name="dimen_zero_dp">0dp</dimen>
+    <dimen name="dimen_quarter_dp">.25dp</dimen>
+    <dimen name="dimen_half_dp">.5dp</dimen>
+    <dimen name="dimen_third_quarter_dp">.75dp</dimen>
+    <dimen name="dimen_one_dp">1dp</dimen>
+    <dimen name="dimen_two_dp">2dp</dimen>
+    <dimen name="dimen_three_dp">3dp</dimen>
+    <dimen name="dimen_four_dp">4dp</dimen>
+    <dimen name="dimen_five_dp">5dp</dimen>
+    <dimen name="dimen_eight_dp">8dp</dimen>
+    <dimen name="dimen_ten_dp">10dp</dimen>
+    <dimen name="dimen_twelve_dp">12dp</dimen>
+    <dimen name="dimen_twenty_dp">20dp</dimen>
+    <dimen name="dimen_twenty_one_dp">21dp</dimen>
+    <dimen name="dimen_thirty_dp">30dp</dimen>
+
+
+    <!--Standard Spacing-->
+    <dimen name="standard_spacing_atom">1dp</dimen>
+    <dimen name="standard_spacing_nano">2dp</dimen>
+    <dimen name="standard_spacing_micro">4dp</dimen>
+    <dimen name="standard_spacing_small">8dp</dimen>
+    <dimen name="standard_spacing_mini">10dp</dimen>
+    <dimen name="standard_spacing_normal">12dp</dimen>
+    <dimen name="standard_spacing_medium">16dp</dimen>
+    <dimen name="standard_spacing_semi">20dp</dimen>
+    <dimen name="standard_spacing_max">24dp</dimen>
+    <dimen name="standard_spacing_large">32dp</dimen>
+    <dimen name="standard_spacing_xlarge">38dp</dimen>
+    <dimen name="standard_spacing_huge">48dp</dimen>
+    <dimen name="standard_spacing_xhuge">64dp</dimen>
+
+
+    <!--Common Text Size-->
+    <dimen name="standard_text_size_nano">4sp</dimen>
+    <dimen name="standard_text_size_micro">6sp</dimen>
+    <dimen name="standard_text_size_small">8sp</dimen>
+    <dimen name="standard_text_size_small_x">10sp</dimen>
+    <dimen name="standard_text_size_small_xx">12sp</dimen>
+    <dimen name="standard_text_size_small_xxx">14sp</dimen>
+    <dimen name="standard_text_size_medium">16sp</dimen>
+    <dimen name="standard_text_size_medium_x">18sp</dimen>
+    <dimen name="standard_text_size_medium_xx">20sp</dimen>
+    <dimen name="standard_text_size_medium_xxx">22sp</dimen>
+    <dimen name="standard_text_size_large">24sp</dimen>
+    <dimen name="standard_text_size_large_x">26sp</dimen>
+    <dimen name="standard_text_size_large_xx">28sp</dimen>
+    <dimen name="standard_text_size_large_xxx">30sp</dimen>
+    <dimen name="standard_text_size_max">32sp</dimen>
+    <dimen name="standard_text_size_max_x">34sp</dimen>
+    <dimen name="standard_text_size_max_xx">36sp</dimen>
+    <dimen name="standard_text_size_max_xxx">38sp</dimen>
+    <dimen name="standard_text_size_huge">40sp</dimen>
+    <dimen name="standard_text_size_huge_x">42sp</dimen>
+    <dimen name="standard_text_size_huge_xx">44sp</dimen>
+    <dimen name="standard_text_size_huge_xxx">46sp</dimen>
+    <dimen name="standard_text_size_heavy">54sp</dimen>
+    <dimen name="standard_text_size_heavy_x">64sp</dimen>
+    <dimen name="standard_text_size_heavy_xx">72sp</dimen>
+    <dimen name="standard_text_size_heavy_xxx">82sp</dimen>
+
+    <!--Load More-->
+    <dimen name="load_more_view_height">40dp</dimen>
+
+    <!--Seekbar-->
+    <dimen name="seek_bar_size_small">5dp</dimen>
+    <dimen name="seek_bar_size_medium">10dp</dimen>
+    <dimen name="seek_bar_size_large">20dp</dimen>
+
+    <dimen name="seek_bar_thumb_mini">5dp</dimen>
+    <dimen name="seek_bar_thumb_small">10dp</dimen>
+    <dimen name="seek_bar_thumb_medium">15dp</dimen>
+    <dimen name="seek_bar_thumb_large">30dp</dimen>
+
+    <!--Standard Button Height-->
+    <dimen name="standard_button_size_small">36dp</dimen>
+    <dimen name="standard_button_size_semi">40dp</dimen>
+    <dimen name="standard_button_size_medium">46dp</dimen>
+    <dimen name="standard_button_size_large">56dp</dimen>
+    <dimen name="standard_button_size_huge">66dp</dimen>
+
+    <!--Standard EditText Height-->
+    <dimen name="standard_edt_txt_height_small">45dp</dimen>
+    <dimen name="standard_edt_txt_height_medium">55dp</dimen>
+    <dimen name="standard_edt_txt_height_large">65dp</dimen>
+    <dimen name="standard_edt_txt_height_max">110dp</dimen>
+
+
+    <!--Standard progress bar Height-->
+    <dimen name="standard_progress_bar_size_min">20dp</dimen>
+    <dimen name="standard_progress_bar_size_small">30dp</dimen>
+    <dimen name="standard_progress_bar_size_medium">40dp</dimen>
+    <dimen name="standard_progress_bar_size_large">50dp</dimen>
+    <dimen name="standard_progress_bar_stroke_min">2.5dp</dimen>
+    <dimen name="standard_progress_bar_stroke_small">3dp</dimen>
+    <dimen name="standard_progress_bar_stroke_medium">4dp</dimen>
+    <dimen name="standard_progress_bar_stroke_large">5dp</dimen>
+
+    <!--Standard Icon Sizes-->
+    <dimen name="standard_icon_size_mini">16dp</dimen>
+    <dimen name="standard_icon_size_small">24dp</dimen>
+    <dimen name="standard_icon_size_medium">28dp</dimen>
+    <dimen name="standard_icon_size_large">32dp</dimen>
+    <dimen name="standard_icon_size_huge">36dp</dimen>
+    <dimen name="standard_icon_size_heavy">48dp</dimen>
+
+    <!--Standard Map Plot Sizes-->
+    <dimen name="standard_icon_map_plot">16dp</dimen>
+
+
+    <!--Navigation Drawer-->
+    <dimen name="nav_drawer_width">320dp</dimen>
+    <dimen name="nav_drawer_item_list_height">40dp</dimen>
+    <dimen name="nav_drawer_item_list_image_height_width">20dp</dimen>
+
+    <!--Home-->
+    <dimen name="dashboard_sketch_area_bar_height">50dp</dimen>
+
+    <!--Image Height-->
+    <dimen name="standard_image_height_small">150dp</dimen>
+    <dimen name="standard_image_height_medium">200dp</dimen>
+    <dimen name="standard_image_height_large">250dp</dimen>
+
+</resources>

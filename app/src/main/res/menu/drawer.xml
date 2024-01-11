@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/navItemAbout"
+            android:checked="true"
+            android:icon="@drawable/ic_info_outline_black_24dp"
+            android:title="@string/about" />
+
+        <item
+            android:id="@+id/navItemSettings"
+            android:checked="true"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/settings" />
+
+        <item
+            android:id="@+id/navItemCompletedSurvey"
+            android:checked="true"
+            android:icon="@drawable/ic_completed_survey"
+            android:title="@string/completed_survey" />
+        <item
+            android:id="@+id/navItemSyncededSurvey"
+            android:checked="true"
+            android:icon="@drawable/ic_sync_done"
+            android:title="@string/synced_survey" />
+        <item
+            android:id="@+id/navItemFetchSurveyPoints"
+            android:checked="true"
+            android:icon="@drawable/ic_fetch_data"
+            android:title="@string/fetch_survey_points" />
+        <item
+            android:id="@+id/navItemServerSurveyDetails"
+            android:checked="true"
+            android:icon="@drawable/ic_server_survey"
+            android:title="@string/server_survey_details" />
+        <item
+            android:id="@+id/navItemSurveyPoints"
+            android:checked="true"
+            android:icon="@drawable/ic_map_white_24dp"
+            android:title="@string/survey_point" />
+
+        <item
+            android:id="@+id/navItemReport"
+            android:checked="true"
+            android:icon="@drawable/ic_report_description_24"
+            android:title="@string/daily_report" />
+
+        <item
+            android:id="@+id/navItemLogout"
+            android:checked="true"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="@string/logout" />
+    </group>
+</menu>

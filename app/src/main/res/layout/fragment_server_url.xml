@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+   >
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.auth.serverurl.ServerUrlViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:padding="@dimen/std_space_medium">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="@dimen/std_space_medium"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintBottom_toTopOf="@id/layoutServerAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutServerAddress"
+            style="@style/AppCommonTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_small"
+            android:layout_marginBottom="@dimen/std_space_medium"
+            android:layout_marginStart="@dimen/std_space_medium"
+            android:layout_marginEnd="@dimen/std_space_medium"
+            app:layout_constraintBottom_toTopOf="@id/layoutPortNo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgLogo"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etServerUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/serverurl_hint"
+                android:inputType="text"
+                android:text="@{viewModel.url}"
+                android:maxLines="1"
+                android:minHeight="@dimen/std_edt_txt_height_medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPortNo"
+            style="@style/AppCommonTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_small"
+            android:layout_marginBottom="@dimen/std_space_medium"
+            android:layout_marginStart="@dimen/std_space_medium"
+            android:layout_marginEnd="@dimen/std_space_medium"
+            app:layout_constraintBottom_toTopOf="@id/btnVerify"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutServerAddress"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPortNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/serverurl_port"
+                android:inputType="number"
+                android:maxLines="1"
+                android:minHeight="@dimen/std_edt_txt_height_medium"
+                android:text="@{viewModel.port}"
+                android:digits="0123456789"
+                android:imeOptions="actionDone"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/btnVerify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/std_space_medium"
+            android:layout_marginTop="@dimen/std_space_medium"
+            android:layout_marginEnd="@dimen/std_space_medium"
+            android:layout_marginBottom="@dimen/std_space_medium"
+            android:onClick="@{() -> viewModel.onResetPasswordClick()}"
+            android:paddingStart="@dimen/std_space_large"
+            android:paddingTop="@dimen/std_space_medium"
+            android:paddingEnd="@dimen/std_space_large"
+            android:paddingBottom="@dimen/std_space_medium"
+            android:text="@string/serverurl_verify"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium"
+            app:backgroundTint="@color/cmnNextButtonColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutPortNo"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

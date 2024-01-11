@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.member.MemberViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPension"
+            style="@style/AppCommonTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_mini"
+            app:layout_constraintBottom_toTopOf="@id/layoutEducation"
+            app:layout_constraintEnd_toStartOf="@id/glCentre"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutName"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <in.ults.gisurvey.utils.IPMSSpinner
+                android:id="@+id/etPension"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/member_pension"
+                android:minHeight="@dimen/std_edt_txt_height_medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </FrameLayout>
+
+</layout>

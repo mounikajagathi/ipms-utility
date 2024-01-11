@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.surveyor.SurveyorDetailsViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <FrameLayout
+            android:id="@+id/home_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:visibility="gone">
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/actualContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/std_space_medium">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium">
+
+                    <TextView
+                        android:id="@+id/txtSurveyorNameHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_surveyor_name"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium_x"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtClear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:onClick="@{()-> viewModel.onClearClick()}"
+                        android:text="@string/cmn_clear"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSurveyorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtSurveyorNameHint"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    app:adapter="@{viewModel.surveyorList}"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutMobileCode"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/btnSave"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:layout_marginBottom="@dimen/std_space_medium">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etMobileCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/profile_mobile_code"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.mobileCodeValue}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/cmnNextButtonColor"
+                    android:onClick="@{()-> viewModel.onNextClick()}"
+                    android:padding="@dimen/std_space_medium"
+                    android:paddingTop="@dimen/std_space_medium"
+                    android:text="@string/cmn_save_button"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/std_txt_medium_xx"
+                    app:layout_constraintVertical_bias="1" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <TextView
+            android:id="@+id/txtNoData"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/no_data"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+</layout>

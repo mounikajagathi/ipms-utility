@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.utility.streetlight.StreetLightViewModel" />
+    </data>
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvStreetLightDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutBtnContainer"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/standard_spacing_medium">
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/flow_utility"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:constraint_referenced_ids="layoutStreetLightLocation,layoutStreetLightAddress,layoutStreetLightFundedBy,layoutStreetLightBulbType,layoutStreetLightWorkingStatus,layoutStreetLightPostNo,layoutRemarks,txtStreetLightImage,imgStreetLight"
+                app:flow_verticalGap="@dimen/standard_spacing_mini"
+                app:flow_verticalStyle="packed"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutStreetLightLocation"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etStreetLightLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/street_light_details_location"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutStreetLightAddress"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etStreetLightAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/street_light_details_address"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutStreetLightFundedBy"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etStreetLightFundedBy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/street_light_details_funded_by"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutStreetLightBulbType"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_medium"
+                android:layout_marginBottom="@dimen/std_space_medium">
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srStreetLightBulbType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/street_light_details_bulb_type"
+                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                    android:padding="@dimen/std_space_micro"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium"
+                    app:adapter="@{viewModel.streetLightBulbTypeList}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutStreetLightWorkingStatus"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_medium"
+                android:layout_marginBottom="@dimen/std_space_medium">
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srStreetLightWorkingStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/street_light_details_working_status"
+                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                    android:padding="@dimen/std_space_micro"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium"
+                    app:adapter="@{viewModel.streetLightWorkingStatusList}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutStreetLightPostNo"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etStreetLightPostNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/street_light_details_post_no"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRemarks"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRemarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="top"
+                    android:hint="@string/street_light_details_remarks"
+                    android:inputType="textMultiLine"
+                    android:maxLength="100"
+                    android:minHeight="@dimen/standard_edt_txt_height_max"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txtStreetLightImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/street_light_details_photo_1"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/standard_text_size_medium" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgStreetLight"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/standard_image_height_large"
+                
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_property_image" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutStreetLightLocationInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutStreetLightLocation"
+                app:layout_constraintEnd_toEndOf="@id/layoutStreetLightLocation"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutStreetLightLocation"
+                app:layout_constraintTop_toTopOf="@id/layoutStreetLightLocation"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutStreetLightAddressInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutStreetLightAddress"
+                app:layout_constraintEnd_toEndOf="@id/layoutStreetLightAddress"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutStreetLightAddress"
+                app:layout_constraintTop_toTopOf="@id/layoutStreetLightAddress"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutStreetLightFundedByInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutStreetLightFundedBy"
+                app:layout_constraintEnd_toEndOf="@id/layoutStreetLightFundedBy"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutStreetLightFundedBy"
+                app:layout_constraintTop_toTopOf="@id/layoutStreetLightFundedBy"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutStreetLightBulbTypeInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutStreetLightBulbType"
+                app:layout_constraintEnd_toEndOf="@id/layoutStreetLightBulbType"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutStreetLightBulbType"
+                app:layout_constraintTop_toTopOf="@id/layoutStreetLightBulbType"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutStreetLightPostNoInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutStreetLightPostNo"
+                app:layout_constraintEnd_toEndOf="@id/layoutStreetLightPostNo"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutStreetLightPostNo"
+                app:layout_constraintTop_toTopOf="@id/layoutStreetLightPostNo"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRemarksInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRemarks"
+                app:layout_constraintEnd_toEndOf="@id/layoutRemarks"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRemarks"
+                app:layout_constraintTop_toTopOf="@id/layoutRemarks"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutStreetLightWorkingStatusInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutStreetLightWorkingStatus"
+                app:layout_constraintEnd_toEndOf="@id/layoutStreetLightWorkingStatus"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutStreetLightWorkingStatus"
+                app:layout_constraintTop_toTopOf="@id/layoutStreetLightWorkingStatus"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/layoutBtnContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPartialSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:background="@color/cmnPartialSaveButtonColor"
+            android:onClick="@{()->viewModel.onPartialSaveClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_partial_save_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()->viewModel.onNextClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
+</layout>
+

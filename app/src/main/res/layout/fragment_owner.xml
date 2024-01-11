@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutBtnContainer"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPartialSave"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnPartialSaveButtonColor"
+                android:onClick="@{()->viewModel.onPartialSaveClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_partial_save_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnNextButtonColor"
+                android:onClick="@{()->viewModel.onNextClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_next_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+        </LinearLayout>
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layoutBtnContainer"
+            android:layout_alignParentTop="true"
+            android:background="@color/cmnPageBgColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/layoutContainer"
+                android:padding="@dimen/std_space_medium">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrOwnerState"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutState"
+                    app:layout_constraintEnd_toEndOf="@id/layoutState"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutState"
+                    app:layout_constraintTop_toTopOf="@id/layoutState"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrOwnerPostOffice"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPostOffice"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPostOffice"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutPostOffice"
+                    app:layout_constraintTop_toTopOf="@id/layoutPostOffice"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrOwnerPinCode"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPinCode"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPinCode"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutPinCode"
+                    app:layout_constraintTop_toTopOf="@id/layoutPinCode"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrOwnerEmail"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutEmail"
+                    app:layout_constraintEnd_toEndOf="@id/layoutEmail"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutEmail"
+                    app:layout_constraintTop_toTopOf="@id/layoutEmail"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrOwnerLandLine"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutLandLine"
+                    app:layout_constraintEnd_toEndOf="@id/layoutLandLine"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutLandLine"
+                    app:layout_constraintTop_toTopOf="@id/layoutLandLine"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrOwnerMobile"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutMobile"
+                    app:layout_constraintEnd_toEndOf="@id/layoutMobile"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutMobile"
+                    app:layout_constraintTop_toTopOf="@id/layoutMobile"
+                    app:srcCompat="@drawable/ic_no_data" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@id/layoutName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="@dimen/std_space_small"
+                    android:textSize="@dimen/std_txt_medium"
+                    android:textColor="@color/checkButtonColor"
+                    android:visibility="@{viewModel.isAROwnerAddressAvailable &amp;&amp; viewModel.isPointStatusBuilding? View.VISIBLE : View.GONE}"
+                    android:textStyle="bold"
+                    android:onClick="@{()->viewModel.onFetchOwnerAddressClick()}"
+                    android:text="@string/owner_ar_address"
+                    android:gravity="right"
+                    android:id="@+id/textviewAROwnerAddress"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintTop_toBottomOf="@id/textviewAROwnerAddress"
+                    app:layout_constraintBottom_toTopOf="@id/layoutOccupation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSAutoCompleteEditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/owner_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:paddingStart="@dimen/std_space_normal"
+                        android:paddingEnd="@dimen/std_space_normal"
+                        android:text="@{viewModel.ownerName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.ownerList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrName"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_no_data"
+                    app:layout_constraintTop_toTopOf="@id/layoutName"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutName"
+                    app:layout_constraintStart_toStartOf="@id/layoutName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutName"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutOccupation"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutHouseName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSAutoCompleteEditText
+                        android:id="@+id/etOccupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/owner_occupation"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.ownerOccupation}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.occupationList}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnOccupationInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutOccupation"
+                    app:layout_constraintEnd_toEndOf="@id/layoutOccupation"
+                    app:layout_constraintTop_toTopOf="@id/layoutOccupation"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutOccupation"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrOccupation"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_no_data"
+                    app:layout_constraintTop_toTopOf="@id/layoutOccupation"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutOccupation"
+                    app:layout_constraintStart_toStartOf="@id/layoutOccupation"
+                    app:layout_constraintEnd_toEndOf="@id/layoutOccupation"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutHouseName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutStreetName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutOccupation"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etHouseName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/owner_house_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.ownerHouseName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnHouseNameInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutHouseName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutHouseName"
+                    app:layout_constraintTop_toTopOf="@id/layoutHouseName"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutHouseName"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrHouseName"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_no_data"
+                    app:layout_constraintStart_toStartOf="@id/layoutHouseName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutHouseName"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutHouseName"
+                    app:layout_constraintTop_toTopOf="@id/layoutHouseName"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutStreetName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutState"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutHouseName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etStreetName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/owner_street_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.ownerStreetName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnStreetNameInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutStreetName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutStreetName"
+                    app:layout_constraintTop_toTopOf="@id/layoutStreetName"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutStreetName"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrStreetName"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_no_data"
+                    app:layout_constraintStart_toStartOf="@id/layoutStreetName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutStreetName"
+                    app:layout_constraintTop_toTopOf="@id/layoutStreetName"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutStreetName"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutState"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPostOffice"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutStreetName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSAutoCompleteEditText
+                        android:id="@+id/etState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/owner_state"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:paddingStart="@dimen/std_space_normal"
+                        android:paddingEnd="@dimen/std_space_normal"
+                        android:text="@{viewModel.ownerState}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.stateList}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutPostOffice"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPinCode"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutState"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSAutoCompleteEditText
+                        android:id="@+id/etPostOffice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/owner_post_office"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:paddingStart="@dimen/std_space_normal"
+                        android:paddingEnd="@dimen/std_space_normal"
+                        android:text="@{viewModel.ownerPostOffice}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.postOfficeList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnPostOfficeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutPostOffice"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPostOffice"
+                    app:layout_constraintTop_toTopOf="@id/layoutPostOffice"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPostOffice"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutPinCode"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutEmail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPostOffice"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etPinCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="true"
+                        android:hint="@string/owner_pin_code"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.ownerPincode}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnPincodeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutPinCode"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPinCode"
+                    app:layout_constraintTop_toTopOf="@id/layoutPinCode"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPinCode"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEmail"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutLandLine"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPinCode"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/owner_email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.ownerEmail}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnEmailInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutEmail"
+                    app:layout_constraintEnd_toEndOf="@id/nrOwnerEmail"
+                    app:layout_constraintTop_toTopOf="@id/layoutEmail"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutEmail"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutLandLine"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutMobile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutEmail"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etLandLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/owner_land_line"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.ownerLandline}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnLandlineInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutLandLine"
+                    app:layout_constraintEnd_toEndOf="@id/nrOwnerLandLine"
+                    app:layout_constraintTop_toTopOf="@id/layoutLandLine"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutLandLine"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutMobile"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutTeleCallNumber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutLandLine"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etMobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/owner_mobile"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.ownerMobile}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnMobileInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutMobile"
+                    app:layout_constraintEnd_toEndOf="@id/layoutMobile"
+                    app:layout_constraintTop_toTopOf="@id/layoutMobile"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutMobile"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTeleCallNumber"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_space_small"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutMobile"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etTeleCallNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/owner_tele_call_number"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.teleCallNumber}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnTeleCallNumberInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutTeleCallNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTeleCallNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutTeleCallNumber"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTeleCallNumber"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_space_small"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.owner.OwnerViewModel" />
+    </data>
+
+
+</layout>

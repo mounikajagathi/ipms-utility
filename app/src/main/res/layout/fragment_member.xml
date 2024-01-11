@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.member.MemberViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cmnPageBgColor"
+        android:id="@+id/layoutContainer"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNoOfMembers"
+            style="@style/AppCommonTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/std_space_medium"
+            android:layout_marginTop="@dimen/std_space_max"
+            android:layout_marginBottom="@dimen/std_space_medium"
+            app:layout_constraintBottom_toTopOf="@id/rvMember"
+            app:layout_constraintEnd_toStartOf="@id/btnNoOfMembersRemove"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <in.ults.gisurvey.utils.IPMSEditText
+                android:id="@+id/etNoOfMembers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:hint="@string/member_no_of_members"
+                android:inputType="number"
+                android:maxLines="1"
+                android:minHeight="@dimen/std_edt_txt_height_medium"
+                android:text="@{viewModel.noOfMembers}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnNoOfMembersRemove"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="@dimen/std_space_medium"
+            app:layout_constraintBottom_toBottomOf="@id/layoutNoOfMembers"
+            app:layout_constraintDimensionRatio="W,1:1"
+            android:onClick="@{()->viewModel.onRemoveMembersClick()}"
+            app:layout_constraintEnd_toStartOf="@id/btnNoOfMembersAdd"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/layoutNoOfMembers"
+            app:srcCompat="@drawable/ic_remove_minus" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnNoOfMembersAdd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/std_space_medium"
+            android:padding="@dimen/std_space_medium"
+            app:layout_constraintBottom_toBottomOf="@id/layoutNoOfMembers"
+            app:layout_constraintDimensionRatio="W,1:1"
+            android:onClick="@{()->viewModel.onAddMembersClick()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/layoutNoOfMembers"
+            app:srcCompat="@drawable/ic_add_plus" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMember"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/std_space_medium"
+            android:layout_marginEnd="@dimen/std_space_medium"
+            android:layout_marginBottom="@dimen/std_space_medium"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutNoOfMembers" />
+        <Button
+            android:id="@+id/btnPartialSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cmnPartialSaveButtonColor"
+            android:onClick="@{()->viewModel.onPartialSaveClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_partial_save_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnNext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()->viewModel.onNextClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnPartialSave"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

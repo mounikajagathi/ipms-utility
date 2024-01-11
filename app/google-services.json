@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "427627838689",
+    "firebase_url": "https://ipms-b6de1.firebaseio.com",
+    "project_id": "ipms-b6de1",
+    "storage_bucket": "ipms-b6de1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427627838689:android:54b37f5c2b6810ab4ecba0",
+        "android_client_info": {
+          "package_name": "in.ults.gisurvey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427627838689-fb7mo87o4o5qn4urmo9ebb4vktpv9cnh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.ults.gisurvey",
+            "certificate_hash": "7a6bbf918193da178b4519d4d14c68acbe38315f"
+          }
+        },
+        {
+          "client_id": "427627838689-v2euof9rgfv592ec0d0t9d2tk2k4blet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ6siXAJzuq7O92HNPDffo_VuRwLYATpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427627838689-v2euof9rgfv592ec0d0t9d2tk2k4blet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/adapterPropertyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/std_space_micro"
+        android:background="@{viewModel.completedStatus ? @color/completeSurveyButtonColor : @color/colorWhite }">
+
+        <ImageView
+            android:id="@+id/imgPropertyName"
+            android:layout_width="@dimen/grid_icon_size"
+            android:layout_height="@dimen/grid_icon_size"
+            android:layout_margin="@dimen/std_space_xlarge"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ipms_prop_icon"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/std_space_small"
+            app:layout_constraintTop_toBottomOf="@id/imgPropertyName"
+            android:background="@drawable/drawable_rectangle_stroked_bg">
+
+            <TextView
+                android:id="@+id/txtPropertyName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_small"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingBottom="@dimen/std_space_micro"
+                android:text="@{viewModel.content}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/txtPropertyID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_small"
+                android:paddingTop="@dimen/std_space_micro"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@{viewModel.propertyID}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgEditProperty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_edit_pencil"
+            android:padding="@dimen/std_txt_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="W,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/imgCopyPropertyId"
+            app:layout_constraintHorizontal_bias="1"
+            android:visibility="@{!viewModel.syncStatus &amp;&amp; !viewModel.isSurveyModeEdit? View.VISIBLE : View.GONE}"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".05"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgCopyPropertyId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_copy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="W,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/imgDeleteProperty"
+            app:layout_constraintHorizontal_bias="1"
+            android:padding="@dimen/std_txt_small"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".05"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgDeleteProperty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_delete_list"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="W,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            android:visibility="@{viewModel.isSurveyModeEdit? View.VISIBLE : View.GONE}"
+            android:padding="@dimen/std_txt_small"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".05"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.surveygrid.SurveyGridAdapterViewModel" />
+    </data>
+</layout>

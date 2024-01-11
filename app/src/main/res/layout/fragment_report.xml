@@ -1,0 +1,1993 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.report.ReportViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cmnPageBgColor">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cmnPageBgColor">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/std_space_medium"
+                android:background="@color/cmnPageBgColor">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/cmnPageBgColor"
+                    android:layout_marginTop="@dimen/std_space_mini">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_date"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.02"
+                        android:text="@string/report_colon"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@{viewModel.todayDate}"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/cmnPageBgColor"
+                    android:layout_marginTop="@dimen/std_space_mini">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_surveyor"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.02"
+                        android:text="@string/report_colon"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@{viewModel.surveyorName}"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/cmnPageBgColor"
+                    android:layout_marginTop="@dimen/std_space_mini">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_ward_number"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.02"
+                        android:text="@string/report_colon"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@{viewModel.wardNumbers}"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/cmnPageBgColor"
+                    android:layout_marginTop="@dimen/std_space_mini">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_device_code"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.02"
+                        android:text="@string/report_colon"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@{viewModel.deviceId}"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/cmnPageBgColor"
+                    android:layout_marginTop="@dimen/std_space_mini">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_field_device_code"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.02"
+                        android:text="@string/report_colon"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@{viewModel.mobileCode}"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/cmnPageBgColor"
+                    android:layout_marginTop="@dimen/std_space_mini">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_total_property_count"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.02"
+                        android:text="@string/report_colon"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@{viewModel.totalPropertyCount}"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/cmnPageBgColor"
+                    android:layout_marginTop="@dimen/std_space_mini">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_residential_details"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.02"
+                        android:text="@string/report_colon"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@{viewModel.residentialTotalPropertyCount}"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBlack"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/four_dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_do_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_margin="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.residentialDoTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginRight="@dimen/two_dp"
+                            android:layout_marginLeft="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_dc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.residentialDcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_pdc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.residentialPdcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_gl_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.residentialGlTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_nc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.residentialNcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_ong_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.residentialOgTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_owr_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.residentialOwrTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_sb_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.residentialRbTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:background="@color/cmnPageBgColor"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/std_space_macro"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_non_residential_details"
+                        android:textSize="@dimen/std_txt_medium">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.02"
+                        android:text="@string/report_colon"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@{viewModel.nonResidentialTotalPropertyCount}"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBlack"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/four_dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_do_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_margin="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.nonResidentialDoTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginRight="@dimen/two_dp"
+                            android:layout_marginLeft="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_dc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.nonResidentialDcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_pdc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.nonResidentialPdcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_gl_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"  android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.nonResidentialGlTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_nc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.nonResidentialNcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_ong_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.nonResidentialOgTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_owr_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.nonResidentialOwrTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:background="@color/cmnPageBgColor"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/std_space_macro"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_other_details"
+                        android:textSize="@dimen/std_txt_medium"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBlack"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/four_dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_demolished_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_margin="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.demolishedTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginRight="@dimen/two_dp"
+                            android:layout_marginLeft="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_unusable_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.unusableTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_unwanted_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.unwantedTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_landmark_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.landmarkTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/cmnPageBgColor"
+                    android:layout_marginTop="@dimen/std_space_mini">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_tele_call_residential_details"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.02"
+                        android:text="@string/report_colon"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@{viewModel.teleCallResidentialTotalPropertyCount}"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBlack"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/four_dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_do_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_margin="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallResidentialDoTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginRight="@dimen/two_dp"
+                            android:layout_marginLeft="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_dc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallResidentialDcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_pdc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallResidentialPdcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_gl_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallResidentialGlTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_nc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallResidentialNcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_ong_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallResidentialOgTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_owr_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.residentialOwrTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_sb_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.residentialRbTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:background="@color/cmnPageBgColor"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/std_space_macro"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_tele_call_non_residential_details"
+                        android:textSize="@dimen/std_txt_medium">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.02"
+                        android:text="@string/report_colon"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.49"
+                        android:text="@{viewModel.teleCallNonResidentialTotalPropertyCount}"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:layout_margin="@dimen/std_space_macro">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBlack"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/four_dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_do_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_margin="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallNonResidentialDoTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginRight="@dimen/two_dp"
+                            android:layout_marginLeft="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_dc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallNonResidentialDcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_pdc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallNonResidentialPdcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_gl_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallNonResidentialGlTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_nc_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallNonResidentialNcTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_ong_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallNonResidentialOgTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_owr_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.nonResidentialOwrTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:background="@color/cmnPageBgColor"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/std_space_macro"
+                        android:layout_weight="0.49"
+                        android:text="@string/report_label_tele_call_other_details"
+                        android:textSize="@dimen/std_txt_medium">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBlack"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/four_dp"
+                    android:layout_marginBottom="@dimen/std_space_huge">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_demolished_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_margin="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallDemolishedTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginRight="@dimen/two_dp"
+                            android:layout_marginLeft="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_unusable_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.unusableTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_unwanted_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallUnwantedTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.166666667">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@string/report_label_landmark_count"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:text="@{viewModel.teleCallLandmarkTotalPropertyCount}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:background="@color/cmnPageBgColor"
+                            android:layout_marginEnd="@dimen/two_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:paddingLeft="@dimen/six_dp"
+                            android:paddingRight="@dimen/six_dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutBtnContainer"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()-> viewModel.onCloseClick()}"
+            android:layout_alignParentBottom="true"
+            android:background="@color/cmnNextButtonColor"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_close"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.surveyor.SurveyorListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgSurveyor"
+            android:layout_width="@dimen/partial_survey_list_image_h_w"
+            android:layout_height="@dimen/partial_survey_list_image_h_w"
+            android:layout_margin="@dimen/std_space_medium"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txtSurveyorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/std_space_large"
+            android:layout_marginTop="@dimen/std_space_medium"
+            android:layout_marginEnd="@dimen/std_space_medium"
+            android:text="@{viewModel.surveyorName}"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium_x"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/txtSurveyorRole"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgSurveyor"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <TextView
+            android:id="@+id/txtSurveyorRole"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/std_space_medium"
+            android:text="@{viewModel.surveyorRole}"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_small_xxx"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/txtSurveyorName"
+            app:layout_constraintStart_toStartOf="@id/txtSurveyorName"
+            app:layout_constraintTop_toBottomOf="@id/txtSurveyorName"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

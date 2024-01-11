@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.basement.BasementViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cmnPageBgColor"
+        android:id="@+id/layoutContainer"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtBasementTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/basement_title"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium_xx"
+            android:layout_margin="@dimen/std_space_medium"
+            app:layout_constraintBottom_toTopOf="@id/rvBasementArea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBasementArea"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/std_space_medium"
+            android:layout_marginTop="@dimen/std_space_medium"
+            android:layout_marginEnd="@dimen/std_space_medium"
+            android:layout_marginBottom="@dimen/std_space_medium"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtBasementTitle" />
+
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()->viewModel.onNextClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

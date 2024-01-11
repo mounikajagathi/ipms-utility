@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.utility.divider.DividerViewModel" />
+    </data>
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvDividerDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutBtnContainer"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/standard_spacing_medium">
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/flow_utility"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:constraint_referenced_ids="layoutDividerPlace,layoutDividerRoadName,layoutDividerLength,layoutDividerWidth,layoutDividerMaterial,layoutDividerStartEnd,layoutRemarks,txtDividerImage,imgDivider"
+                app:flow_verticalStyle="packed"
+                app:flow_verticalGap="@dimen/standard_spacing_mini"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDividerPlace"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etDividerPlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/divider_details_place"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDividerRoadName"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etDividerRoadName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/divider_details_road_name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDividerLength"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etDividerLength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/divider_details_length"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDividerWidth"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etDividerWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/divider_details_width"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDividerMaterial"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srDividerMaterial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/divider_details_material"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium"
+                    app:adapter="@{viewModel.dividerMaterialList}">
+
+                </in.ults.gisurvey.utils.IPMSSpinner>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDividerStartEnd"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etDividerStartEnd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/divider_details_start_end"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRemarks"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRemarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="top"
+                    android:hint="@string/divider_details_remarks"
+                    android:inputType="textMultiLine"
+                    android:maxLength="100"
+                    android:minHeight="@dimen/standard_edt_txt_height_max"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/txtDividerImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/divider_details_photo_1"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/standard_text_size_medium" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgDivider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/standard_image_height_large"
+                
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_property_image" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDividerPlaceInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDividerPlace"
+                app:layout_constraintEnd_toEndOf="@id/layoutDividerPlace"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDividerPlace"
+                app:layout_constraintTop_toTopOf="@id/layoutDividerPlace"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDividerRoadNameInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDividerRoadName"
+                app:layout_constraintEnd_toEndOf="@id/layoutDividerRoadName"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDividerRoadName"
+                app:layout_constraintTop_toTopOf="@id/layoutDividerRoadName"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDividerLengthInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDividerLength"
+                app:layout_constraintEnd_toEndOf="@id/layoutDividerLength"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDividerLength"
+                app:layout_constraintTop_toTopOf="@id/layoutDividerLength"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDividerWidthInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDividerWidth"
+                app:layout_constraintEnd_toEndOf="@id/layoutDividerWidth"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDividerWidth"
+                app:layout_constraintTop_toTopOf="@id/layoutDividerWidth"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDividerMaterialInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDividerMaterial"
+                app:layout_constraintEnd_toEndOf="@id/layoutDividerMaterial"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDividerMaterial"
+                app:layout_constraintTop_toTopOf="@id/layoutDividerMaterial"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDividerStartEndInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDividerStartEnd"
+                app:layout_constraintEnd_toEndOf="@id/layoutDividerStartEnd"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDividerStartEnd"
+                app:layout_constraintTop_toTopOf="@id/layoutDividerStartEnd"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRemarksInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRemarks"
+                app:layout_constraintEnd_toEndOf="@id/layoutRemarks"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRemarks"
+                app:layout_constraintTop_toTopOf="@id/layoutRemarks"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutBtnContainer"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPartialSave"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnPartialSaveButtonColor"
+                android:onClick="@{()->viewModel.onPartialSaveClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_partial_save_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                />
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnNextButtonColor"
+                android:onClick="@{()->viewModel.onNextClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_next_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                />
+        </LinearLayout>
+
+
+</RelativeLayout>
+</layout>
+

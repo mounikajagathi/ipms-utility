@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/NA"
+        android:title="@string/cmn_near_na" />
+
+    <item
+        android:id="@+id/NR"
+        android:title="@string/cmn_near_nr" />
+    <item
+        android:id="@+id/CLEAR"
+        android:title="@string/cmn_near_clear" />
+</menu>

@@ -1,0 +1,1328 @@
+{
+  "road_maintained_by": [
+    {
+      "id": "1",
+      "content": "Corporation"
+    },
+    {
+      "id": "2",
+      "content": "District Panchayat"
+    },
+    {
+      "id": "3",
+      "content": "IRRIGATION"
+    },
+    {
+      "id": "4",
+      "content": "KWA"
+    },
+    {
+      "id": "5",
+      "content": "Minor Irrigation"
+    },
+    {
+      "id": "6",
+      "content": "Municipality"
+    },
+    {
+      "id": "7",
+      "content": "NHAI"
+    },
+    {
+      "id": "8",
+      "content": "NR"
+    },
+    {
+      "id": "9",
+      "content": "Other"
+    },
+    {
+      "id": "10",
+      "content": "Panchayat"
+    },
+    {
+      "id": "11",
+      "content": "Private"
+    },
+    {
+      "id": "12",
+      "content": "PWD"
+    },
+    {
+      "id": "13",
+      "content": "SOUTHERN RAILWAY"
+    }
+  ],
+  "road_category": [
+    {
+      "id": "1",
+      "content": "BYPASS"
+    },
+    {
+      "id": "2",
+      "content": "MAJOR CITY ROAD"
+    },
+    {
+      "id": "3",
+      "content": "MDR"
+    },
+    {
+      "id": "4",
+      "content": "MINOR CITY ROAD"
+    },
+    {
+      "id": "5",
+      "content": "NH"
+    },
+    {
+      "id": "6",
+      "content": "PRIVATE ROAD"
+    },
+    {
+      "id": "7",
+      "content": "OTHER PUBLIC ROAD"
+    },
+    {
+      "id": "8",
+      "content": "PORT ROAD"
+    },
+    {
+      "id": "9",
+      "content": "DISTRICT PANCHAYAT ROAD"
+    },
+    {
+      "id": "10",
+      "content": "FOOTPATH"
+    },
+    {
+      "id": "11",
+      "content": "LANE ROAD"
+    },
+    {
+      "id": "12",
+      "content": "ODR"
+    },
+    {
+      "id": "13",
+      "content": "OTHERS"
+    },
+    {
+      "id": "14",
+      "content": "PANCHAYAT ROAD"
+    },
+    {
+      "id": "15",
+      "content": "PWD"
+    },
+    {
+      "id": "16",
+      "content": "SH"
+    },
+    {
+      "id": "17",
+      "content": "VR"
+    },
+    {
+      "id": "18",
+      "content": "MUNICIPAL ROAD"
+    },
+    {
+      "id": "19",
+      "content": "SERVICE ROAD"
+    }
+  ],
+  "road_material": [
+    {
+      "id": "1",
+      "content": "Metal"
+    },
+    {
+      "id": "2",
+      "content": "Other"
+    },
+    {
+      "id": "3",
+      "content": "Concrete"
+    },
+    {
+      "id": "4",
+      "content": "Tar"
+    },
+    {
+      "id": "5",
+      "content": "Earthen"
+    },
+    {
+      "id": "6",
+      "content": "Interlock"
+    },
+    {
+      "id": "7",
+      "content": "Asphalt"
+    },
+    {
+      "id": "8",
+      "content": "WBM"
+    }
+  ],
+  "road_footpath_material": [
+    {
+      "id": "1",
+      "content": "CONCRETE"
+    },
+    {
+      "id": "2",
+      "content": "INTERLOCK"
+    },
+    {
+      "id": "3",
+      "content": "NA"
+    },
+    {
+      "id": "4",
+      "content": "NIL"
+    },
+    {
+      "id": "5",
+      "content": "NR"
+    },
+    {
+      "id": "6",
+      "content": "OTHER STONE"
+    },
+    {
+      "id": "7",
+      "content": "SHABAD"
+    },
+    {
+      "id": "8",
+      "content": "TAR"
+    },
+    {
+      "id": "9",
+      "content": "TILE"
+    }
+  ],
+  "culvert_construction_material": [
+    {
+      "id": "1",
+      "content": "CEMENT CONCRETE"
+    },
+    {
+      "id": "2",
+      "content": "CONCRETE"
+    },
+    {
+      "id": "3",
+      "content": "MASONRY"
+    },
+    {
+      "id": "4",
+      "content": "P.C.C"
+    },
+    {
+      "id": "5",
+      "content": "PRE-STRESSED CEMENT CONCRETE"
+    },
+    {
+      "id": "6",
+      "content": "R.C.C"
+    },
+    {
+      "id": "7",
+      "content": "REINFORCED CEMENT CONCRETE"
+    }
+  ],
+  "parking_parking_under": [
+    {
+      "id": "1",
+      "content": "GOVERNMENT"
+    },
+    {
+      "id": "2",
+      "content": "NR"
+    },
+    {
+      "id": "3",
+      "content": "OTHER"
+    },
+    {
+      "id": "4",
+      "content": "PAY AND PARK"
+    },
+    {
+      "id": "5",
+      "content": "PRIVATE"
+    },
+    {
+      "id": "6",
+      "content": "PUBLIC"
+    }
+  ],
+  "parking_parking_type": [
+    {
+      "id": "1",
+      "content": "FREE PARKING"
+    },
+    {
+      "id": "2",
+      "content": "GOVERNMENT"
+    },
+    {
+      "id": "3",
+      "content": "MUNICIPALITY"
+    },
+    {
+      "id": "4",
+      "content": "PAY AND PARK"
+    },
+    {
+      "id": "5",
+      "content": "RESERVED"
+    },
+    {
+      "id": "6",
+      "content": "PUBLIC"
+    }
+  ],
+  "signboard_category": [
+    {
+      "id": "1",
+      "content": "CAUTIONARY SIGNS"
+    },
+    {
+      "id": "2",
+      "content": "CCTV"
+    },
+    {
+      "id": "3",
+      "content": "DIRECTION SIGNALS"
+    },
+    {
+      "id": "4",
+      "content": "HAZARD MARKER SIGN"
+    },
+    {
+      "id": "5",
+      "content": "INFORMATORY SIGNALS"
+    },
+    {
+      "id": "6",
+      "content": "INSTITUTIONS"
+    },
+    {
+      "id": "7",
+      "content": "MANDATORY SIGNALS"
+    },
+    {
+      "id": "8",
+      "content": "MILE STONE"
+    },
+    {
+      "id": "9",
+      "content": "OTHER"
+    },
+    {
+      "id": "10",
+      "content": "OTHER (MIRROR)"
+    },
+    {
+      "id": "11",
+      "content": "TRAFFIC CAMERA"
+    },
+    {
+      "id": "12",
+      "content": "TRAFFIC SIGNALS"
+    },
+    {
+      "id": "13",
+      "content": "WARNING SIGNALS"
+    }
+  ],
+  "high_mast_light_type": [
+    {
+      "id": "1",
+      "content": "CFL"
+    },
+    {
+      "id": "2",
+      "content": "FILAMENT"
+    },
+    {
+      "id": "3",
+      "content": "FLUORESCENT"
+    },
+    {
+      "id": "4",
+      "content": "HID"
+    },
+    {
+      "id": "5",
+      "content": "HPS"
+    },
+    {
+      "id": "6",
+      "content": "LED (LIGHT EMITTING DIODE)"
+    },
+    {
+      "id": "7",
+      "content": "LED TUBE LIGHT"
+    },
+    {
+      "id": "8",
+      "content": "LED,FILAMENT"
+    },
+    {
+      "id": "9",
+      "content": "LED,TUBE"
+    },
+    {
+      "id": "10",
+      "content": "LPS"
+    },
+    {
+      "id": "11",
+      "content": "METAL HALIDE"
+    },
+    {
+      "id": "12",
+      "content": "NA"
+    },
+    {
+      "id": "13",
+      "content": "NO"
+    },
+    {
+      "id": "14",
+      "content": "NR"
+    },
+    {
+      "id": "15",
+      "content": "OTHERS"
+    },
+    {
+      "id": "16",
+      "content": "SOLAR"
+    },
+    {
+      "id": "17",
+      "content": "TUBE"
+    }
+  ],
+  "high_mast_working_status": [
+    {
+      "id": "1",
+      "content": "Working"
+    },
+    {
+      "id": "2",
+      "content": "Not Working"
+    }
+  ],
+  "playground_ground_type": [
+    {
+      "id": "1",
+      "content": "PRIVATE_GROUND"
+    },
+    {
+      "id": "2",
+      "content": "OTHERS"
+    },
+    {
+      "id": "3",
+      "content": "SCHOOL_GROUND"
+    },
+    {
+      "id": "4",
+      "content": "PUBLIC_GROUND"
+    },
+    {
+      "id": "5",
+      "content": "COLLEGE_GROUND"
+    }
+  ],
+  "drainage_type": [
+    {
+      "id": "1",
+      "content": "sewerage"
+    },
+    {
+      "id": "2",
+      "content": "open"
+    },
+    {
+      "id": "3",
+      "content": "closed"
+    }
+  ],
+  "drainage_material": [
+    {
+      "id": "1",
+      "content": "Concrete"
+    },
+    {
+      "id": "2",
+      "content": "Earthen"
+    },
+    {
+      "id": "3",
+      "content": "Metal"
+    },
+    {
+      "id": "4",
+      "content": "Other"
+    }
+  ],
+  "drainage_placement": [
+    {
+      "id": "1",
+      "content": "Left"
+    },
+    {
+      "id": "2",
+      "content": "Right"
+    }
+  ],
+  "low_mast_light_type": [
+    {
+      "id": "1",
+      "content": "CFL"
+    },
+    {
+      "id": "2",
+      "content": "FILAMENT"
+    },
+    {
+      "id": "3",
+      "content": "FLUORESCENT"
+    },
+    {
+      "id": "4",
+      "content": "HID"
+    },
+    {
+      "id": "5",
+      "content": "HPS"
+    },
+    {
+      "id": "6",
+      "content": "LED (LIGHT EMITTING DIODE)"
+    },
+    {
+      "id": "7",
+      "content": "LED TUBE LIGHT"
+    },
+    {
+      "id": "8",
+      "content": "LED,FILAMENT"
+    },
+    {
+      "id": "9",
+      "content": "LED,TUBE"
+    },
+    {
+      "id": "10",
+      "content": "LPS"
+    },
+    {
+      "id": "11",
+      "content": "METAL HALIDE"
+    },
+    {
+      "id": "12",
+      "content": "NA"
+    },
+    {
+      "id": "13",
+      "content": "NO"
+    },
+    {
+      "id": "14",
+      "content": "NR"
+    },
+    {
+      "id": "15",
+      "content": "OTHERS"
+    },
+    {
+      "id": "16",
+      "content": "SOLAR"
+    },
+    {
+      "id": "17",
+      "content": "TUBE"
+    }
+  ],
+  "low_mast_working_status": [
+    {
+      "id": "1",
+      "content": "Working"
+    },
+    {
+      "id": "2",
+      "content": "Not Working"
+    }
+  ],
+  "pond_usage": [
+    {
+      "id": "1",
+      "content": "AGRICULTURE"
+    },
+    {
+      "id": "2",
+      "content": "AGRICULTURE AND FISH FARMING"
+    },
+    {
+      "id": "3",
+      "content": "AGRICULTURE AND OTHER"
+    },
+    {
+      "id": "4",
+      "content": "AQUACULTURE"
+    },
+    {
+      "id": "5",
+      "content": "BATHING OR WASHING"
+    },
+    {
+      "id": "6",
+      "content": "CULTURAL/ENTERTAINMENT/ TOURISM"
+    },
+    {
+      "id": "7",
+      "content": "cultural/entertainment/tourism"
+    },
+    {
+      "id": "8",
+      "content": "DOMESTIC"
+    },
+    {
+      "id": "9",
+      "content": "DOMESTIC PURPOSE"
+    },
+    {
+      "id": "10",
+      "content": "FISH FARMING"
+    },
+    {
+      "id": "11",
+      "content": "FISHING"
+    },
+    {
+      "id": "12",
+      "content": "FISHING FARMING"
+    },
+    {
+      "id": "13",
+      "content": "FOR DRINKING WATER"
+    },
+    {
+      "id": "14",
+      "content": "FOR DUMPING WASTE"
+    },
+    {
+      "id": "15",
+      "content": "Irrigation"
+    },
+    {
+      "id": "16",
+      "content": "IRRIGATION"
+    },
+    {
+      "id": "17",
+      "content": "MINING"
+    },
+    {
+      "id": "18",
+      "content": "NA"
+    },
+    {
+      "id": "19",
+      "content": "NIL"
+    },
+    {
+      "id": "20",
+      "content": "NOT USING"
+    },
+    {
+      "id": "21",
+      "content": "NR"
+    },
+    {
+      "id": "22",
+      "content": "OTHER"
+    },
+    {
+      "id": "23",
+      "content": "PERINNIAL"
+    },
+    {
+      "id": "24",
+      "content": "PISCICULTURE"
+    },
+    {
+      "id": "25",
+      "content": "RELIGIOUS"
+    },
+    {
+      "id": "26",
+      "content": "RELIGIOUS PURPOSE"
+    },
+    {
+      "id": "27",
+      "content": "TOURISM / ENTERTAINMENT / CULTURAL"
+    },
+    {
+      "id": "28",
+      "content": "UNKNOWN"
+    }
+  ],
+  "pond_odour": [
+    {
+      "id": "1",
+      "content": "BAD"
+    },
+    {
+      "id": "2",
+      "content": "LIGHT SMELL"
+    },
+    {
+      "id": "3",
+      "content": "MILD"
+    },
+    {
+      "id": "4",
+      "content": "MODERATE"
+    },
+    {
+      "id": "5",
+      "content": "NA"
+    },
+    {
+      "id": "6",
+      "content": "NO SMELL"
+    },
+    {
+      "id": "7",
+      "content": "NONE"
+    },
+    {
+      "id": "8",
+      "content": "NORMAL"
+    },
+    {
+      "id": "9",
+      "content": "NR"
+    },
+    {
+      "id": "10",
+      "content": "POLLUTED"
+    },
+    {
+      "id": "11",
+      "content": "SLIGHT SMELL"
+    },
+    {
+      "id": "12",
+      "content": "VERY BAD"
+    }
+  ],
+  "pond_status": [
+    {
+      "id": "1",
+      "content": "In use"
+    },
+    {
+      "id": "2",
+      "content": "Not in use"
+    }
+  ],
+  "pond_type": [
+    {
+      "id": "1",
+      "content": "Perennial"
+    },
+    {
+      "id": "2",
+      "content": "Seasonal"
+    },
+    {
+      "id": "3",
+      "content": "Polluted"
+    }
+  ],
+  "pond_nature": [
+    {
+      "id": "1",
+      "content": "ARTIFICIAL"
+    },
+    {
+      "id": "2",
+      "content": "CLEAR"
+    },
+    {
+      "id": "3",
+      "content": "NR"
+    },
+    {
+      "id": "4",
+      "content": "GREY/DARK"
+    },
+    {
+      "id": "5",
+      "content": "light color"
+    },
+    {
+      "id": "6",
+      "content": "LIGHT COLOURED"
+    },
+    {
+      "id": "7",
+      "content": "NA"
+    },
+    {
+      "id": "8",
+      "content": "NATURAL"
+    }
+  ],
+  "pond_colour": [
+    {
+      "id": "1",
+      "content": "DARK BLUE"
+    },
+    {
+      "id": "2",
+      "content": "DARK COLOUR"
+    },
+    {
+      "id": "3",
+      "content": "DARK YELLOW"
+    },
+    {
+      "id": "4",
+      "content": "GREY"
+    },
+    {
+      "id": "5",
+      "content": "GREEN"
+    },
+    {
+      "id": "6",
+      "content": "LIGHT BLUE"
+    },
+    {
+      "id": "7",
+      "content": "LIGHT COLOUR"
+    },
+    {
+      "id": "8",
+      "content": "LIGHT YELLOW"
+    }
+  ],
+  "pond_present_condition": [
+    {
+      "id": "1",
+      "content": "AVERAGE"
+    },
+    {
+      "id": "2",
+      "content": "BAD"
+    },
+    {
+      "id": "3",
+      "content": "GOOD"
+    },
+    {
+      "id": "4",
+      "content": "PRESENCE OF ALGAE"
+    },
+    {
+      "id": "5",
+      "content": "VEGETATION"
+    },
+    {
+      "id": "6",
+      "content": "VEGETATION AND WASTE FILLED"
+    },
+    {
+      "id": "7",
+      "content": "LIGHT COLOUR"
+    },
+    {
+      "id": "8",
+      "content": "LIGHT YELLOW"
+    }
+  ],
+  "taxi_parking_type": [
+    {
+      "id": "1",
+      "content": "AUTO"
+    },
+    {
+      "id": "2",
+      "content": "AUTO RICKSHAW"
+    },
+    {
+      "id": "3",
+      "content": "CAR"
+    },
+    {
+      "id": "4",
+      "content": "GOODS"
+    },
+    {
+      "id": "5",
+      "content": "GOODS CARRIER"
+    },
+    {
+      "id": "6",
+      "content": "HEAVY"
+    },
+    {
+      "id": "7",
+      "content": "JEEP"
+    },
+    {
+      "id": "8",
+      "content": "LORRY"
+    },
+    {
+      "id": "9",
+      "content": "OTHER"
+    },
+    {
+      "id": "10",
+      "content": "PICKUP"
+    },
+    {
+      "id": "11",
+      "content": "TAXI"
+    }
+  ],
+  "taxi_authorisation": [
+    {
+      "id": "1",
+      "content": "Authorised"
+    },
+    {
+      "id": "2",
+      "content": "Unauthorised"
+    }
+  ],
+  "bridge_sub_type": [
+    {
+      "id": "1",
+      "content": "BRIDGE ACROSS CANAL"
+    },
+    {
+      "id": "2",
+      "content": "BRIDGE ACROSS RAIL"
+    },
+    {
+      "id": "3",
+      "content": "BRIDGE ACROSS RAILWAY"
+    },
+    {
+      "id": "4",
+      "content": "BRIDGE ACROSS RIVER"
+    },
+    {
+      "id": "5",
+      "content": "CULVERT"
+    },
+    {
+      "id": "6",
+      "content": "FLYOVER"
+    },
+    {
+      "id": "7",
+      "content": "FOOT OVER BRIDGE"
+    },
+    {
+      "id": "8",
+      "content": "NORMAL"
+    },
+    {
+      "id": "9",
+      "content": "OVER BRIDGE"
+    },
+    {
+      "id": "10",
+      "content": "RAILWAY BRIDGE"
+    },
+    {
+      "id": "11",
+      "content": "RAILWAY CROSSING"
+    },
+    {
+      "id": "12",
+      "content": "TUNNEL"
+    },
+    {
+      "id": "13",
+      "content": "UNDER PASS"
+    }
+  ],
+  "bridge_material": [
+    {
+      "id": "1",
+      "content": "ANY OTHER"
+    },
+    {
+      "id": "2",
+      "content": "CEMENT CONCRETE"
+    },
+    {
+      "id": "3",
+      "content": "CONCRETE"
+    },
+    {
+      "id": "4",
+      "content": "MASONRY"
+    },
+    {
+      "id": "5",
+      "content": "NA"
+    },
+    {
+      "id": "6",
+      "content": "NR"
+    },
+    {
+      "id": "7",
+      "content": "OTHER"
+    },
+    {
+      "id": "8",
+      "content": "R.C.C"
+    },
+    {
+      "id": "9",
+      "content": "STEEL"
+    },
+    {
+      "id": "10",
+      "content": "TAR"
+    }
+  ],
+  "bridge_footpath_material": [
+    {
+      "id": "1",
+      "content": "ANY OTHER"
+    },
+    {
+      "id": "2",
+      "content": "CONCRETE"
+    },
+    {
+      "id": "3",
+      "content": "NA"
+    },
+    {
+      "id": "4",
+      "content": "NIL"
+    },
+    {
+      "id": "5",
+      "content": "RCC"
+    },
+    {
+      "id": "6",
+      "content": "STEEL"
+    }
+  ],
+  "bridge_maintained_by": [
+    {
+      "id": "1",
+      "content": "Corporation"
+    },
+    {
+      "id": "2",
+      "content": "District Panchayat"
+    },
+    {
+      "id": "3",
+      "content": "IRRIGATION"
+    },
+    {
+      "id": "4",
+      "content": "KWA"
+    },
+    {
+      "id": "5",
+      "content": "Minor Irrigation"
+    },
+    {
+      "id": "6",
+      "content": "Municipality"
+    },
+    {
+      "id": "7",
+      "content": "NHAI"
+    },
+    {
+      "id": "8",
+      "content": "NR"
+    },
+    {
+      "id": "9",
+      "content": "Other"
+    },
+    {
+      "id": "10",
+      "content": "Panchayat"
+    },
+    {
+      "id": "11",
+      "content": "Private"
+    },
+    {
+      "id": "12",
+      "content": "PWD"
+    },
+    {
+      "id": "13",
+      "content": "SOUTHERN RAILWAY"
+    }
+  ],
+  "park_type": [
+    {
+      "id": "1",
+      "content": "PRIVATE PARK"
+    },
+    {
+      "id": "2",
+      "content": "OTHER"
+    },
+    {
+      "id": "3",
+      "content": "PUBLIC"
+    },
+    {
+      "id": "4",
+      "content": "GOVERNMENT PARK"
+    }
+  ],
+  "well_type": [
+    {
+      "id": "1",
+      "content": "Dug well"
+    },
+    {
+      "id": "2",
+      "content": "Tube well"
+    }
+  ],
+  "well_status": [
+    {
+      "id": "1",
+      "content": "In use"
+    },
+    {
+      "id": "2",
+      "content": "Not in use"
+    }
+  ],
+  "transformer_category": [
+    {
+      "id": "1",
+      "content": "OTHER"
+    }
+  ],
+  "junction_pedestrian": [
+    {
+      "id": "1",
+      "content": "Yes"
+    },
+    {
+      "id": "2",
+      "content": "No"
+    }
+  ],
+  "water_tank_type": [
+    {
+      "id": "1",
+      "content": "GROUND LEVEL"
+    },
+    {
+      "id": "2",
+      "content": "JALANIDHI"
+    },
+    {
+      "id": "3",
+      "content": "KERALA WATER AUTHORITY"
+    },
+    {
+      "id": "4",
+      "content": "OVERHEAD TANK"
+    },
+    {
+      "id": "5",
+      "content": "KWA"
+    },
+    {
+      "id": "6",
+      "content": "OTHERS"
+    },
+    {
+      "id": "7",
+      "content": "OVERHEAD"
+    },
+    {
+      "id": "8",
+      "content": "UNDERGROUND TANK"
+    }
+  ],
+  "divider_material": [
+    {
+      "id": "1",
+      "content": "Concrete"
+    }
+  ],
+  "street_light_working_status":[
+    {
+      "id": "1",
+      "content": "Working"
+    },
+    {
+      "id": "2",
+      "content": "Not working"
+    }
+  ],
+  "street_light_type":[
+    {
+      "id": "1",
+      "content": "CFL"
+    },
+    {
+      "id": "2",
+      "content": "CFL & LED"
+    },
+    {
+      "id": "3",
+      "content": "DOUBLE CFL"
+    },
+    {
+      "id": "4",
+      "content": "DOUBLE TUBE"
+    },
+    {
+      "id": "5",
+      "content": "ED LIGHT"
+    },
+    {
+      "id": "6",
+      "content": "EESL"
+    },
+    {
+      "id": "7",
+      "content": "FILAMENT"
+    },
+    {
+      "id": "8",
+      "content": "FLUORESCENT TUBE"
+    },
+    {
+      "id": "9",
+      "content": "FLUORESCENT,LED"
+    },
+    {
+      "id": "10",
+      "content": "HID"
+    },
+    {
+      "id": "11",
+      "content": "HPS"
+    },
+    {
+      "id": "12",
+      "content": "INCANDSCENT LAMP"
+    },
+    {
+      "id": "13",
+      "content": "KELTRON LIGHT"
+    },
+    {
+      "id": "14",
+      "content": "LED, LPS"
+    },
+    {
+      "id": "15",
+      "content": "LED, TUNGSTEN FILAMENT"
+    },
+    {
+      "id": "16",
+      "content": "LED,FLUORESCENT"
+    },
+    {
+      "id": "17",
+      "content": "LED,METALHALIDE"
+    },
+    {
+      "id": "18",
+      "content": "LED,TUBE LIGHT"
+    },
+    {
+      "id": "19",
+      "content": "MERCURY LAMP"
+    },
+    {
+      "id": "20",
+      "content": "METAL HALIDE"
+    },
+    {
+      "id": "21",
+      "content": "NO BULB"
+    },
+    {
+      "id": "22",
+      "content": "SODIUM VAPOUR"
+    },
+    {
+      "id": "23",
+      "content": "SOLAR"
+    },
+    {
+      "id": "24",
+      "content": "TUBE LIGHT"
+    }
+  ],
+  "street_tap_working_status":[
+    {
+      "id": "1",
+      "content": "Working"
+    },
+    {
+      "id": "2",
+      "content": "Not working"
+    }
+  ],
+  "garbage_category": [
+    {
+      "id": "1",
+      "content": "Bio-Degradable"
+    },
+    {
+      "id": "2",
+      "content": "Non Bio-degradable"
+    },
+    {
+      "id": "3",
+      "content": "Both"
+    }
+  ],
+  "bus_stand_ownership": [
+    {
+      "id": "1",
+      "content": "GOVERNMENT"
+    },
+    {
+      "id": "2",
+      "content": "MUNICIPALITY"
+    },
+    {
+      "id": "3",
+      "content": "PRIVATE"
+    }
+  ]
+}

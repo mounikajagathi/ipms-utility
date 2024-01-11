@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.tax.TaxViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layoutBtnContainer"
+            android:layout_alignParentTop="true"
+            android:background="@color/cmnPageBgColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutContainer"
+                android:orientation="vertical"
+                android:padding="@dimen/std_space_medium">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTaxNumber"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintBottom_toTopOf="@id/layoutTaxAmount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etTaxNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/tax_tax_number"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.taxNumber}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnTaxReceiptNoInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxNumber"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxNumber"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrTaxNumber"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxNumber"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxNumber"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTaxAmount"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintBottom_toTopOf="@id/layoutTaxDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutTaxNumber"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etTaxAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/tax_amount"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.taxAmount}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnTaxAmountInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxAmount"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxAmount"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxAmount"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxAmount"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrTaxAmount"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxAmount"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxAmount"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxAmount"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxAmount"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTaxDate"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintBottom_toTopOf="@id/layoutTaxYear"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutTaxAmount"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etTaxDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:hint="@string/tax_date"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:onClick="@{()->viewModel.onYearClick()}"
+                        android:text="@{viewModel.taxDate}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnTaxPaidDateInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxDate"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxDate"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxDate"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxDate"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrTaxDate"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxDate"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxDate"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxDate"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxDate"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTaxYear"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintBottom_toTopOf="@id/textViewARTaxTotal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutTaxDate"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etTaxYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="@string/tax_year"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.taxYear}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrTaxYear"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxYear"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxYear"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxYear"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxYear"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnTaxyearInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxYear"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxYear"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxYear"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxYear"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewARTaxTotal"
+                    android:text="@{viewModel.arTaxtTotal}"
+                    style="@style/AppCommonARHint"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    app:layout_constraintBottom_toTopOf="@id/layoutAnnualTax"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="@{  viewModel.isARTaxtTotalVisible? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/layoutTaxYear"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutAnnualTax"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewARTaxTotal">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etTaxAnnual"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/tax_annual"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.taxAnnualAmount}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnTaxAnnualAmountInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutAnnualTax"
+                    app:layout_constraintEnd_toEndOf="@id/layoutAnnualTax"
+                    app:layout_constraintTop_toTopOf="@id/layoutAnnualTax"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutAnnualTax"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrAnnualTax"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutAnnualTax"
+                    app:layout_constraintEnd_toEndOf="@id/layoutAnnualTax"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutAnnualTax"
+                    app:layout_constraintTop_toTopOf="@id/layoutAnnualTax"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutBtnContainer"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPartialSave"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnPartialSaveButtonColor"
+                android:onClick="@{()->viewModel.onPartialSaveClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_partial_save_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnNextButtonColor"
+                android:onClick="@{()->viewModel.onNextClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_next_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>

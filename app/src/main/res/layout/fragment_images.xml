@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cmnPageBgColor">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutBtnContainer"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPartialSave"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnPartialSaveButtonColor"
+                android:onClick="@{()->viewModel.onPartialSaveClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_partial_save_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnNextButtonColor"
+                android:onClick="@{()->viewModel.onNextClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_next_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layoutBtnContainer"
+            android:layout_alignParentTop="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/layoutContainer">
+
+
+                <TextView
+                    android:id="@+id/txtPhoto1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/std_space_medium"
+                    android:text="@string/image_photo_1"
+                    android:textStyle="bold"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium"
+                    app:layout_constraintBottom_toTopOf="@id/imgPhoto1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0" />
+
+
+                <TextView
+                    android:id="@+id/txtPhoto2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/std_space_medium"
+                    android:text="@string/image_photo_2"
+                    android:textStyle="bold"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium"
+                    app:layout_constraintBottom_toTopOf="@id/imgPhoto2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imgPhoto1"
+                    app:layout_constraintVertical_bias="0" />
+                <TextView
+                    android:id="@+id/txtPhoto3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/std_space_medium"
+                    android:text="@string/image_photo_3"
+                    android:visibility="@{!viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    android:textStyle="bold"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium"
+                    app:layout_constraintBottom_toTopOf="@id/imgPhoto3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imgPhoto2"
+                    app:layout_constraintVertical_bias="0" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgPhoto1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="H,2:1"
+                    android:onClick="@{()->viewModel.onImage1Click()}"
+                    android:scaleType="centerCrop"
+                    app:defaultImage="@{@drawable/ic_property_image}"
+                    app:layout_constraintBottom_toTopOf="@id/txtPhoto2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtPhoto1"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:srcCompat="@drawable/ic_property_image"
+                    app:surveyImage="@{viewModel.imageUrl1}" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgPhoto2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="H,2:1"
+                    android:layout_marginBottom="@dimen/std_space_medium"
+                    android:onClick="@{()->viewModel.onImage2Click()}"
+                    android:scaleType="centerCrop"
+                    app:defaultImage="@{@drawable/ic_property_image}"
+                    app:layout_constraintBottom_toTopOf="@id/txtPhoto3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtPhoto2"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:srcCompat="@drawable/ic_property_image"
+                    app:surveyImage="@{viewModel.imageUrl2}" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgPhoto3"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="H,2:1"
+                    android:layout_marginBottom="@dimen/std_space_medium"
+                    android:onClick="@{()->viewModel.onImage3Click()}"
+                    android:scaleType="centerCrop"
+                    android:visibility="@{!viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:defaultImage="@{@drawable/ic_property_image}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutInformedBy"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtPhoto3"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:srcCompat="@drawable/ic_property_image"
+                    app:surveyImage="@{viewModel.imageUrl3}" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutInformedBy"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/std_space_medium"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toTopOf="@id/layoutCooperateSurvey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imgPhoto3"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etInformedBy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/image_informed_by"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.informedBy}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.informedByList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnInformedByInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutInformedBy"
+                    app:layout_constraintEnd_toEndOf="@id/layoutInformedBy"
+                    app:layout_constraintTop_toTopOf="@id/layoutInformedBy"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutInformedBy"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutCooperateSurvey"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.doorStatusPDCGLDC ? View.VISIBLE : View.GONE}"
+                    android:layout_marginStart="@dimen/std_space_medium"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toTopOf="@id/layoutSurveyorName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutInformedBy"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etCooperateSurvey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/image_cooperative_survey"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.cooperateSurvey}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.cooperateSurveyList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnCooperativeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.doorStatusPDCGLDC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutCooperateSurvey"
+                    app:layout_constraintEnd_toEndOf="@id/layoutCooperateSurvey"
+                    app:layout_constraintTop_toTopOf="@id/layoutCooperateSurvey"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutCooperateSurvey"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutSurveyorName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/std_space_medium"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toTopOf="@id/layoutRemarks"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutCooperateSurvey"
+                    app:layout_constraintVertical_bias="1"
+                    android:alpha=".5"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etSurveyorName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/image_surveyor_name"
+                        android:text="@{viewModel.surveyorNameValue}"
+                        android:enabled="false"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutRemarks"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/std_space_medium"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_space_medium"
+                    android:layout_marginBottom="@dimen/std_space_medium"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    app:layout_constraintBottom_toTopOf="@+id/layoutMoreRemarks"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutSurveyorName"
+                    app:layout_constraintVertical_bias="1"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etRemarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/std_edt_txt_multi_line_h_max_large"
+                        android:gravity="top|start"
+                        android:hint="@string/image_remarks"
+                        android:scrollbars="vertical"
+                        android:inputType="textMultiLine"
+                        android:text="@{viewModel.remarks}"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutMoreRemarks"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/std_space_medium"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_space_medium"
+                    android:layout_marginBottom="@dimen/std_space_medium"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:visibility="@{viewModel.isMoreRemarksVisible? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutRemarks"
+                    app:layout_constraintVertical_bias="1"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etMoreRemarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/std_edt_txt_multi_line_h_max_large"
+                        android:gravity="top|start"
+                        android:hint="@string/image_extra_remarks"
+                        android:scrollbars="vertical"
+                        android:inputType="textMultiLine"
+                        android:text="@{viewModel.extraRemarks}"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnInformedRemarks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutRemarks"
+                    app:layout_constraintEnd_toEndOf="@id/layoutRemarks"
+                    app:layout_constraintTop_toTopOf="@id/layoutRemarks"
+                    app:layout_constraintBottom_toTopOf="@id/moreRemarks"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/moreRemarks"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onMoreCommentsClick()}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toTopOf="@id/noCommentsRemarks"
+                    app:layout_constraintEnd_toEndOf="@id/layoutRemarks"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutRemarks"
+                    app:layout_constraintTop_toTopOf="@id/btnInformedRemarks"
+                    app:srcCompat="@drawable/ic_add_plus" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/noCommentsRemarks"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNoCommentsClick()}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutRemarks"
+                    app:layout_constraintEnd_toEndOf="@id/layoutRemarks"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutRemarks"
+                    app:layout_constraintTop_toBottomOf="@id/moreRemarks"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/noMoreCommentsRemarks"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNoMoreCommentsClick()}"
+                    android:padding="@dimen/std_space_small"
+                    android:visibility="@{viewModel.isMoreRemarksVisible? View.VISIBLE : View.GONE}"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutMoreRemarks"
+                    app:layout_constraintEnd_toEndOf="@id/layoutMoreRemarks"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintVertical_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutMoreRemarks"
+                    app:layout_constraintTop_toTopOf="@id/layoutMoreRemarks"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.image.ImagesViewModel" />
+    </data>
+
+
+</layout>

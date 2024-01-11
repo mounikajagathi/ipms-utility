@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0076BC</color>
+    <color name="colorPrimaryDark">#015281</color>
+    <color name="colorAccent">#00AF55</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparent">#00000000</color>
+
+    <!--Common Colors-->
+    <color name="cmnPageBgColor">#EBEBEB</color>
+    <color name="cmnNextButtonColor">#00AF55</color>
+    <color name="cmnTxtInputLayoutColor">#0076BC</color>
+    <color name="completeSurveyButtonColor">#F56E05</color>
+    <color name="cmnLightGrey">#bbbbbb</color>
+    <color name="cmnDarkGrey">#FF6D6B6B</color>
+    <color name="checkButtonColor">#0076BC</color>
+    <color name="cmnPartialSaveButtonColor">#0076BC</color>
+    <color name="cmn_msg_color">#0076BC</color>
+    <color name="cmn_inactive_btn_color">#7A7A7A</color>
+
+    <color name="map_point_db">#FFFF00</color>
+    <color name="map_point_server">#00FFFF</color>
+    <color name="map_point_unwanted">#FF92BB</color>
+    <color name="map_point_landmark">#7A7A7A</color>
+    <color name="map_point_demolished">#783F04</color>
+    <color name="map_point_unusable">#FF9900</color>
+    <color name="map_point_DO">#00CC00</color>
+    <color name="map_point_PDC">#0000FF</color>
+    <color name="map_point_GL_DC">#FF0000</color>
+    <color name="map_point_NC">#9900FF</color>
+    <color name="map_point_NA">#000000</color>
+
+
+    <color name="colorRed">#ca2208</color>
+    <color name="colorRippleRed">#33ca2208</color>
+    <color name="colorDarkBlue">#142240</color>
+    <color name="colorHintGrey">#99a0ae</color>
+    <color name="colorRockBlue">#99a0ae</color>
+    <color name="colorGray">#666666</color>
+</resources>

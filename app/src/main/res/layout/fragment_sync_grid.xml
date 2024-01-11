@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cmnPageBgColor">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSyncGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/std_space_medium"
+            app:adapter="@{viewModel.totalSurvey}"
+            tools:listitem="@layout/item_sync_grid" />
+
+    </FrameLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.syncgrid.SyncGridViewModel" />
+    </data>
+
+</layout>

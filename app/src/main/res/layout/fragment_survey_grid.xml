@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.surveygrid.SurveyGridViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutContainer"
+        android:background="@color/cmnPageBgColor">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPropertyGrid"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/std_space_medium"
+            app:adapter="@{viewModel.propertyCount}"
+            app:layout_constraintBottom_toTopOf="@id/btnSave"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_property_layout" />
+
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/completeSurveyButtonColor"
+            android:onClick="@{()->viewModel.completeSurvey()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_complete_survey_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            android:visibility="@{viewModel.isAllPropertySurveyCompleted ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <!--<TextView
+            android:id="@+id/txtSelectionTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_medium"
+            android:layout_marginBottom="@dimen/std_space_small"
+            android:text="@string/survey_grid_select_filling_details"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium_x"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/fblFieldSelection"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/fblFieldSelection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:alignContent="stretch"
+            app:alignItems="stretch"
+            app:flexWrap="wrap"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1">
+
+
+            <TextView
+                android:id="@+id/btnProperty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/std_space_small"
+                android:layout_marginTop="@dimen/std_space_small"
+                android:layout_marginEnd="@dimen/std_space_small"
+                android:layout_marginBottom="@dimen/std_space_small"
+                android:background="@drawable/selector_rectangle_btn_pressed"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_medium"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@string/survey_grid_property"
+                android:textColor="@drawable/selector_rectangle_btn_pressed_text_color"
+                android:textSize="@dimen/std_txt_medium" />
+
+            <TextView
+                android:id="@+id/btnOwner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/std_space_small"
+                android:layout_marginTop="@dimen/std_space_small"
+                android:layout_marginEnd="@dimen/std_space_small"
+                android:layout_marginBottom="@dimen/std_space_small"
+                android:background="@drawable/selector_rectangle_btn_pressed"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_medium"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@string/survey_grid_owner"
+                android:textColor="@drawable/selector_rectangle_btn_pressed_text_color"
+                android:textSize="@dimen/std_txt_medium" />
+
+            <TextView
+                android:id="@+id/btnRoad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/std_space_small"
+                android:layout_marginTop="@dimen/std_space_small"
+                android:layout_marginEnd="@dimen/std_space_small"
+                android:layout_marginBottom="@dimen/std_space_small"
+                android:background="@drawable/selector_rectangle_btn_pressed"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_medium"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@string/survey_grid_road"
+                android:textColor="@drawable/selector_rectangle_btn_pressed_text_color"
+                android:textSize="@dimen/std_txt_medium" />
+
+
+            <TextView
+                android:id="@+id/btnTenant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/std_space_small"
+                android:layout_marginTop="@dimen/std_space_small"
+                android:layout_marginEnd="@dimen/std_space_small"
+                android:layout_marginBottom="@dimen/std_space_small"
+                android:background="@drawable/selector_rectangle_btn_pressed"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_medium"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@string/survey_grid_tenant"
+                android:textColor="@drawable/selector_rectangle_btn_pressed_text_color"
+                android:textSize="@dimen/std_txt_medium" />
+
+            <TextView
+                android:id="@+id/btnTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/std_space_small"
+                android:layout_marginTop="@dimen/std_space_small"
+                android:layout_marginEnd="@dimen/std_space_small"
+                android:layout_marginBottom="@dimen/std_space_small"
+                android:background="@drawable/selector_rectangle_btn_pressed"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_medium"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@string/survey_grid_tax"
+                android:textColor="@drawable/selector_rectangle_btn_pressed_text_color"
+                android:textSize="@dimen/std_txt_medium" />
+
+            <TextView
+                android:id="@+id/btnEstablishment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/std_space_small"
+                android:layout_marginTop="@dimen/std_space_small"
+                android:layout_marginEnd="@dimen/std_space_small"
+                android:layout_marginBottom="@dimen/std_space_small"
+                android:background="@drawable/selector_rectangle_btn_pressed"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_medium"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@string/survey_grid_establishment"
+                android:textColor="@drawable/selector_rectangle_btn_pressed_text_color"
+                android:textSize="@dimen/std_txt_medium" />
+
+
+            <TextView
+                android:id="@+id/btnMember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/std_space_small"
+                android:layout_marginTop="@dimen/std_space_small"
+                android:layout_marginEnd="@dimen/std_space_small"
+                android:layout_marginBottom="@dimen/std_space_small"
+                android:background="@drawable/selector_rectangle_btn_pressed"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_medium"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@string/survey_grid_member"
+                android:textColor="@drawable/selector_rectangle_btn_pressed_text_color"
+                android:textSize="@dimen/std_txt_medium" />
+
+            <TextView
+                android:id="@+id/btnLiveHood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/std_space_small"
+                android:layout_marginTop="@dimen/std_space_small"
+                android:layout_marginEnd="@dimen/std_space_small"
+                android:layout_marginBottom="@dimen/std_space_small"
+                android:background="@drawable/selector_rectangle_btn_pressed"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_medium"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@string/survey_grid_live_hood"
+                android:textColor="@drawable/selector_rectangle_btn_pressed_text_color"
+                android:textSize="@dimen/std_txt_medium" />
+
+            <TextView
+                android:id="@+id/btnBuilding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/std_space_small"
+                android:layout_marginTop="@dimen/std_space_small"
+                android:layout_marginEnd="@dimen/std_space_small"
+                android:layout_marginBottom="@dimen/std_space_small"
+                android:background="@drawable/selector_rectangle_btn_pressed"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_medium"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@string/survey_grid_building"
+                android:textColor="@drawable/selector_rectangle_btn_pressed_text_color"
+                android:textSize="@dimen/std_txt_medium" />
+
+
+        </com.google.android.flexbox.FlexboxLayout>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

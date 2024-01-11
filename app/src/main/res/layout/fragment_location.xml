@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()->viewModel.onNextClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btnNext"
+            android:layout_alignParentTop="true"
+            android:background="@color/cmnPageBgColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/layoutContainer"
+                android:padding="@dimen/std_space_medium">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutDistrict"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:alpha="0.5"
+                    app:layout_constraintBottom_toTopOf="@id/layoutLocalBody"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="@string/location_district"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.district}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutLocalBody"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:alpha="0.5"
+                    app:layout_constraintBottom_toTopOf="@id/layoutWardNumber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutDistrict"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etLocalBody"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="@string/location_local_body"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.localBody}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutWardNumber"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    app:layout_constraintBottom_toTopOf="@id/layoutWardName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutLocalBody"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etWardNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/location_ward_number"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.wardNumberValue}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.wardNumberList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutWardName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    app:layout_constraintBottom_toTopOf="@id/layoutStreetName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutWardNumber"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etWardName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="@string/location_ward_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.wardNameValue}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutStreetName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusUnwanted || viewModel.isPointStatusLandmark ? View.GONE: View.VISIBLE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPlaceName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutWardName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etStreetName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/location_street_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.streetName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrStreetName"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusUnwanted || viewModel.isPointStatusLandmark ? View.GONE: View.VISIBLE}"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutStreetName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutStreetName"
+                    app:layout_constraintTop_toTopOf="@id/layoutStreetName"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutStreetName"
+                    app:srcCompat="@drawable/ic_no_data"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutPlaceName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintBottom_toTopOf="@id/layoutVillageName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutStreetName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etPlaceName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/location_place_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.placeName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrPlaceName"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutPlaceName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPlaceName"
+                    app:layout_constraintTop_toTopOf="@id/layoutPlaceName"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPlaceName"
+                    app:srcCompat="@drawable/ic_no_data"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutVillageName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{ viewModel.isPointStatusUnwanted || viewModel.isPointStatusLandmark ? View.GONE : View.VISIBLE }"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPostOffice"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPlaceName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etVillageName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/location_village_name"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.villageName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.villageNameList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutPostOffice"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isPointStatusUnwanted || viewModel.isPointStatusLandmark ? View.GONE: View.VISIBLE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPinCode"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutVillageName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSAutoCompleteEditText
+                        android:id="@+id/etPostOffice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/location_post_office"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:paddingStart="@dimen/std_space_normal"
+                        android:paddingEnd="@dimen/std_space_normal"
+                        android:text="@{viewModel.postOffice}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.postOfficeList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutPinCode"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="@{viewModel.isPointStatusUnwanted || viewModel.isPointStatusLandmark ? View.GONE: View.VISIBLE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutBuildingZone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPostOffice"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etPinCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/location_pincode"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:enabled="false"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.pinCode}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutBuildingZone"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/std_space_small"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isPointStatusUnwanted || viewModel.isPointStatusLandmark ? View.GONE: View.VISIBLE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvFloodStatus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPinCode"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etBuildingZone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/location_building_zone"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.buildingZone}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.buildingZoneList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvFloodStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_semi"
+                    android:text="@string/location_flood_hint"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rgFloodStatus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgFloodStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/layoutWaterLevelHit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvFloodStatus"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbFloodStatusYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbFloodStatusNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutWaterLevelHit"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:visibility="@{viewModel.isFloodAffected ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgFloodStatus"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etWaterLevelHit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/location_water_level_hit"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.waterlevelHit}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnWaterHitLevelInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:visibility="@{viewModel.isFloodAffected ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutWaterLevelHit"
+                    app:layout_constraintEnd_toEndOf="@id/layoutWaterLevelHit"
+                    app:layout_constraintTop_toTopOf="@id/layoutWaterLevelHit"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutWaterLevelHit"
+                    app:layout_constraintVertical_bias=".5"
+
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrWaterHit"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{viewModel.isFloodAffected ? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutWaterLevelHit"
+                    app:layout_constraintEnd_toEndOf="@id/layoutWaterLevelHit"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutWaterLevelHit"
+                    app:layout_constraintTop_toTopOf="@id/layoutWaterLevelHit"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.location.LocationViewModel" />
+    </data>
+
+
+</layout>

@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.utility.road.RoadViewModel" />
+    </data>
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutBtnContainer"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/standard_spacing_medium">
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/flow_utility"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:constraint_referenced_ids="layoutRURoadName,layoutRUStartPoint,layoutRUEndPoint,layoutRURoadMaterial,layoutRURoadCategory,layoutRUMaintainedBy,layoutRULength,layoutRURoadwayWidth,layoutRUCarriageWidth,cbFootPath,layoutFootpathConsMat,layoutRUFootpathWidth,layoutRURemarks,txtRoadImage,imgRoad"
+                app:flow_verticalStyle="packed"
+                app:flow_verticalGap="@dimen/standard_spacing_mini"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRURoadName"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRURoadName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_road_name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRUStartPoint"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRUStartPoint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_start_point"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRUEndPoint"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRUEndPoint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_end_point"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRURoadMaterial"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srRURoadMaterial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_road_material"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium"
+                    app:adapter="@{viewModel.roadMaterialList}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRURoadCategory"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srRURoadCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_road_category"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium"
+                    app:adapter="@{viewModel.roadCategoryList}"  />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRUMaintainedBy"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srRUMaintainedBy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_maintained_by"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    app:adapter="@{viewModel.maintainedByList}"
+                    android:textSize="@dimen/standard_text_size_medium" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRULength"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRULength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_length_mtr"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRURoadwayWidth"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRURoadwayWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_roadway_width_mtr"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRUCarriageWidth"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRUCarriageWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_carriage_width_mtr"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cbFootPath"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/selector_checkbox"
+                android:fontFamily="@font/roboto_regular"
+                android:minHeight="@dimen/standard_edt_txt_height_medium"
+                android:paddingStart="@dimen/standard_spacing_small"
+                android:paddingEnd="@dimen/dimen_zero_dp"
+                android:text="@string/road_utility_footpath"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/standard_text_size_medium" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutFootpathConsMat"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srFootpathConsMat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_footpath_cons_mat"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium"
+                    app:adapter="@{viewModel.footpathConsMatList}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRUFootpathWidth"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRUFootpathWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/road_utility_footpath_width_mtr"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRURemarks"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRURemarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="top"
+                    android:hint="@string/drainage_details_remarks"
+                    android:inputType="textMultiLine"
+                    android:maxLength="100"
+                    android:minHeight="@dimen/standard_edt_txt_height_max"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/txtRoadImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/road_utility_photo"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/standard_text_size_medium" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgRoad"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/standard_image_height_large"
+                
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_property_image" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRURoadNameInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRURoadName"
+                app:layout_constraintEnd_toEndOf="@id/layoutRURoadName"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRURoadName"
+                app:layout_constraintTop_toTopOf="@id/layoutRURoadName"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRUStartPointInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRUStartPoint"
+                app:layout_constraintEnd_toEndOf="@id/layoutRUStartPoint"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRUStartPoint"
+                app:layout_constraintTop_toTopOf="@id/layoutRUStartPoint"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRUEndPointInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRUEndPoint"
+                app:layout_constraintEnd_toEndOf="@id/layoutRUEndPoint"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRUEndPoint"
+                app:layout_constraintTop_toTopOf="@id/layoutRUEndPoint"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRURoadMaterialInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRURoadMaterial"
+                app:layout_constraintEnd_toEndOf="@id/layoutRURoadMaterial"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRURoadMaterial"
+                app:layout_constraintTop_toTopOf="@id/layoutRURoadMaterial"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRURoadCategoryInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRURoadCategory"
+                app:layout_constraintEnd_toEndOf="@id/layoutRURoadCategory"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRURoadCategory"
+                app:layout_constraintTop_toTopOf="@id/layoutRURoadCategory"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRUMaintainedByInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRUMaintainedBy"
+                app:layout_constraintEnd_toEndOf="@id/layoutRUMaintainedBy"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRUMaintainedBy"
+                app:layout_constraintTop_toTopOf="@id/layoutRUMaintainedBy"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRULengthInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRULength"
+                app:layout_constraintEnd_toEndOf="@id/layoutRULength"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRULength"
+                app:layout_constraintTop_toTopOf="@id/layoutRULength"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRURoadwayWidthInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRURoadwayWidth"
+                app:layout_constraintEnd_toEndOf="@id/layoutRURoadwayWidth"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRURoadwayWidth"
+                app:layout_constraintTop_toTopOf="@id/layoutRURoadwayWidth"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRUCarriageWidthInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRUCarriageWidth"
+                app:layout_constraintEnd_toEndOf="@id/layoutRUCarriageWidth"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRUCarriageWidth"
+                app:layout_constraintTop_toTopOf="@id/layoutRUCarriageWidth"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/cbFootPathInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/cbFootPath"
+                app:layout_constraintEnd_toEndOf="@id/cbFootPath"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/cbFootPath"
+                app:layout_constraintTop_toTopOf="@id/cbFootPath"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutFootpathConsMatInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutFootpathConsMat"
+                app:layout_constraintEnd_toEndOf="@id/layoutFootpathConsMat"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutFootpathConsMat"
+                app:layout_constraintTop_toTopOf="@id/layoutFootpathConsMat"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRUFootpathWidthInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRUFootpathWidth"
+                app:layout_constraintEnd_toEndOf="@id/layoutRUFootpathWidth"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRUFootpathWidth"
+                app:layout_constraintTop_toTopOf="@id/layoutRUFootpathWidth"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRURemarksInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRURemarks"
+                app:layout_constraintEnd_toEndOf="@id/layoutRURemarks"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRURemarks"
+                app:layout_constraintTop_toTopOf="@id/layoutRURemarks"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutBtnContainer"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnPartialSave"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:background="@color/cmnPartialSaveButtonColor"
+            android:onClick="@{()->viewModel.onPartialSaveClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_partial_save_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            />
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()->viewModel.onNextClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
+</layout>

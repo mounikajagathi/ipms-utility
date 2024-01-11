@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutFloorNumber"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        android:layout_marginBottom="@dimen/std_space_mini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/layoutFloorArea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etRoofFloorNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/building_floor_number"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutFloorArea"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_small"
+        android:layout_marginEnd="@dimen/std_space_small"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginBottom="@dimen/std_space_mini"
+        app:layout_constraintBottom_toBottomOf="@id/layoutFloorNumber"
+        app:layout_constraintEnd_toStartOf="@id/nrFloorArea"
+        app:layout_constraintStart_toEndOf="@id/layoutFloorNumber"
+        app:layout_constraintTop_toTopOf="@id/layoutFloorNumber">
+
+        <in.ults.gisurvey.utils.IPMSEditText
+            android:id="@+id/etFloorArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/building_area"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/nrFloorArea"
+        android:layout_width="@dimen/std_edt_txt_height_medium"
+        android:layout_height="@dimen/std_edt_txt_height_medium"
+        android:padding="@dimen/std_space_small"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginBottom="@dimen/std_space_mini"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@id/layoutFloorNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/layoutFloorArea"
+        app:layout_constraintTop_toTopOf="@id/layoutFloorNumber"
+        app:srcCompat="@drawable/ic_no_data" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

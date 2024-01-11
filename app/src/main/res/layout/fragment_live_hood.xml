@@ -1,0 +1,1344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutBtnContainer"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPartialSave"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnPartialSaveButtonColor"
+                android:onClick="@{()->viewModel.onPartialSaveClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_partial_save_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnNextButtonColor"
+                android:onClick="@{()->viewModel.onNextClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_next_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layoutBtnContainer"
+            android:layout_alignParentTop="true"
+            android:background="@color/cmnPageBgColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/layoutContainer"
+                android:padding="@dimen/std_space_medium">
+
+
+                <RadioGroup
+                    android:id="@+id/rgBankAccount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvPaultry"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvBankAccount"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbBankAccountYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbBankAccountNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+
+
+
+
+                <RadioGroup
+                    android:id="@+id/rgCattles"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp;!viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutCattles"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCattles"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbCattlesYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbCattlesNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+
+
+
+                <TextView
+                    android:id="@+id/txtBuildingDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:text="@string/live_hood_building_details"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.buildingTypeResidential &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/txtWellWaterSourceType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutRationCardNumber"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/txtWellWaterSourceType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/live_hood_well_details"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvWellWaterSourceType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtBuildingDetails"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvWellWaterSourceType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:adapter="@{viewModel.wellType}"
+                    app:layout_constraintBottom_toTopOf="@id/tvWellPerennialDetails"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtWellWaterSourceType"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+                <TextView
+                    android:id="@+id/tvWellPerennialDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/more_well_perennial_details"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isWellSelected &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgWellPerennialDetails"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvWellWaterSourceType"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgWellPerennialDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.isWellSelected &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvWellPerennialMonth"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvWellPerennialDetails"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbWellSeasonal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/more_well_seasonal"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbWellPerennial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/more_well_perennial"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                    <RadioButton
+                        android:id="@+id/rbWellPolluted"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/more_well_polluted"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/tvWellPerennialMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/more_well_perennial_month"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isShowDryMonth &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvWellPerennialMonth"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgWellPerennialDetails"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvWellPerennialMonth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isShowDryMonth &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:adapter="@{viewModel.wellPerennialMonthList}"
+                    app:layout_constraintBottom_toTopOf="@id/txtWaterConnection"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvWellPerennialMonth"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+                <TextView
+                    android:id="@+id/txtWaterConnection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/live_hood_water_connection"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:textStyle="bold"
+                     app:layout_constraintBottom_toTopOf="@id/rvWaterConnection"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvWellPerennialMonth"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvWaterConnection"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    app:adapter="@{viewModel.waterConnectionTypeList}"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutWaterSupplyDuration"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtWaterConnection"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutWaterSupplyDuration"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:visibility="@{viewModel.isWaterConnectionAvailable &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/txtOtherWaterSource"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvWaterConnection"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etWaterSupplyDuration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/live_hood_water_supply_duration"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.waterSupplyDuration}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.waterSupplyDurationList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnwaterSupplyDurationInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isWaterConnectionAvailable &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutWaterSupplyDuration"
+                    app:layout_constraintEnd_toEndOf="@id/layoutWaterSupplyDuration"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutWaterSupplyDuration"
+                    app:layout_constraintTop_toTopOf="@id/layoutWaterSupplyDuration"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <TextView
+                    android:id="@+id/txtOtherWaterSource"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/live_hood_other_water_source"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvOtherWaterSource"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutWaterSupplyDuration"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOtherWaterSource"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:adapter="@{viewModel.otherWaterSource}"
+                    app:layout_constraintBottom_toTopOf="@id/tvLackDrinkingWater"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtOtherWaterSource"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+                <TextView
+                    android:id="@+id/tvLackDrinkingWater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/live_hood_lack_drinking_water"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgLackDrinkingWater"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvOtherWaterSource"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <RadioGroup
+                    android:id="@+id/rgLackDrinkingWater"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla  &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvGasConnection"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLackDrinkingWater"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbLackDrinkingWaterYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbLackDrinkingWaterNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+
+
+
+
+                <TextView
+                    android:id="@+id/tvGasConnection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/live_hood_gas_connection"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgGasConnection"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgLackDrinkingWater"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <RadioGroup
+                    android:id="@+id/rgGasConnection"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/tvRainWaterHarvest"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvGasConnection"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbGasConnectionYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbGasConnectionNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/tvRainWaterHarvest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/live_hood_rain_water_harvest"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rgRainWaterHarvest"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgGasConnection"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <RadioGroup
+                    android:id="@+id/rgRainWaterHarvest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvSolarPanel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvRainWaterHarvest"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbRainWaterHarvestYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbRainWaterHarvestNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbRainWaterHarvestNr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_nr"
+                        android:visibility="@{viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/tvSolarPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/live_hood_solar_panel"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rgSolarPanel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgRainWaterHarvest"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <RadioGroup
+                    android:id="@+id/rgSolarPanel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/txtPlasticWasteManagement"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSolarPanel"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbSolarPanelYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbSolarPanelNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                    <RadioButton
+                        android:id="@+id/rbSolarPanelNr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_nr"
+                        android:visibility="@{viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/txtPlasticWasteManagement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:text="@string/more_plastic_waste_management"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rvPlasticWasteManagement"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgSolarPanel"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPlasticWasteManagement"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    app:adapter="@{viewModel.plasticWasteManagementList}"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/txtLiquidWasteManagement"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtPlasticWasteManagement"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+                <TextView
+                    android:id="@+id/txtLiquidWasteManagement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:text="@string/more_liquid_waste_management"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rvLiquidWasteManagement"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvPlasticWasteManagement"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvLiquidWasteManagement"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    app:adapter="@{viewModel.liquidWasteManagementList}"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/txtOrganicWasteManagement"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtLiquidWasteManagement"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+                <TextView
+                    android:id="@+id/txtOrganicWasteManagement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:text="@string/more_organic_waste_management"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rvOrganicWasteManagement"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvLiquidWasteManagement"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOrganicWasteManagement"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    app:adapter="@{viewModel.organicWasteManagementList}"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/txtOtherFacilities"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtOrganicWasteManagement"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+
+
+                <TextView
+                    android:id="@+id/txtOtherFacilities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:text="@string/live_hood_other_facility"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rvOtherFacilities"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvOrganicWasteManagement"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOtherFacilities"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    app:adapter="@{viewModel.otherFacilities}"
+                    app:layout_constraintBottom_toTopOf="@id/txtPets"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtOtherFacilities"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+
+                <TextView
+                    android:id="@+id/txtPets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:text="@string/live_hood_pet_dog"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvPets"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvOtherFacilities"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPets"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    app:adapter="@{viewModel.pets}"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvBankAccount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtPets"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+                <TextView
+                    android:id="@+id/tvBankAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_txt_medium"
+                    android:text="@string/live_hood_bank_account"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:textStyle="bold"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rgBankAccount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvPets"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tvCattles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_txt_medium"
+                    android:text="@string/live_hood_cattle"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:textAlignment="viewStart"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rgCattles"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPaultry"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutCattles"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel. isCattlesAvailable &amp;&amp;  viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.doorStatusNC &amp;&amp;  !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutMemCount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgCattles"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etCattles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/live_hood_no_of_cattles"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.noOfCattles}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNumCattlesInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel. isCattlesAvailable &amp;&amp; !viewModel.doorStatusNC &amp;&amp;  viewModel.establishmentUsageHouseFlatVilla ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutCattles"
+                    app:layout_constraintEnd_toEndOf="@id/layoutCattles"
+                    app:layout_constraintTop_toTopOf="@id/layoutCattles"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutCattles"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutMemCount"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.doorStatusNC &amp;&amp;  !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvSwimmingPool"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutCattles"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etMemCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/live_hood_mem_count"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.memCount}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnMemCountInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.doorStatusNC &amp;&amp;  !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutMemCount"
+                    app:layout_constraintEnd_toEndOf="@id/layoutMemCount"
+                    app:layout_constraintTop_toTopOf="@id/layoutMemCount"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutMemCount"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <TextView
+                    android:id="@+id/tvSwimmingPool"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_txt_medium"
+                    android:text="@string/live_hood_swimming_pool"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:textAlignment="viewStart"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rgSwimmingPool"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutMemCount"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgSwimmingPool"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp;!viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutSwimmingPool"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSwimmingPool"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbSwimmingPoolYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbSwimmingPoolNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutSwimmingPool"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isSwimmingPoolAvailable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.doorStatusNC &amp;&amp;  !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgSwimmingPool"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etSwimmingPool"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/live_hood_swimming_pool_area"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.swimmingPoolArea}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnAreaSwimmingPoolInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isSwimmingPoolAvailable &amp;&amp; !viewModel.doorStatusNC &amp;&amp;  viewModel.establishmentUsageHouseFlatVilla ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutSwimmingPool"
+                    app:layout_constraintEnd_toEndOf="@id/layoutSwimmingPool"
+                    app:layout_constraintTop_toTopOf="@id/layoutSwimmingPool"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutSwimmingPool"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <TextView
+                    android:id="@+id/tvPaultry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_txt_medium"
+                    android:text="@string/live_hood_paultry"
+                    android:textColor="@color/colorBlack"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/rgPaultry"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgBankAccount"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgPaultry"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPaultry"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPaultry"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbPaultryYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbPaultryNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutPaultry"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel. isPoultryAvailable &amp;&amp; !viewModel.doorStatusNC &amp;&amp;  viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvCattles"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgPaultry"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etPaultry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/live_hood_no_of_poultry"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.noOfPoultry}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNumPoultryInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel. isPoultryAvailable &amp;&amp; !viewModel.doorStatusNC &amp;&amp;  viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutPaultry"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPaultry"
+                    app:layout_constraintTop_toTopOf="@id/layoutPaultry"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPaultry"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutReligion"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutCast"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etReligion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/live_hood_religion"
+                        android:text="@{viewModel.religion}"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.religionList}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnReligionInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutReligion"
+                    app:layout_constraintEnd_toEndOf="@id/layoutReligion"
+                    app:layout_constraintTop_toTopOf="@id/layoutReligion"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutReligion"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutCast"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutRationCard"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutReligion"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etCast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/live_hood_cast"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.cast}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.castList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnCastInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutCast"
+                    app:layout_constraintEnd_toEndOf="@id/layoutCast"
+                    app:layout_constraintTop_toTopOf="@id/layoutCast"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutCast"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutRationCard"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.doorStatusNC? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutRationCardNumber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutCast"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etRationCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/live_hood_ration_card"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.rationCard}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.rationCardList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnRationCardInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.establishmentUsageHouseFlatVilla  &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutRationCard"
+                    app:layout_constraintEnd_toEndOf="@id/layoutRationCard"
+                    app:layout_constraintTop_toTopOf="@id/layoutRationCard"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutRationCard"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutRationCardNumber"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{!viewModel.noRationCard  &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp;  viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.doorStatusNC ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/txtBuildingDetails"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutRationCard"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etRationCardNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/live_hood_ration_card_number"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.rationCardNumber}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnRationCardNoInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.noRationCard &amp;&amp;  viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.doorStatusNC? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutRationCardNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutRationCardNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutRationCardNumber"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutRationCardNumber"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrRationCardNumber"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{!viewModel.noRationCard &amp;&amp;  viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.doorStatusNC? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutRationCardNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutRationCardNumber"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutRationCardNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutRationCardNumber"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.livehood.LiveHoodViewModel" />
+    </data>
+
+</layout>

@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.settings.SettingsViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".15" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".9" />
+
+            <View
+                android:id="@+id/line_default_value"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dp"
+                android:background="@color/cmnDarkGrey"
+                app:layout_constraintBottom_toTopOf="@id/txtDefaultValues"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtDefaultValues"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_semi"
+                android:layout_marginBottom="@dimen/std_space_semi"
+                android:text="@string/settings_default_value"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtDistrict"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/line_default_value"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtDistrict"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onDistrictBtnClick()}"
+                android:text="@string/settings_district"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtDistrictData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtDefaultValues"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtDistrictData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onDistrictBtnClick()}"
+                android:text="@{viewModel.districtName}"
+                android:textColor="@color/cmnDarkGrey"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtLocalBody"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtDistrict"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgDistrict"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onDistrictBtnClick()}"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtDistrictData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtDistrict"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+
+
+            <TextView
+                android:id="@+id/txtLocalBody"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:onClick="@{()->viewModel.onLocalBodyBtnClick()}"
+                android:text="@string/settings_local_body"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtLocalBodyData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtDistrictData"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtLocalBodyData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onLocalBodyBtnClick()}"
+                android:text="@{viewModel.localBodyName}"
+                android:textColor="@color/cmnDarkGrey"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtWardNumber"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtLocalBody"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgLocalBody"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onLocalBodyBtnClick()}"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtLocalBodyData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtLocalBody"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+            <TextView
+                android:id="@+id/txtWardNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:onClick="@{()->viewModel.onWardNumberBtnClick()}"
+                android:text="@string/settings_ward_number"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtWardNumberData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtLocalBodyData"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtWardNumberData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onWardNumberBtnClick()}"
+                android:text="@{viewModel.wardNumberName}"
+                android:textColor="@color/cmnDarkGrey"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtSurveyPointsWard"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtWardNumber"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgWardNumber"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onWardNumberBtnClick()}"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtWardNumberData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtWardNumber"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+
+
+
+            <TextView
+                android:id="@+id/txtSurveyPointsWard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:onClick="@{()->viewModel.onSurveyPointWardSelectionClick()}"
+                android:text="@string/settings_survey_points_ward_number"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/line_surveyor_details"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtWardNumberData"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgSUrveyPointWard"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:onClick="@{()->viewModel.onSurveyPointWardSelectionClick()}"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtSurveyPointsWard"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtSurveyPointsWard"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+            <View
+                android:id="@+id/line_surveyor_details"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:background="@color/cmnLightGrey"
+                app:layout_constraintBottom_toTopOf="@id/txtSurveyorDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtSurveyPointsWard"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <TextView
+                android:id="@+id/txtSurveyorDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_semi"
+                android:layout_marginBottom="@dimen/std_space_semi"
+                android:text="@string/settings_surveyor_details"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtReporting"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/line_surveyor_details"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtReporting"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_reporting"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtReportingData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtSurveyorDetails"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtReportingData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.reporting}"
+                android:textColor="@color/cmnDarkGrey"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtRole"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtReporting"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgReporting"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtReportingData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtReporting"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+
+
+            <TextView
+                android:id="@+id/txtRole"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:text="@string/settings_role"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtRoleData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtReportingData"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtRoleData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.role}"
+                android:textColor="@color/cmnDarkGrey"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtSurveyor"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtRole"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgRole"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtRoleData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtRole"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+
+            <TextView
+                android:id="@+id/txtSurveyor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:onClick="@{()-> viewModel.onSurveyorListClick()}"
+                android:text="@string/settings_surveyor"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtSurveyorNameData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtRoleData"
+                app:layout_constraintVertical_chainStyle="packed" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgSurveyor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtSurveyor"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtSurveyor"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+            <TextView
+                android:id="@+id/txtSurveyorNameData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.getSurveyorName()}"
+                android:textColor="@color/cmnDarkGrey"
+                android:textSize="@dimen/std_txt_medium"
+                android:onClick="@{()-> viewModel.onSurveyorListClick()}"
+                app:layout_constraintBottom_toTopOf="@id/txtMobileCode"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtSurveyor"
+                app:layout_constraintVertical_chainStyle="packed" />
+            <TextView
+                android:id="@+id/txtMobileCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:onClick="@{()-> viewModel.onSurveyorListClick()}"
+                android:text="@string/settings_mobile_code"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtMobileCodeData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtSurveyorNameData"
+                app:layout_constraintVertical_chainStyle="packed" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgMobileCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtMobileCode"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtMobileCode"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+            <TextView
+                android:id="@+id/txtMobileCodeData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.getMobileCode()}"
+                android:textColor="@color/cmnDarkGrey"
+                android:textSize="@dimen/std_txt_medium"
+                android:onClick="@{()-> viewModel.onSurveyorListClick()}"
+                app:layout_constraintBottom_toTopOf="@id/lineTpk"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtMobileCode"
+                app:layout_constraintVertical_chainStyle="packed" />
+            <View
+                android:id="@+id/lineTpk"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:background="@color/cmnLightGrey"
+                app:layout_constraintBottom_toTopOf="@id/txtTpk"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtMobileCodeData"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <TextView
+                android:id="@+id/txtTpk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_semi"
+                android:layout_marginBottom="@dimen/std_space_semi"
+                android:text="@string/settings_tpk"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtTpkLocation"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/lineTpk"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtTpkLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onTPKBtnClick()}"
+                android:text="@{viewModel.tpkFile}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/lineAR"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtTpk"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgTpk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtTpkLocation"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtTpkLocation"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+
+            <View
+                android:id="@+id/lineAR"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:background="@color/cmnLightGrey"
+                app:layout_constraintBottom_toTopOf="@id/txtAR"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTpkLocation"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+            <TextView
+                android:id="@+id/txtAR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_semi"
+                android:layout_marginBottom="@dimen/std_space_semi"
+                android:text="@string/settings_ar"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtARLocation"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/lineAR"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtARLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onARBtnClick()}"
+                android:text="@{viewModel.arFile}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/lineInfoVideo"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtAR"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgAR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtARLocation"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtARLocation"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+
+            <View
+                android:id="@+id/lineInfoVideo"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:background="@color/cmnLightGrey"
+                app:layout_constraintBottom_toTopOf="@id/txtInfoVideo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtARLocation"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <TextView
+                android:id="@+id/txtInfoVideo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_semi"
+                android:layout_marginBottom="@dimen/std_space_semi"
+                android:text="@string/settings_info_video"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtInfoVideoLocation"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/lineInfoVideo"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtInfoVideoLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onInfoVideoBtnClick()}"
+                android:text="@{viewModel.infoVideoFile}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/lineLiveLocation"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtInfoVideo"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgInfoVideo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtInfoVideoLocation"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtInfoVideoLocation"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+            <View
+                android:id="@+id/lineLiveLocation"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:background="@color/cmnLightGrey"
+                android:visibility="@{viewModel.widgetVisibility ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@id/txtLiveLocation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtInfoVideoLocation"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+            <TextView
+                android:id="@+id/txtLiveLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_semi"
+                android:layout_marginBottom="@dimen/std_space_semi"
+                android:text="@string/settings_live_location"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/std_txt_medium"
+                android:visibility="@{viewModel.widgetVisibility ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@id/txtLiveLocationData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/lineLiveLocation"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtLiveLocationData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onARBtnClick()}"
+                android:text="@{viewModel.liveLocationUpdate}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                android:visibility="@{viewModel.widgetVisibility ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@id/lineBackUp"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtLiveLocation"
+                app:layout_constraintVertical_chainStyle="packed" />
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/switchLiveLocation"
+                app:layout_constraintBottom_toBottomOf="@id/txtLiveLocationData"
+                app:layout_constraintEnd_toEndOf="@id/txtLiveLocationData"
+                app:layout_constraintHorizontal_bias="1"
+                android:visibility="@{viewModel.widgetVisibility ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="@id/txtLiveLocationData"
+                app:layout_constraintTop_toTopOf="@id/txtLiveLocationData"
+                app:layout_constraintVertical_chainStyle="packed"/>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgLiveLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:visibility="@{viewModel.widgetVisibility ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/txtLiveLocationData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtLiveLocationData"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+
+            <View
+                android:id="@+id/lineBackUp"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:background="@color/cmnLightGrey"
+                app:layout_constraintBottom_toTopOf="@id/txtBackUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLiveLocationData"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <TextView
+                android:id="@+id/txtBackUp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_semi"
+                android:layout_marginBottom="@dimen/std_space_semi"
+                android:text="@string/settings_backup"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtBackUpSelect"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/lineBackUp"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtBackUpSelect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onBackupBtnClick()}"
+                android:textColor="@color/colorBlack"
+                android:text="@string/settings_backup_select"
+                android:textSize="@dimen/std_txt_medium"
+                android:paddingTop="@dimen/std_space_normal"
+                android:paddingBottom="@dimen/std_space_normal"
+                app:layout_constraintBottom_toTopOf="@id/txtFetchBackUpSelect"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtBackUp"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgBackUp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtBackUpSelect"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtBackUpSelect"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+
+
+
+            <TextView
+                android:id="@+id/txtFetchBackUpSelect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.onFetchBtnClick()}"
+                android:textColor="@color/colorBlack"
+                android:text="@string/settings_fetch"
+                android:textSize="@dimen/std_txt_medium"
+                android:paddingTop="@dimen/std_space_normal"
+                android:paddingBottom="@dimen/std_space_normal"
+                android:layout_marginTop="@dimen/std_space_max"
+                app:layout_constraintBottom_toTopOf="@id/line_sync"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtBackUpSelect"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgFetchBackUp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtFetchBackUpSelect"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtFetchBackUpSelect"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+
+
+            <View
+                android:id="@+id/line_sync"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:background="@color/cmnLightGrey"
+                app:layout_constraintBottom_toTopOf="@id/txtSync"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtFetchBackUpSelect"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <TextView
+                android:id="@+id/txtSync"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_semi"
+                android:layout_marginBottom="@dimen/std_space_semi"
+                android:text="@string/settings_sync"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtSyncWithServer"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/line_sync"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtSyncWithServer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/std_space_large"
+                android:onClick="@{()->viewModel.onSyncBtnClick()}"
+                android:text="@string/settings_sync_with_server"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtSync"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgSync"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtSyncWithServer"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtSyncWithServer"
+                app:srcCompat="@drawable/ic_calender_for_tax" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

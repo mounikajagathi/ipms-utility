@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.serverSurvey.list.ServerSurveyViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cmnPageBgColor">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCount"
+            android:layout_margin="@dimen/std_space_medium"
+            android:gravity="center"
+            android:textSize="@dimen/std_txt_medium"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:text="@{viewModel.totalCount}" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCompletedSurvey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtCount"
+            app:adapter="@{viewModel.serverSurveyList}"
+            tools:listitem="@layout/item_server_survery_list" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="@dimen/std_txt_large"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:text="@{viewModel.emptyMsg}"
+            android:visibility="@{viewModel.isEmptyTextVisible ? View.VISIBLE : View.GONE}"
+            android:layout_margin="@dimen/std_space_medium"
+           />
+
+    </RelativeLayout>
+</layout>

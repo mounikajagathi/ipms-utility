@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.serverSurvey.detials.ServerSurveyDetailsViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:padding="@dimen/std_space_medium">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".15" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".9" />
+
+
+
+            <TextView
+                android:id="@+id/txtPropertyId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_semi"
+                android:layout_marginBottom="@dimen/std_space_semi"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/std_txt_medium_x"
+                android:textStyle="bold"
+                android:text="@{viewModel.getSelectedPropertyId}"
+                app:layout_constraintBottom_toTopOf="@id/txtDroneId"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtDroneId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/server_survey_drone_id_hint"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtDroneIdData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtPropertyId"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtDroneIdData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.getSelectedDroneId}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/txtNewPropId"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtDroneId"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgDrone"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtDroneIdData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtDroneId"
+                app:srcCompat="@drawable/ic_drone" />
+
+
+            <TextView
+                android:id="@+id/txtNewPropId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:text="@string/server_survey_new_prop_id_hint"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtNewPropIdData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtDroneIdData"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtNewPropIdData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.getSelectedNewPropertyId}"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtSurveyId"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtNewPropId"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgLocalBody"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtNewPropIdData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtNewPropId"
+                app:srcCompat="@drawable/ic_town" />
+
+
+
+
+            <TextView
+                android:id="@+id/txtSurveyId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_max"
+                android:text="@string/server_survey_id_hint"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtSurveyIdData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtNewPropIdData"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtSurveyIdData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.getSelectedServerSurveyId}"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:textSize="@dimen/std_txt_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_end"
+                app:layout_constraintStart_toEndOf="@id/settings_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/txtSurveyId"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgSurveyId"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/txtSurveyIdData"
+                app:layout_constraintEnd_toStartOf="@id/settings_guideline_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtSurveyId"
+                app:srcCompat="@drawable/ic_survey_id" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()-> viewModel.onNextClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_close"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            app:layout_constraintVertical_bias="1" />
+    </RelativeLayout>
+
+</layout>

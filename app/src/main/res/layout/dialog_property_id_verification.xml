@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="@dimen/std_space_normal">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:id="@+id/textviewTitle"
+        android:layout_marginTop="@dimen/std_space_medium"
+        android:textSize="@dimen/std_txt_medium_x"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutLandmarkCategory"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_space_medium"
+                android:layout_marginBottom="@dimen/std_space_medium" >
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/etOwnerDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/property_owner_details"
+                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                    android:padding="@dimen/std_space_micro"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/std_space_medium"
+                android:id="@+id/rgOwnerDetails">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdOwnerDetailsTxt1"
+                    android:text="@string/property_owner_rd_1"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdOwnerDetailsTxt2"
+                    android:text="@string/property_owner_rd_2"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdOwnerDetailsTxt3"
+                    android:text="@string/property_owner_rd_3"/>
+            </RadioGroup>
+
+            <Button
+                style="@style/verification_btn"
+                android:id="@+id/btnVerification1"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:text="" />
+
+            <Button
+                style="@style/verification_btn"
+                android:layout_width="match_parent"
+                android:id="@+id/btnVerification2"
+                android:visibility="gone"
+                android:text="" />
+
+            <Button
+                style="@style/verification_btn"
+                android:layout_width="match_parent"
+                android:id="@+id/btnVerification3"
+                android:visibility="gone"
+                android:text="" />
+
+            <Button
+                style="@style/verification_btn"
+                android:layout_width="match_parent"
+                android:id="@+id/btnVerification4"
+                android:visibility="gone"
+                android:text="" />
+
+            <Button
+                style="@style/verification_btn"
+                android:layout_width="match_parent"
+                android:id="@+id/btnVerification5"
+                android:visibility="gone"
+                android:text="" />
+            <Button
+                style="@style/verification_btn"
+                android:layout_width="match_parent"
+                android:id="@+id/btnVerification6"
+                android:visibility="gone"
+                android:text="" />
+            <Button
+                style="@style/verification_btn"
+                android:layout_width="match_parent"
+                android:id="@+id/btnVerification7"
+                android:text="" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

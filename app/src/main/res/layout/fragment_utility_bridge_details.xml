@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.utility.bridge.BridgeViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsvBridgeDetails"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layoutBtnContainer"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorWhite">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"
+                android:padding="@dimen/standard_spacing_medium">
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/flow_utility"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:constraint_referenced_ids="layoutBridgeName,layoutBridgePlace,layoutBridgeMaterial,layoutBridgeSubType,layoutBridgeWidth,layoutBridgeLength,layoutFootpathConstructionMaterial,layoutMaintainBy,layoutRemarks,txtBridgeImage,imgBridge,"
+                    app:flow_verticalGap="@dimen/standard_spacing_mini"
+                    app:flow_verticalStyle="packed"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutBridgeName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etBridgeName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/bridge_details_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium">
+
+                    </in.ults.gisurvey.utils.IPMSEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutBridgePlace"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etBridgePlace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/bridge_details_place"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium">
+
+                    </in.ults.gisurvey.utils.IPMSEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutBridgeMaterial"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/srBridgeMaterial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/bridge_details_bridge_material"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium"
+                        app:adapter="@{viewModel.bridgeMaterialList}">
+
+                    </in.ults.gisurvey.utils.IPMSSpinner>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutBridgeSubType"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/srBridgeSubType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/bridge_details_bridge_sub_type"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium"
+                        app:adapter="@{viewModel.bridgeSubTypeList}">
+
+                    </in.ults.gisurvey.utils.IPMSSpinner>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutBridgeWidth"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etBridgeWidth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/bridge_details_bridge_width"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium">
+
+                    </in.ults.gisurvey.utils.IPMSEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutBridgeLength"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etBridgeLength"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/bridge_details_bridge_length"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium">
+
+                    </in.ults.gisurvey.utils.IPMSEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutFootpathConstructionMaterial"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/srFootpathConstructionMaterial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/bridge_details_footpath_construction_material"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium"
+                        app:adapter="@{viewModel.bridgeFootPathConstructionMaterialList}">
+
+                    </in.ults.gisurvey.utils.IPMSSpinner>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutMaintainBy"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/srMaintainBy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/bridge_details_maintain_by"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium"
+                        app:adapter="@{viewModel.bridgeMaintainByList}">
+
+                    </in.ults.gisurvey.utils.IPMSSpinner>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutRemarks"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etRemarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="top"
+                        android:hint="@string/bridge_details_remarks"
+                        android:inputType="textMultiLine"
+                        android:maxLength="100"
+                        android:minHeight="@dimen/standard_edt_txt_height_max"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium">
+
+                    </in.ults.gisurvey.utils.IPMSEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/txtBridgeImage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/bridge_details_photo_1"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgBridge"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/standard_image_height_large"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_property_image" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutBridgeNameInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutBridgeName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutBridgeName"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutBridgeName"
+
+                    app:layout_constraintTop_toTopOf="@id/layoutBridgeName"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutBridgePlaceInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutBridgePlace"
+                    app:layout_constraintEnd_toEndOf="@id/layoutBridgePlace"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutBridgePlace"
+
+                    app:layout_constraintTop_toTopOf="@id/layoutBridgePlace"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutBridgeMaterialInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutBridgeMaterial"
+                    app:layout_constraintEnd_toEndOf="@id/layoutBridgeMaterial"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutBridgeMaterial"
+
+                    app:layout_constraintTop_toTopOf="@id/layoutBridgeMaterial"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutBridgeSubTypeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutBridgeSubType"
+                    app:layout_constraintEnd_toEndOf="@id/layoutBridgeSubType"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutBridgeSubType"
+
+                    app:layout_constraintTop_toTopOf="@id/layoutBridgeSubType"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutBridgeWidthInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutBridgeWidth"
+                    app:layout_constraintEnd_toEndOf="@id/layoutBridgeWidth"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutBridgeWidth"
+
+                    app:layout_constraintTop_toTopOf="@id/layoutBridgeWidth"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutBridgeLengthInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutBridgeLength"
+                    app:layout_constraintEnd_toEndOf="@id/layoutBridgeLength"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutBridgeLength"
+
+                    app:layout_constraintTop_toTopOf="@id/layoutBridgeLength"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutFootpathConstructionMaterialInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutFootpathConstructionMaterial"
+                    app:layout_constraintEnd_toEndOf="@id/layoutFootpathConstructionMaterial"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutFootpathConstructionMaterial"
+
+                    app:layout_constraintTop_toTopOf="@id/layoutFootpathConstructionMaterial"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutMaintainByInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutMaintainBy"
+                    app:layout_constraintEnd_toEndOf="@id/layoutMaintainBy"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutMaintainBy"
+
+                    app:layout_constraintTop_toTopOf="@id/layoutMaintainBy"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutRemarksInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutRemarks"
+                    app:layout_constraintEnd_toEndOf="@id/layoutRemarks"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutRemarks"
+
+                    app:layout_constraintTop_toTopOf="@id/layoutRemarks"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/layoutBtnContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPartialSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:background="@color/cmnPartialSaveButtonColor"
+                android:onClick="@{()->viewModel.onPartialSaveClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_partial_save_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:background="@color/cmnNextButtonColor"
+                android:onClick="@{()->viewModel.onNextClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_next_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>
+

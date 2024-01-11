@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:gravity="center"
+    android:id="@+id/layoutContainer"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txtMemberTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_medium"
+        android:text="@string/member_title"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/std_txt_medium"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnPensionRemove"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/std_edt_txt_height_medium"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:padding="@dimen/std_space_medium"
+        app:layout_constraintBottom_toBottomOf="@id/rvPension"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintEnd_toStartOf="@id/btnPensionAdd"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rvPension"
+        app:layout_constraintVertical_bias="0"
+        app:srcCompat="@drawable/ic_remove_minus" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnPensionAdd"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/std_edt_txt_height_medium"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:padding="@dimen/std_space_medium"
+        app:layout_constraintBottom_toBottomOf="@id/rvPension"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rvPension"
+        app:layout_constraintVertical_bias="0"
+        app:srcCompat="@drawable/ic_add_plus" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnDiseaseRemove"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/std_edt_txt_height_medium"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:padding="@dimen/std_space_medium"
+        app:layout_constraintBottom_toBottomOf="@id/rvDisease"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintEnd_toStartOf="@id/btnDiseaseAdd"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rvDisease"
+        app:layout_constraintVertical_bias="0"
+        app:srcCompat="@drawable/ic_remove_minus" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnDiseaseAdd"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/std_edt_txt_height_medium"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:padding="@dimen/std_space_medium"
+        app:layout_constraintBottom_toBottomOf="@id/rvDisease"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rvDisease"
+        app:layout_constraintVertical_bias="0"
+        app:srcCompat="@drawable/ic_add_plus" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glCentre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDisease"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/rvPension"
+        app:layout_constraintEnd_toStartOf="@id/btnDiseaseRemove"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutStudent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPension"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnPensionRemove"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvDisease"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutJobLoss"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/layoutIsNRK"
+        app:layout_constraintEnd_toStartOf="@id/glCentre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutJobType"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etJobloss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_job_loss"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnJobLossInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutJobLoss"
+        app:layout_constraintEnd_toEndOf="@id/layoutJobLoss"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutJobLoss"
+        app:layout_constraintTop_toTopOf="@id/layoutJobLoss"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutJobType"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/layoutJobLoss"
+        app:layout_constraintEnd_toStartOf="@id/glCentre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutAge"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etJobType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_job_type"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnJobTypeInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutJobType"
+        app:layout_constraintEnd_toEndOf="@id/layoutJobType"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutJobType"
+        app:layout_constraintTop_toTopOf="@id/layoutJobType"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutName"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_small"
+        android:layout_marginEnd="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/layoutAge"
+        app:layout_constraintEnd_toStartOf="@id/glCentre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMemberTitle"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:hint="@string/member_name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnMemNameInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+        app:layout_constraintBottom_toBottomOf="@id/layoutName"
+        app:layout_constraintEnd_toEndOf="@id/layoutName"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutName"
+        app:layout_constraintTop_toTopOf="@id/layoutName"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutAge"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/layoutJobType"
+        app:layout_constraintEnd_toStartOf="@id/glCentre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutName"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSEditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_age"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:inputType="number"
+            android:maxLength="3"
+            android:maxLines="1"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnMemAgeYearInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutAge"
+        app:layout_constraintEnd_toEndOf="@id/layoutAge"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutAge"
+        app:layout_constraintTop_toTopOf="@id/layoutAge"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutGender"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/layoutAgeMonth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glCentre"
+        app:layout_constraintTop_toTopOf="@id/layoutName"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_gender"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutEducation"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/layoutDisability"
+        app:layout_constraintEnd_toStartOf="@id/glCentre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutIsNRK"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etEducation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:hint="@string/member_education"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnEducationInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutEducation"
+        app:layout_constraintEnd_toEndOf="@id/layoutEducation"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutEducation"
+        app:layout_constraintTop_toTopOf="@id/layoutEducation"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutJob"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginStart="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/layoutMartialStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/glCentre"
+        app:layout_constraintTop_toBottomOf="@id/layoutAgeMonth"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSAutoCompleteEditText
+            android:id="@+id/etJob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_job"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnJobInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutJob"
+        app:layout_constraintEnd_toEndOf="@id/layoutJob"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutJob"
+        app:layout_constraintTop_toTopOf="@id/layoutJob"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutIsNRK"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/layoutEducation"
+        app:layout_constraintEnd_toStartOf="@id/glCentre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutJobLoss"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etIsNRK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_nrk"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnIsNRKInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutIsNRK"
+        app:layout_constraintEnd_toEndOf="@id/layoutIsNRK"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutIsNRK"
+        app:layout_constraintTop_toTopOf="@id/layoutIsNRK"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutAgeMonth"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_small"
+        android:layout_marginTop="@dimen/std_space_mini"
+        app:layout_constraintBottom_toTopOf="@id/layoutJob"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glCentre"
+        app:layout_constraintTop_toBottomOf="@id/layoutGender"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSEditText
+            android:id="@+id/etAgeMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_age_month"
+            android:inputType="number"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:maxLength="2"
+            android:maxLines="1"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnMemAgeMonthInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutAgeMonth"
+        app:layout_constraintEnd_toEndOf="@id/layoutAgeMonth"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutAgeMonth"
+        app:layout_constraintTop_toTopOf="@id/layoutAgeMonth"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutMartialStatus"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_small"
+        android:layout_marginTop="@dimen/std_space_mini"
+        app:layout_constraintBottom_toTopOf="@id/layoutIsNRI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glCentre"
+        app:layout_constraintTop_toBottomOf="@id/layoutJob"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etMartialStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_martial_status"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutIsNRI"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_small"
+        android:layout_marginTop="@dimen/std_space_mini"
+        app:layout_constraintBottom_toTopOf="@id/layoutEducationType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glCentre"
+        app:layout_constraintTop_toBottomOf="@id/layoutMartialStatus"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etIsNRI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_nri"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnIsNRIInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutIsNRI"
+        app:layout_constraintEnd_toEndOf="@id/layoutIsNRI"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutIsNRI"
+        app:layout_constraintTop_toTopOf="@id/layoutIsNRI"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutEducationType"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_small"
+        android:layout_marginTop="@dimen/std_space_mini"
+        app:layout_constraintBottom_toTopOf="@id/layoutDisabilityPercent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/glCentre"
+        app:layout_constraintTop_toBottomOf="@id/layoutIsNRI"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etEducationType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_education_type"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnEduTypeInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutEducationType"
+        app:layout_constraintEnd_toEndOf="@id/layoutEducationType"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutEducationType"
+        app:layout_constraintTop_toTopOf="@id/layoutEducationType"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutDisability"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/layoutStudent"
+        app:layout_constraintEnd_toStartOf="@id/glCentre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutEducation"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etDisability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_disability"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnDisabilityInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutDisability"
+        app:layout_constraintEnd_toEndOf="@id/layoutDisability"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutDisability"
+        app:layout_constraintTop_toTopOf="@id/layoutDisability"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutStudent"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        app:layout_constraintBottom_toTopOf="@id/rvDisease"
+        app:layout_constraintEnd_toStartOf="@id/glCentre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutDisability"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_student"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnStudentInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutStudent"
+        app:layout_constraintEnd_toEndOf="@id/layoutStudent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutStudent"
+        app:layout_constraintTop_toTopOf="@id/layoutStudent"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutDisabilityPercent"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_small"
+        android:layout_marginTop="@dimen/std_space_mini"
+        app:layout_constraintBottom_toTopOf="@id/rvDisease"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/glCentre"
+        app:layout_constraintTop_toBottomOf="@id/layoutEducationType"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <in.ults.gisurvey.utils.IPMSEditText
+            android:id="@+id/etDisabilityPercent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_disability_percent"
+            android:paddingEnd="@dimen/std_edt_txt_height_medium"
+            android:paddingStart="@dimen/std_space_normal"
+            android:inputType="number"
+            android:maxLength="3"
+            android:maxLines="1"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnDisabilityPercentInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+
+        app:layout_constraintBottom_toBottomOf="@id/layoutDisabilityPercent"
+        app:layout_constraintEnd_toEndOf="@id/layoutDisabilityPercent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutDisabilityPercent"
+        app:layout_constraintTop_toTopOf="@id/layoutDisabilityPercent"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

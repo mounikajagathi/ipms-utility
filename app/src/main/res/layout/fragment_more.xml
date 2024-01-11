@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.more.MoreViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/layoutBtnContainer"
+            android:layout_alignParentTop="true"
+            android:background="@color/cmnPageBgColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutContainer"
+                android:padding="@dimen/std_space_medium">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTypeOfLand"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    app:layout_constraintBottom_toTopOf="@id/layoutBuildingUnderScheme"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="@{viewModel.widgetVisibility ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etTypeOfLand"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/more_type_of_land"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.typeOfLand}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.typeOfLandList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnTypeOfLandInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.widgetVisibility ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutTypeOfLand"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTypeOfLand"
+                    app:layout_constraintTop_toTopOf="@id/layoutTypeOfLand"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTypeOfLand"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutBuildingUnderScheme"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp;viewModel.establishmentUsageHouseFlatVilla ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPlotArea"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutTypeOfLand"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etBuildingUnderScheme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/more_building_under_scheme"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.buildingUnderScheme}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.buildingUnderSchemeList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnBuildingUnderSchemeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp;viewModel.establishmentUsageHouseFlatVilla ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutBuildingUnderScheme"
+                    app:layout_constraintEnd_toEndOf="@id/layoutBuildingUnderScheme"
+                    app:layout_constraintTop_toTopOf="@id/layoutBuildingUnderScheme"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutBuildingUnderScheme"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutPlotArea"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp;viewModel.establishmentUsageHouseFlatVilla  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutNoOfVehicles"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutBuildingUnderScheme"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etPlotArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/more_plot_area"
+                        android:inputType="numberDecimal"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.plotArea}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnPlotAreaCentInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp;viewModel.establishmentUsageHouseFlatVilla  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutPlotArea"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPlotArea"
+                    app:layout_constraintTop_toTopOf="@id/layoutPlotArea"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPlotArea"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrPlotArea"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp;viewModel.establishmentUsageHouseFlatVilla  ? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPlotArea"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPlotArea"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutPlotArea"
+                    app:layout_constraintTop_toTopOf="@id/layoutPlotArea"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutNoOfVehicles"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla  &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvVehicles"
+                    app:layout_constraintEnd_toStartOf="@id/btnNoOfVehiclesRemove"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPlotArea"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etNoOfVehicles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="@string/more_no_of_vehicles"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.noOfVehicle}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNoOfVehicleInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla  &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutNoOfVehicles"
+                    app:layout_constraintEnd_toEndOf="@id/layoutNoOfVehicles"
+                    app:layout_constraintTop_toTopOf="@id/layoutNoOfVehicles"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutNoOfVehicles"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNoOfVehiclesRemove"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.removeVehicleOnClick()}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutNoOfVehicles"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    app:layout_constraintEnd_toStartOf="@id/btnNoOfVehiclesAdd"
+                    app:layout_constraintHorizontal_bias="1"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof? View.VISIBLE : View.GONE}"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutNoOfVehicles"
+                    app:srcCompat="@drawable/ic_remove_minus" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNoOfVehiclesAdd"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.addVehicleOnClick()}"
+                    android:padding="@dimen/std_space_medium"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutNoOfVehicles"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutNoOfVehicles"
+                    app:srcCompat="@drawable/ic_add_plus" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVehicles"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:adapter="@{viewModel.vehicleData}"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvThozhilurapp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutNoOfVehicles"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+
+
+                <TextView
+                    android:id="@+id/tvThozhilurapp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/more_thozhilurapp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgThozhilurapp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvVehicles"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgThozhilurapp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvKudumbasree"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvThozhilurapp"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbThozhilurappYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbThozhilurappNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tvKudumbasree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/more_kudumbasree"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgKudumbasree"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgThozhilurapp"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgKudumbasree"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/tvHealthInsurance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvKudumbasree"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbKudumbasreeYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbKudumbasreeNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tvHealthInsurance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/more_health_insurance"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof? View.VISIBLE : View.GONE}"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/rgHealthInsurance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgKudumbasree"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgHealthInsurance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvHealthInsurance"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbHealthInsuranceYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbHealthInsuranceNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutBtnContainer"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPartialSave"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnPartialSaveButtonColor"
+                android:onClick="@{()->viewModel.onPartialSaveClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_partial_save_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnNextButtonColor"
+                android:onClick="@{()->viewModel.onNextClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_next_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>

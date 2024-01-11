@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.home.HomeViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cmnPageBgColor">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/home_actual_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/std_space_semi">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardUserDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/std_space_medium"
+                    app:cardCornerRadius="@dimen/zero_dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toTopOf="@id/cardTaskDetails"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/std_space_medium"
+                        android:layout_marginBottom="@dimen/std_space_medium"
+                        android:padding="@dimen/std_space_medium">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgAvatar"
+                            android:layout_width="@dimen/home_image_h_w"
+                            android:layout_height="@dimen/home_image_h_w"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            app:defaultImage="@{@drawable/ic_avatar}"
+                            app:imageUrl="@{viewModel.userProfilePicUrl}"
+                            app:srcCompat="@drawable/ic_avatar"
+                            tools:ignore="ContentDescription" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/std_space_medium"
+                            android:layout_marginEnd="@dimen/std_space_medium"
+                            android:layout_toEndOf="@id/imgAvatar"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txtUserName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.userName}"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/std_txt_medium" />
+
+                            <TextView
+                                android:id="@+id/txtEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:text="@{viewModel.userEmail}"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/std_txt_medium" />
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardTaskDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/std_space_medium"
+                    app:cardCornerRadius="@dimen/zero_dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toTopOf="@id/cardPartialSurvey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardUserDetails"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingStart="@dimen/std_space_medium"
+                            android:paddingTop="@dimen/std_space_large"
+                            android:paddingEnd="@dimen/std_space_medium"
+                            android:paddingBottom="@dimen/std_space_large">
+
+                            <TextView
+                                android:id="@+id/txtAssignCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.assignedSurveys}"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/std_txt_medium_xxx"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtAssigned"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:text="@string/home_assigned"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/std_txt_medium" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingStart="@dimen/std_space_medium"
+                            android:paddingTop="@dimen/std_space_large"
+                            android:paddingEnd="@dimen/std_space_medium"
+                            android:paddingBottom="@dimen/std_space_large">
+
+                            <TextView
+                                android:id="@+id/txtCompletedCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.completedSurveys}"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/std_txt_medium_xxx"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtCompleted"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:text="@string/home_completed"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/std_txt_medium" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardPartialSurvey"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/std_space_medium"
+                    android:onClick="@{()-> viewModel.onPartialSurveyClick()}"
+                    app:cardCornerRadius="@dimen/zero_dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toTopOf="@id/cardNewSurvey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardTaskDetails"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/std_space_medium"
+                        android:layout_marginBottom="@dimen/std_space_medium">
+
+                        <TextView
+                            android:id="@+id/txtPartialSurveyCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/std_space_medium"
+                            android:text="@{viewModel.pendingSurveys}"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/std_txt_large_x" />
+
+
+                        <TextView
+                            android:id="@+id/txtPartialSurvey"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@id/imgPartialSurveyArrow"
+                            android:layout_toEndOf="@id/txtPartialSurveyCount"
+                            android:text="@string/home_partial_survey"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/std_txt_medium" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgPartialSurveyArrow"
+                            android:layout_width="@dimen/home_arrow_h_w"
+                            android:layout_height="@dimen/home_arrow_h_w"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/std_space_medium"
+                            app:srcCompat="@drawable/ic_arrow_for_home_dash_board" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardNewSurvey"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/std_space_medium"
+                    android:onClick="@{()-> viewModel.onNewSurveyClick()}"
+                    app:cardCornerRadius="@dimen/zero_dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardPartialSurvey"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/std_space_medium"
+                        android:layout_marginBottom="@dimen/std_space_medium">
+
+                        <TextView
+                            android:id="@+id/home_dashboard_new_survey_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/std_space_medium"
+                            android:text="@{viewModel.newSurveys}"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/std_txt_large_x" />
+
+
+                        <TextView
+                            android:id="@+id/home_dashboard_new_survey_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@id/home_dashboard_new_survey_arrow"
+                            android:layout_toEndOf="@id/home_dashboard_new_survey_count"
+                            android:text="@string/home_new_survey"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/std_txt_medium" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/home_dashboard_new_survey_arrow"
+                            android:layout_width="@dimen/home_arrow_h_w"
+                            android:layout_height="@dimen/home_arrow_h_w"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/std_space_medium"
+                            app:srcCompat="@drawable/ic_arrow_for_home_dash_board" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/home_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/std_space_medium"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Unable to fetch data from server\nPlease try again later"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium_xxx" />
+
+            <Button
+                android:id="@+id/btnNoDataRetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/std_space_medium"
+                android:paddingStart="@dimen/std_space_xlarge"
+                android:paddingTop="@dimen/std_space_medium"
+                android:paddingEnd="@dimen/std_space_xlarge"
+                android:paddingBottom="@dimen/std_space_medium"
+                android:text="Retry"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium"
+                app:backgroundTint="@color/cmnNextButtonColor" />
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:id="@+id/home_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:visibility="gone">
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.utils.adapters.FlexRecycleViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/selector_custom_radio_btn"
+            android:drawablePadding="@dimen/std_space_small"
+            android:paddingStart="@dimen/std_space_small"
+            android:paddingTop="@dimen/std_space_medium"
+            android:paddingEnd="@dimen/std_space_small"
+            android:paddingBottom="@dimen/std_space_medium"
+            android:text="@{viewModel.content}"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </FrameLayout>
+
+
+</layout>

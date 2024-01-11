@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.pointstatus.PointStatusViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutContainer"
+        android:background="@color/cmnPageBgColor">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardBuildingCheckList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/std_space_medium"
+            app:cardCornerRadius="@dimen/five_dp"
+            app:cardElevation="@dimen/std_space_micro"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <RadioGroup
+                android:id="@+id/rgBuildingCheckList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/std_space_medium">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radioBtnUnwanted"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/std_space_small"
+                    android:layout_weight="1"
+                    android:background="@mipmap/img_point_status_unwanted"
+                    android:button="@drawable/selector_custom_radio_btn"
+                    android:gravity="start|top"
+                    android:onClick="@{()-> viewModel.radioOnClick()}"
+                    android:paddingStart="@dimen/std_space_small"
+                    android:paddingEnd="@dimen/std_space_small"
+                    android:text="@string/building_chk_unwanted"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/std_txt_medium_xx"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioBtnBuilding"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/std_space_small"
+                    android:layout_weight="1"
+                    android:background="@mipmap/img_point_status_building"
+                    android:button="@drawable/selector_custom_radio_btn"
+                    android:gravity="start|top"
+                    android:onClick="@{()-> viewModel.radioOnClick()}"
+                    android:paddingStart="@dimen/std_space_small"
+                    android:paddingEnd="@dimen/std_space_small"
+                    android:text="@string/building_chk_building"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/std_txt_medium_xx"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioBtnLandmark"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/std_space_small"
+                    android:layout_weight="1"
+                    android:background="@mipmap/img_point_status_landmark"
+                    android:button="@drawable/selector_custom_radio_btn"
+                    android:gravity="start|top"
+                    android:onClick="@{()-> viewModel.radioOnClick()}"
+                    android:paddingStart="@dimen/std_space_small"
+                    android:paddingEnd="@dimen/std_space_small"
+                    android:text="@string/building_chk_land_mark"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/std_txt_medium_xx"
+                    android:textStyle="bold" />
+
+            </RadioGroup>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()-> viewModel.onNextClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardBuildingCheckList"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

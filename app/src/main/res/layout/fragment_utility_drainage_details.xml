@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.utility.drainage.DrainageViewModel" />
+    </data>
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutBtnContainer"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/standard_spacing_medium">
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/flow_utility"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:constraint_referenced_ids="layoutDrainageName,layoutPlace,layoutDrainageStreet,layoutDrainageMaterial,layoutDrainageType,layoutDrainageLength,layoutDrainagePlacement,layoutDrainageCategory,layoutRemarks,txtDrainageImage,imgDrainage,"
+                app:flow_verticalGap="@dimen/standard_spacing_mini"
+                app:flow_verticalStyle="packed"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDrainageName"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etDrainageName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/drainage_details_drainage_name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutPlace"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etPlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/drainage_details_place"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDrainageStreet"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etDrainageStreet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/drainage_details_drainage_street_name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDrainageMaterial"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srDrainageMaterial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/drainage_details_Drainage_material"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium"
+                    app:adapter="@{viewModel.drainageMaterialList}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDrainageType"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srDrainageType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/drainage_details_drainage_type"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium"
+                    app:adapter="@{viewModel.drainageTypeList}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDrainageLength"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etDrainageLength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/drainage_details_drainage_length"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDrainagePlacement"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srDrainagePlacement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/drainage_details_drainage_placement"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium"
+                    app:adapter="@{viewModel.drainagePlacementList}"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDrainageCategory"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etDrainageCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/drainage_details_drainage_category"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRemarks"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRemarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="top"
+                    android:hint="@string/drainage_details_remarks"
+                    android:inputType="textMultiLine"
+                    android:maxLength="100"
+                    android:minHeight="@dimen/standard_edt_txt_height_max"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txtDrainageImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/drainage_details_photo"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/standard_text_size_medium" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgDrainage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/standard_image_height_large"
+
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_property_image"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDrainageNameInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDrainageName"
+                app:layout_constraintEnd_toEndOf="@id/layoutDrainageName"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDrainageName"
+                app:layout_constraintTop_toTopOf="@id/layoutDrainageName"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutPlaceInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutPlace"
+                app:layout_constraintEnd_toEndOf="@id/layoutPlace"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutPlace"
+                app:layout_constraintTop_toTopOf="@id/layoutPlace"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDrainageStreetInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDrainageStreet"
+                app:layout_constraintEnd_toEndOf="@id/layoutDrainageStreet"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDrainageStreet"
+                app:layout_constraintTop_toTopOf="@id/layoutDrainageStreet"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDrainageMaterialInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDrainageMaterial"
+                app:layout_constraintEnd_toEndOf="@id/layoutDrainageMaterial"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDrainageMaterial"
+                app:layout_constraintTop_toTopOf="@id/layoutDrainageMaterial"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDrainageTypeInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDrainageType"
+                app:layout_constraintEnd_toEndOf="@id/layoutDrainageType"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDrainageType"
+                app:layout_constraintTop_toTopOf="@id/layoutDrainageType"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDrainageLengthInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDrainageLength"
+                app:layout_constraintEnd_toEndOf="@id/layoutDrainageLength"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDrainageLength"
+                app:layout_constraintTop_toTopOf="@id/layoutDrainageLength"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDrainagePlacementInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDrainagePlacement"
+                app:layout_constraintEnd_toEndOf="@id/layoutDrainagePlacement"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDrainagePlacement"
+                app:layout_constraintTop_toTopOf="@id/layoutDrainagePlacement"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutDrainageCategoryInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutDrainageCategory"
+                app:layout_constraintEnd_toEndOf="@id/layoutDrainageCategory"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutDrainageCategory"
+                app:layout_constraintTop_toTopOf="@id/layoutDrainageCategory"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRemarksInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRemarks"
+                app:layout_constraintEnd_toEndOf="@id/layoutRemarks"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRemarks"
+                app:layout_constraintTop_toTopOf="@id/layoutRemarks"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/layoutBtnContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPartialSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:background="@color/cmnPartialSaveButtonColor"
+            android:onClick="@{()->viewModel.onPartialSaveClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_partial_save_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()->viewModel.onNextClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
+</layout>

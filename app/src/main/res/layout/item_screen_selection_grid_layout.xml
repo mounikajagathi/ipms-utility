@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/adapterPropertyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/std_space_micro"
+        android:background="@{viewModel.completedStatus ? @color/completeSurveyButtonColor : @color/colorWhite }">
+
+        <ImageView
+            android:id="@+id/imgPropertyName"
+            android:layout_width="@dimen/grid_icon_size"
+            android:layout_height="@dimen/grid_icon_size"
+            android:layout_margin="@dimen/std_space_xlarge"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ipms_prop_icon"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/std_space_small"
+            app:layout_constraintTop_toBottomOf="@id/imgPropertyName"
+            android:background="@drawable/drawable_rectangle_stroked_bg">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_small"
+                android:paddingTop="@dimen/std_space_small"
+                android:paddingBottom="@dimen/std_space_micro"
+                android:text="@{viewModel.title}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/txtStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/std_space_small"
+                android:paddingEnd="@dimen/std_space_small"
+                android:paddingTop="@dimen/std_space_micro"
+                android:paddingBottom="@dimen/std_space_small"
+                android:text="@{viewModel.status}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_small_xx"
+                />
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.selection.ScreenSelectionGridAdapterViewModel" />
+    </data>
+</layout>

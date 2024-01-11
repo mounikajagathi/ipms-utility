@@ -1,0 +1,1561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.building.BuildingViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layoutBtnContainer"
+            android:layout_alignParentTop="true"
+            android:background="@color/cmnPageBgColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutContainer"
+                android:padding="@dimen/std_space_medium">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutBuildingName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutColonyName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etBuildingName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.buildingName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnBuildingNameInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutBuildingName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutBuildingName"
+                    app:layout_constraintTop_toTopOf="@id/layoutBuildingName"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutBuildingName"
+                    app:layout_constraintVertical_bias=".5"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrBuildingName"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutBuildingName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutBuildingName"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutBuildingName"
+                    app:layout_constraintTop_toTopOf="@id/layoutBuildingName"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutColonyName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL  &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutSurveyNumber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutBuildingName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etColonyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_colony_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.colonyName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrColonyName"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL  &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp;viewModel.establishmentUsageHouseFlatVilla &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutColonyName"
+                    app:layout_constraintEnd_toEndOf="@id/layoutColonyName"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutColonyName"
+                    app:layout_constraintTop_toTopOf="@id/layoutColonyName"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutSurveyNumber"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutYearOfConstruction"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutColonyName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etSurveyNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_survey_number"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.surveyNumber}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnSurveyNoInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutSurveyNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutSurveyNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutSurveyNumber"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutSurveyNumber"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrSurveyNumber"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutSurveyNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutSurveyNumber"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutSurveyNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutSurveyNumber"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutYearOfConstruction"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/textViewARBuildingAge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutSurveyNumber"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etYearOfConstruction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_construction_year"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.yearOfConstruction}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnYearOfConstructionInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutYearOfConstruction"
+                    app:layout_constraintEnd_toEndOf="@id/layoutYearOfConstruction"
+                    app:layout_constraintTop_toTopOf="@id/layoutYearOfConstruction"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutYearOfConstruction"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewARBuildingAge"
+                    android:text="@{viewModel.arBuildingAge}"
+                    style="@style/AppCommonARHint"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    app:layout_constraintBottom_toTopOf="@id/layoutHowManyYears"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; viewModel.isARBuildingAgeVisible? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/layoutYearOfConstruction"/>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutHowManyYears"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutNoOfRooms"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewARBuildingAge"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etHowManyYears"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="true"
+                        android:hint="@string/building_how_many_years"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.totalYears}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnHowManyYearsInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutHowManyYears"
+                    app:layout_constraintEnd_toEndOf="@id/layoutHowManyYears"
+                    app:layout_constraintTop_toTopOf="@id/layoutHowManyYears"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutHowManyYears"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutNoOfRooms"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL  &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutNoOfFloor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutHowManyYears"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etNoOfRooms"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_number_of_rooms"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.noOfRooms}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNoOfRoomsInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutNoOfRooms"
+                    app:layout_constraintEnd_toEndOf="@id/layoutNoOfRooms"
+                    app:layout_constraintTop_toTopOf="@id/layoutNoOfRooms"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutNoOfRooms"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutNoOfFloor"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvFloorArea"
+                    app:layout_constraintEnd_toStartOf="@id/btnNoOfFloorRemove"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutNoOfRooms"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etNoOfFloor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="@string/building_no_of_floor"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.noOfFloor}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNoOfFloorInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutNoOfFloor"
+                    app:layout_constraintEnd_toEndOf="@id/layoutNoOfFloor"
+                    app:layout_constraintTop_toTopOf="@id/layoutNoOfFloor"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutNoOfFloor"
+                    app:layout_constraintVertical_bias=".5"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNoOfFloorRemove"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.removeFloorAreaOnClick()}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutNoOfFloor"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toStartOf="@id/btnNoOfFloorAdd"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutNoOfFloor"
+                    app:srcCompat="@drawable/ic_remove_minus" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNoOfFloorAdd"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.addFloorAreaOnClick()}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutNoOfFloor"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutNoOfFloor"
+                    app:srcCompat="@drawable/ic_add_plus" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvFloorArea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:adapter="@{viewModel.floorAreaData}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutAreaRemarks"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.531"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutNoOfFloor"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutAreaRemarks"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{ viewModel.isAreaRemarksVisible &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvStructureType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvFloorArea"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etAreaRemarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/building_area_remarks"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                    android:text="@{viewModel.areaRemarks}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnAreaRemarksInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isAreaRemarksVisible &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutAreaRemarks"
+                    app:layout_constraintEnd_toEndOf="@id/layoutAreaRemarks"
+                    app:layout_constraintTop_toTopOf="@id/layoutAreaRemarks"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutAreaRemarks"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:layout_marginStart="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <TextView
+                    android:id="@+id/tvStructureType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/building_structure_type"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rgStructureType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutAreaRemarks"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgStructureType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/tvCarPorchArea"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvStructureType"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbStructureTypeNormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/building_structure_type_normal"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbStructureTypeFlat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/building_structure_type_flat"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/tvCarPorchArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/building_car_porch"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/rgCarPorch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgStructureType"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgCarPorch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPorchArea"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCarPorchArea"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbCarPorchYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbCarPorchNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                    <RadioButton
+                        android:id="@+id/rbCarPorchNr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{viewModel.doorStatusNC ? View.VISIBLE : View.GONE}"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_nr"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutPorchArea"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:visibility="@{viewModel.isCarPorchAvailable &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvCommonStair"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgCarPorch"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etPorchArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_car_porch_area"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.carporchArea}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnPorchAreaInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isCarPorchAvailable &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutPorchArea"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPorchArea"
+                    app:layout_constraintTop_toTopOf="@id/layoutPorchArea"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPorchArea"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrPorchArea"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{viewModel.isCarPorchAvailable &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPorchArea"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPorchArea"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutPorchArea"
+                    app:layout_constraintTop_toTopOf="@id/layoutPorchArea"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <TextView
+                    android:id="@+id/tvCommonStair"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/building_common_stair"
+                    android:textColor="@color/colorBlack"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/rgCommonStair"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPorchArea" />
+
+                <RadioGroup
+                    android:id="@+id/rgCommonStair"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutCommonStairArea"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCommonStair">
+
+                    <RadioButton
+                        android:id="@+id/rbCommonStairYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbCommonStairNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                    <RadioButton
+                        android:id="@+id/rbCommonStairNr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{viewModel.doorStatusNC ? View.VISIBLE : View.GONE}"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_nr"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutCommonStairArea"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                      android:paddingStart="@dimen/zero_dp"
+                    android:visibility="@{viewModel.isCommonStairAvailable &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvStair"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgCommonStair">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etCommonStairArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_common_stair_area"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.commonStairArea}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnCommonStairAreaInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isCommonStairAvailable &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutCommonStairArea"
+                    app:layout_constraintEnd_toEndOf="@id/layoutCommonStairArea"
+                    app:layout_constraintTop_toTopOf="@id/layoutCommonStairArea"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutCommonStairArea"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrCommonStairArea"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="@{viewModel.isCommonStairAvailable &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutCommonStairArea"
+                    app:layout_constraintEnd_toEndOf="@id/layoutCommonStairArea"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutCommonStairArea"
+                    app:layout_constraintTop_toTopOf="@id/layoutCommonStairArea"
+                    app:srcCompat="@drawable/ic_no_data" />
+                <TextView
+                    android:id="@+id/tvStair"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/building_stair"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/rgCommonStair"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutCommonStairArea" />
+
+                <RadioGroup
+                    android:id="@+id/rgStair"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/layoutStairArea"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvStair">
+
+                    <RadioButton
+                        android:id="@+id/rbStairYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbStairNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                    <RadioButton
+                        android:id="@+id/rbStairNr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_nr"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutStairArea"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPathWayArea"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgStair">
+
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etStairArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_stair_area"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.stairArea}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnStairAreaInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/layoutStairArea"
+                    app:layout_constraintEnd_toEndOf="@id/layoutStairArea"
+                    app:layout_constraintTop_toTopOf="@id/layoutStairArea"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutStairArea"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrStairArea"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:visibility="gone"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutStairArea"
+                    app:layout_constraintEnd_toEndOf="@id/layoutStairArea"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutStairArea"
+                    app:layout_constraintTop_toTopOf="@id/layoutStairArea"
+                    app:srcCompat="@drawable/ic_no_data" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutPathWayArea"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:visibility="@{ !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/textViewARModification"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutStairArea">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etPathWayArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_pathway_area"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.pathwayArea}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnPathWayAreaInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutPathWayArea"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPathWayArea"
+                    app:layout_constraintTop_toTopOf="@id/layoutPathWayArea"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPathWayArea"
+                    app:layout_constraintVertical_bias=".5"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrPathWayArea"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutPathWayArea"
+                    app:layout_constraintEnd_toEndOf="@id/layoutPathWayArea"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutPathWayArea"
+                    app:layout_constraintTop_toTopOf="@id/layoutPathWayArea"
+                    app:srcCompat="@drawable/ic_no_data" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewARModification"
+                    android:text="@{viewModel.arModification}"
+                    style="@style/AppCommonARHint"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    app:layout_constraintBottom_toTopOf="@id/tvAnyStructuralChange"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; viewModel.isARModificationVisible? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPathWayArea"/>
+
+                <TextView
+                    android:id="@+id/tvAnyStructuralChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/building_any_structure_change"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC&amp;&amp;!viewModel.buildingStatusOnGoing  &amp;&amp;!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgAnyStructuralChange"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewARModification" />
+
+                <RadioGroup
+                    android:id="@+id/rgAnyStructuralChange"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoing &amp;&amp;!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutAnyStructuralChangeYear"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAnyStructuralChange">
+
+                    <RadioButton
+                        android:id="@+id/rbAnyStructuralChangeYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbAnyStructuralChangeNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutAnyStructuralChangeYear"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isStructuralChange &amp;&amp; !viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoingWithoutRoof&amp;&amp;!viewModel.buildingStatusOnGoing &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvAnyRoofTypeChange"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgAnyStructuralChange">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etAnyStructuralChangeYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_structure_change_year"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.yearOFStructural}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnAnyStructChangeYearInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isStructuralChange &amp;&amp; !viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp;!viewModel.buildingStatusOnGoing &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutAnyStructuralChangeYear"
+                    app:layout_constraintEnd_toEndOf="@id/layoutAnyStructuralChangeYear"
+                    app:layout_constraintTop_toTopOf="@id/layoutAnyStructuralChangeYear"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutAnyStructuralChangeYear"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <TextView
+                    android:id="@+id/tvAnyRoofTypeChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/building_any_roof_type_change"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoing &amp;&amp;!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgAnyRoofTypeChange"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutAnyStructuralChangeYear" />
+
+                <RadioGroup
+                    android:id="@+id/rgAnyRoofTypeChange"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp;!viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoing &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutAnyRoofTypeChangeYear"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAnyRoofTypeChange">
+
+                    <RadioButton
+                        android:id="@+id/rbAnyRoofTypeChangeYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbAnyRoofTypeChangeNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutAnyRoofTypeChangeYear"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isRoofTypeChange &amp;&amp;!viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoing &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvOtherBuilding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgAnyRoofTypeChange">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etAnyRoofTypeChangeYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_roof_type_change_year"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.yearOfRoofTypeChange}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnAnyRoofTypeChangeYearInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isRoofTypeChange &amp;&amp; !viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoing &amp;&amp;!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutAnyRoofTypeChangeYear"
+                    app:layout_constraintEnd_toEndOf="@id/layoutAnyRoofTypeChangeYear"
+                    app:layout_constraintTop_toTopOf="@id/layoutAnyRoofTypeChangeYear"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutAnyRoofTypeChangeYear"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <TextView
+                    android:id="@+id/tvOtherBuilding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:text="@string/building_other"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgOtherBuilding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutAnyRoofTypeChangeYear"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgOtherBuilding"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding&amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutOtherBuildingDetails"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOtherBuilding"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbOtherBuildingYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbOtherBuildingNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutOtherBuildingDetails"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isOtherBuilding &amp;&amp; !viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/textViewARFloorDetails"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgOtherBuilding"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etOtherBuildingDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_other_property_details"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.otherBuildingDetails}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnOtherBuildingDetailsInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.isOtherBuilding &amp;&amp; !viewModel.doorStatusNC &amp;&amp;!viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutOtherBuildingDetails"
+                    app:layout_constraintEnd_toEndOf="@id/layoutOtherBuildingDetails"
+                    app:layout_constraintTop_toTopOf="@id/layoutOtherBuildingDetails"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutOtherBuildingDetails"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewARFloorDetails"
+                    android:text="@{viewModel.arFloorDetails}"
+                    style="@style/AppCommonARHint"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    app:layout_constraintBottom_toTopOf="@id/txtFloorType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; viewModel.isARFloorDetailsVisible? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/layoutOtherBuildingDetails"/>
+
+
+                <TextView
+                    android:id="@+id/txtFloorType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:text="@string/building_floor_type"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL  &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/rvFloorType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewARFloorDetails"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvFloorType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    app:adapter="@{viewModel.floorTypeData}"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvHigherFloorType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtFloorType"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+
+
+                <TextView
+                    android:id="@+id/tvHigherFloorType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_txt_medium"
+                    android:text="@string/building_floor_type_250_sqft"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp; !viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; viewModel.isHigherFloorTypeIsVisible   ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintBottom_toTopOf="@id/rgHigherFloorType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvFloorType"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <RadioGroup
+                    android:id="@+id/rgHigherFloorType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL &amp;&amp;!viewModel.doorStatusNC &amp;&amp; !viewModel.buildingStatusOnGoingWithoutRoof  &amp;&amp; viewModel.isHigherFloorTypeIsVisible  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/txtWallType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvHigherFloorType"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbHigherFloorTypeYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbHigherFloorTypeNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/txtWallType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:text="@string/building_wall_type"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL ? View.VISIBLE : View.GONE}"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/rvWallType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgHigherFloorType"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvWallType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    app:adapter="@{viewModel.wallTypeData}"
+                    android:visibility="@{!viewModel.doorStatusPDCDCGL ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/textViewARRoofDetails"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtWallType"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_multi_selection" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewARRoofDetails"
+                    android:text="@{viewModel.arRoofDetails}"
+                    style="@style/AppCommonARHint"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    app:layout_constraintBottom_toTopOf="@id/layoutRoofTotalPercent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof &amp;&amp; viewModel.isARRoofDetailsVisible ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/rvWallType"/>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutRoofTotalPercent"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutNoOfRoof"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewARRoofDetails"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etRoofTotalPercent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/building_roof_total_percent"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.roofTotal}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnRoofTotalPercentInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/layoutRoofTotalPercent"
+                    app:layout_constraintEnd_toEndOf="@id/layoutRoofTotalPercent"
+                    app:layout_constraintTop_toTopOf="@id/layoutRoofTotalPercent"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutRoofTotalPercent"
+                    app:layout_constraintVertical_bias=".5"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:layout_marginStart="@dimen/std_space_medium"
+                    android:layout_marginEnd="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutNoOfRoof"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvRoofType"
+                    app:layout_constraintEnd_toStartOf="@id/btnNoOfRoofRemove"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutRoofTotalPercent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etNoOfRoof"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="@string/building_no_of_roof_type"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.noOfRoof}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNoOfRoofTypeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/layoutNoOfRoof"
+                    app:layout_constraintEnd_toEndOf="@id/layoutNoOfRoof"
+                    app:layout_constraintTop_toTopOf="@id/layoutNoOfRoof"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutNoOfRoof"
+                    app:layout_constraintVertical_bias=".5"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:srcCompat="@drawable/ic_info"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNoOfRoofRemove"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.removeRoofTypeOnClick()}"
+                    android:padding="@dimen/std_space_medium"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutNoOfRoof"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    app:layout_constraintEnd_toStartOf="@id/btnNoOfRoofAdd"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutNoOfRoof"
+                    app:srcCompat="@drawable/ic_remove_minus" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNoOfRoofAdd"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.addRoofTypeOnClick()}"
+                    android:padding="@dimen/std_space_medium"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutNoOfRoof"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutNoOfRoof"
+                    app:srcCompat="@drawable/ic_add_plus" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRoofType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:adapter="@{viewModel.rootTypeData}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="@{!viewModel.buildingStatusOnGoingWithoutRoof ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutNoOfRoof"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutBtnContainer"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPartialSave"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnPartialSaveButtonColor"
+                android:onClick="@{()->viewModel.onPartialSaveClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_partial_save_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:background="@color/cmnNextButtonColor"
+                android:onClick="@{()->viewModel.onNextClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_next_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx"
+                app:layout_constraintVertical_bias="1" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</layout>

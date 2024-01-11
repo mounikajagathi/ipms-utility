@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.utility.highmastlight.HighMastLightViewModel" />
+    </data>
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvHighMaskDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutBtnContainer"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/standard_spacing_medium">
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/flow_utility"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:constraint_referenced_ids="layoutHighMastLocation,layoutHighMastAddress,layoutHighMastFundedBy,layoutHighMastLightType,layoutHighMastLightHeight,layoutHighMastNoOfBulb,layoutHighMastWorkingStatus,layoutHighMastVendor,layoutHighMastExpiryDate,layoutRemarks,layoutHighMastImage,imgHighMast"
+                app:flow_verticalStyle="packed"
+                app:flow_verticalGap="@dimen/standard_spacing_mini"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutHighMastLocation"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etHighMastLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/high_mast_details_location"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutHighMastAddress"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etHighMastAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/high_mast_details_address"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutHighMastFundedBy"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etHighMastFundedBy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/high_mast_details_funded_by"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutHighMastLightType"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srHighMastLightType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/high_mast_details_light_type"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium"
+                    app:adapter="@{viewModel.highMastLightTypeList}">
+
+                </in.ults.gisurvey.utils.IPMSSpinner>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutHighMastLightHeight"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etHighMastLightHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/high_mast_details_height"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutHighMastNoOfBulb"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etHighMastNoOfBulb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/high_mast_details_No_of_bulbs"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutHighMastWorkingStatus"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSSpinner
+                    android:id="@+id/srHighMastLightWorkingStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/high_mast_details_working_status"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium"
+                    app:adapter="@{viewModel.highMastLightWorkingStatusList}">
+
+                </in.ults.gisurvey.utils.IPMSSpinner>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutHighMastVendor"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etHighMastLightVendor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/high_mast_details_vendor"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutHighMastExpiryDate"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etHighMastExpiryDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/high_mast_details_expire_date"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRemarks"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.gisurvey.utils.IPMSEditText
+                    android:id="@+id/etRemarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="top"
+                    android:hint="@string/high_mast_details_remarks"
+                    android:inputType="textMultiLine"
+                    android:maxLength="100"
+                    android:minHeight="@dimen/standard_edt_txt_height_max"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.gisurvey.utils.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/layoutHighMastImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/high_mast_details_photo_1"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/standard_text_size_medium"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgHighMast"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/standard_image_height_large"
+                
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_property_image"/>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutHighMastLocationInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutHighMastLocation"
+                app:layout_constraintEnd_toEndOf="@id/layoutHighMastLocation"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutHighMastLocation"
+                app:layout_constraintTop_toTopOf="@id/layoutHighMastLocation"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutHighMastAddressInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutHighMastAddress"
+                app:layout_constraintEnd_toEndOf="@id/layoutHighMastAddress"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutHighMastAddress"
+                app:layout_constraintTop_toTopOf="@id/layoutHighMastAddress"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutHighMastFundedByInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutHighMastFundedBy"
+                app:layout_constraintEnd_toEndOf="@id/layoutHighMastFundedBy"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutHighMastFundedBy"
+                app:layout_constraintTop_toTopOf="@id/layoutHighMastFundedBy"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutHighMastLightTypeInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutHighMastLightType"
+                app:layout_constraintEnd_toEndOf="@id/layoutHighMastLightType"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutHighMastLightType"
+                app:layout_constraintTop_toTopOf="@id/layoutHighMastLightType"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutHighMastLightHeightInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutHighMastLightHeight"
+                app:layout_constraintEnd_toEndOf="@id/layoutHighMastLightHeight"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutHighMastLightHeight"
+                app:layout_constraintTop_toTopOf="@id/layoutHighMastLightHeight"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutHighMastNoOfBulbInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutHighMastNoOfBulb"
+                app:layout_constraintEnd_toEndOf="@id/layoutHighMastNoOfBulb"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutHighMastNoOfBulb"
+                app:layout_constraintTop_toTopOf="@id/layoutHighMastNoOfBulb"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutHighMastVendorInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutHighMastVendor"
+                app:layout_constraintEnd_toEndOf="@id/layoutHighMastVendor"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutHighMastVendor"
+                app:layout_constraintTop_toTopOf="@id/layoutHighMastVendor"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutHighMastWorkingStatusInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutHighMastWorkingStatus"
+                app:layout_constraintEnd_toEndOf="@id/layoutHighMastWorkingStatus"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutHighMastWorkingStatus"
+                app:layout_constraintTop_toTopOf="@id/layoutHighMastWorkingStatus"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutHighMastExpiryDateInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutHighMastExpiryDate"
+                app:layout_constraintEnd_toEndOf="@id/layoutHighMastExpiryDate"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutHighMastExpiryDate"
+                app:layout_constraintTop_toTopOf="@id/layoutHighMastExpiryDate"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/layoutRemarksInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/std_space_medium"
+                app:layout_constraintBottom_toBottomOf="@id/layoutRemarks"
+                app:layout_constraintEnd_toEndOf="@id/layoutRemarks"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/layoutRemarks"
+                app:layout_constraintTop_toTopOf="@id/layoutRemarks"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info"  />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutBtnContainer"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnPartialSave"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:background="@color/cmnPartialSaveButtonColor"
+            android:onClick="@{()->viewModel.onPartialSaveClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_partial_save_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            />
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()->viewModel.onNextClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
+</layout>

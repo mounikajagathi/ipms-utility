@@ -1,0 +1,166 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.auth.login.LoginActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.auth.login.LoginViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:padding="@dimen/std_space_medium">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgLoginLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="@dimen/std_space_medium"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintBottom_toTopOf="@id/txtAppName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+        <TextView
+            android:id="@+id/txtAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_small"
+            android:layout_marginBottom="@dimen/std_space_medium"
+            android:text="@string/app_title"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_large"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/txtTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgLoginLogo"
+            app:layout_constraintVertical_chainStyle="packed" />
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_small"
+            android:layout_marginBottom="@dimen/std_space_medium"
+            android:text="@string/login_title"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium_xx"
+            app:layout_constraintBottom_toTopOf="@id/layoutUserName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtAppName"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutUserName"
+            style="@style/AppCommonTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_small"
+            android:layout_marginStart="@dimen/std_space_medium"
+            android:layout_marginEnd="@dimen/std_space_medium"
+            app:layout_constraintBottom_toTopOf="@id/layoutPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_username"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:minHeight="@dimen/std_edt_txt_height_medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPassword"
+            style="@style/AppCommonTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_medium"
+            android:layout_marginStart="@dimen/std_space_medium"
+            android:layout_marginEnd="@dimen/std_space_medium"
+            app:layout_constraintBottom_toTopOf="@id/txtForgotPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutUserName"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:minHeight="@dimen/std_edt_txt_height_medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/txtForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_max"
+            android:text="@string/login_forgot_password"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/std_txt_medium_x"
+            android:onClick="@{() -> viewModel.onForgotPasswordClick()}"
+            app:layout_constraintBottom_toTopOf="@id/btnLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutPassword"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_max"
+            android:layout_marginStart="@dimen/std_space_medium"
+            android:layout_marginEnd="@dimen/std_space_medium"
+            android:layout_marginBottom="@dimen/std_space_medium"
+            android:onClick="@{() -> viewModel.onLoginClick()}"
+            android:paddingStart="@dimen/std_space_large"
+            android:paddingTop="@dimen/std_space_medium"
+            android:paddingEnd="@dimen/std_space_large"
+            android:paddingBottom="@dimen/std_space_medium"
+            android:text="@string/login_login"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium"
+            app:backgroundTint="@color/cmnNextButtonColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtForgotPassword"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

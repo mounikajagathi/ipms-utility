@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.startsurvey.StartSurveyViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cmnPageBgColor"
+        android:orientation="vertical">
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutQFieldId1"
+            style="@style/AppCommonTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_small"
+            android:layout_marginStart="@dimen/std_space_small"
+            android:layout_marginEnd="@dimen/std_space_small"
+            android:layout_marginBottom="@dimen/std_space_small"
+            android:alpha="0.5"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toStartOf="@id/layoutQFieldId2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <in.ults.gisurvey.utils.IPMSEditText
+                android:id="@+id/etQFieldId1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/map_q_field_id1"
+                android:inputType="text"
+                android:enabled="false"
+                android:textAllCaps="true"
+                android:maxLines="1"
+                android:minHeight="@dimen/std_edt_txt_height_medium"
+                android:text="@{viewModel.localBodyCode}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutQFieldId2"
+            style="@style/AppCommonTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/std_space_small"
+              android:layout_marginStart="@dimen/std_space_small"
+              android:layout_marginEnd="@dimen/std_space_small"
+              android:layout_marginBottom="@dimen/std_space_small"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toStartOf="@id/layoutQFieldId3"
+            app:layout_constraintStart_toEndOf="@id/layoutQFieldId1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <in.ults.gisurvey.utils.IPMSEditText
+                android:id="@+id/etQFieldId2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/map_q_field_id2"
+                android:inputType="number"
+                android:textAllCaps="true"
+                android:maxLines="1"
+                android:minHeight="@dimen/std_edt_txt_height_medium"
+                android:text="@{viewModel.wardNumber}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutQFieldId3"
+            style="@style/AppCommonTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_space_small"
+            android:layout_marginStart="@dimen/std_space_small"
+            android:layout_marginEnd="@dimen/std_space_mini"
+            android:layout_marginBottom="@dimen/std_space_small"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/layoutQFieldId2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <in.ults.gisurvey.utils.IPMSEditText
+                android:id="@+id/etQFieldId3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/map_q_field_id3"
+                android:inputType="number"
+                android:textAllCaps="true"
+                android:maxLines="1"
+                android:minHeight="@dimen/std_edt_txt_height_medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/std_txt_medium" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnBuildingIdInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/layoutQFieldId3"
+            app:layout_constraintEnd_toEndOf="@id/layoutQFieldId3"
+            app:layout_constraintTop_toTopOf="@id/layoutQFieldId3"
+            app:layout_constraintBottom_toBottomOf="@id/layoutQFieldId3"
+            app:layout_constraintVertical_bias=".5"
+            android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+            android:padding="@dimen/std_space_medium"
+            app:layout_constraintHorizontal_bias="1"
+            app:srcCompat="@drawable/ic_info"/>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:onClick="@{()-> viewModel.onNextClick()}"
+            app:layout_constraintVertical_bias="1"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            android:background="@color/cmnNextButtonColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:id="@+id/layoutContainer"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutVehicleType"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginEnd="@dimen/std_space_small"
+        android:layout_marginBottom="@dimen/std_space_mini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/glCentre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etVehicleType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/more_vehicle_type"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnVehicleTypeInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+        app:layout_constraintBottom_toBottomOf="@id/layoutVehicleType"
+        app:layout_constraintEnd_toEndOf="@id/layoutVehicleType"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutVehicleType"
+        app:layout_constraintTop_toTopOf="@id/layoutVehicleType"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glCentre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutVehicleUsage"
+        style="@style/AppCommonTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_small"
+        android:layout_marginTop="@dimen/std_space_mini"
+        android:layout_marginBottom="@dimen/std_space_mini"
+        app:layout_constraintBottom_toBottomOf="@id/layoutVehicleType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/glCentre"
+        app:layout_constraintTop_toTopOf="@id/layoutVehicleType">
+
+
+        <in.ults.gisurvey.utils.IPMSSpinner
+            android:id="@+id/etVehicleUsage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/more_vehicle_usage"
+            android:minHeight="@dimen/std_edt_txt_height_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnVehicleUsageInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/std_space_medium"
+        android:layout_marginEnd="@dimen/std_space_medium"
+        app:layout_constraintBottom_toBottomOf="@id/layoutVehicleUsage"
+        app:layout_constraintEnd_toEndOf="@id/layoutVehicleUsage"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="@id/layoutVehicleUsage"
+        app:layout_constraintTop_toTopOf="@id/layoutVehicleUsage"
+        app:layout_constraintVertical_bias=".5"
+        app:srcCompat="@drawable/ic_info" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

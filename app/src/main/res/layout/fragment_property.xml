@@ -1,0 +1,1702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()->viewModel.saveProperty()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btnNext"
+            android:layout_alignParentTop="true"
+            android:background="@color/cmnPageBgColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/layoutContainer"
+                android:padding="@dimen/std_space_medium">
+
+                <RadioGroup
+                    android:id="@+id/rgElectricity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutElectricityConsumerNumber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvElectricity"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbElectricityYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbElectricityNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbElectricityNr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_nr"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/rgLatrine"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable   &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutToiletWasteDisposal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLatrine"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbLatrineYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbLatrineNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbLatrineNr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_nr"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:visibility="@{viewModel.doorStatusPermanentDoorClosedGateLockedDoorClosed || viewModel.doorStatusNC ? View.VISIBLE : View.GONE}" />
+
+                </RadioGroup>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutToiletWasteDisposal"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; !viewModel.isSubTypeRelatedBuilding  &amp;&amp;  viewModel.isToiletAvailable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/textViewARAC"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgLatrine"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etToiletWasteDisposal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_toilet_waste_disposal"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.toiletWasteDisposal}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.toiletDisposalList}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnToiletWasteDisposalInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; !viewModel.doorStatusPermanentDoorClosedGateLockedDoorClosed &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; viewModel.isToiletAvailable  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutToiletWasteDisposal"
+                    app:layout_constraintEnd_toEndOf="@id/layoutToiletWasteDisposal"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutToiletWasteDisposal"
+                    app:layout_constraintTop_toTopOf="@id/layoutToiletWasteDisposal"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <RadioGroup
+                    android:id="@+id/rgAirConditioner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:layout_marginBottom="@dimen/std_space_small"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; !viewModel.doorStatusPermanentDoorClosedGateLockedDoorClosed  &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof  &amp;&amp; !viewModel.isSubTypeRelatedBuilding ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvLandMark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAirConditioner"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbAirConditionerCentralised"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/building_centralised_ac"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbAirConditionerSplit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/std_space_small"
+                        android:layout_marginBottom="@dimen/std_space_small"
+                        android:text="@string/building_split_ac"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbAirConditionerNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbACNr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/std_space_small"
+                        android:text="@string/cmn_nr"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:visibility="@{viewModel.doorStatusNC ? View.VISIBLE : View.GONE}" />
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/tvLandMark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:text="@string/property_land_mark"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof  &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgLandMark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgAirConditioner"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <RadioGroup
+                    android:id="@+id/rgLandMark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof  &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutLandmarkName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLandMark"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbLandMarkYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbLandMarkNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutLandmarkName"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isPointStatusLandmark  &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof  &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutLandmarkCategory"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgLandMark"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etLandmarkName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_land_mark_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.landmarkName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutLandmarkCategory"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusLandmark || (viewModel.isLandmarkCategory &amp;&amp; !viewModel.isBuildStatusDemolishedUnusableOnGoing  &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof  &amp;&amp; !viewModel.isSubTypeRelatedBuilding) ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutLandmarkSubCategory"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutLandmarkName"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etLandmarkCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_land_mark_category"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.landmarkCategory}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.landmarkCategoryData}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutLandmarkSubCategory"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusLandmark || (viewModel.isLandmarkCategory &amp;&amp; !viewModel.isBuildStatusDemolishedUnusableOnGoing  &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof  &amp;&amp; !viewModel.isSubTypeRelatedBuilding) ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutOwnershipEducational"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutLandmarkCategory"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etLandmarkSubCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_land_mark_sub_category"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.landmarkSubCategory}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.landmarkSubCategoryData}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutSurveyType"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isPointStatusBuilding ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/txtBuildingStatus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etSurveyType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_survey_type"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.surveyType}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.surveyTypeList}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnSurveyTypeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutSurveyType"
+                    app:layout_constraintEnd_toEndOf="@id/layoutSurveyType"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutSurveyType"
+                    app:layout_constraintTop_toTopOf="@id/layoutSurveyType"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <TextView
+                    android:id="@+id/txtBuildingStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/property_building_status"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvBuildingStatus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutSurveyType"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/txtDoorStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/property_door_status"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvDoorStatus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvBuildingStatus"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <TextView
+                    android:id="@+id/txtBuildingUnder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/property_building_under"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvBuildingUnder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvDoorStatus"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <TextView
+                    android:id="@+id/txtBuildingType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/property_building_type"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvBuildingType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvBuildingUnder"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/txtBuildingSubType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/property_building_sub_type"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isBuildingTypeAvailable &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rvBuildingSubType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvBuildingType"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <TextView
+                    android:id="@+id/tvElectricity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_txt_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/building_electricity"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgElectricity"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgMainBuilding"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <TextView
+                    android:id="@+id/tvLatrine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_txt_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/building_latrine"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable   &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgLatrine"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgBathroom"
+                    app:layout_constraintVertical_chainStyle="packed" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewARAC"
+                    android:text="@{viewModel.ar_ac_hint}"
+                    style="@style/AppCommonARHint"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    app:layout_constraintBottom_toTopOf="@id/tvAirConditioner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; !viewModel.doorStatusPermanentDoorClosedGateLockedDoorClosed  &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; viewModel.isARACVisible? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/layoutToiletWasteDisposal"/>
+
+
+                <TextView
+                    android:id="@+id/tvAirConditioner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_txt_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/building_air_conditioner"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; !viewModel.doorStatusPermanentDoorClosedGateLockedDoorClosed &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof   &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgAirConditioner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewARAC"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBuildingStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding ? View.VISIBLE : View.GONE}"
+                    app:adapter="@{viewModel.buildingStatusData}"
+                    app:layout_constraintBottom_toTopOf="@id/txtDoorStatus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtBuildingStatus"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_single_selection" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDoorStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:adapter="@{viewModel.doorStatusData}"
+                    app:layout_constraintBottom_toTopOf="@id/txtBuildingUnder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtDoorStatus"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_single_selection" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBuildingUnder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:adapter="@{viewModel.buildingUnderData}"
+                    app:layout_constraintBottom_toTopOf="@id/txtBuildingType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtBuildingUnder"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_single_selection" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBuildingType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable   ? View.VISIBLE : View.GONE}"
+                    app:adapter="@{viewModel.buildingTypeData}"
+                    app:layout_constraintBottom_toTopOf="@id/txtBuildingSubType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtBuildingType"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_single_selection" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBuildingSubType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isBuildingTypeAvailable &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  ? View.VISIBLE : View.GONE}"
+                    app:adapter="@{viewModel.buildingSubTypeData}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutEstablishmentUsage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtBuildingSubType"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:listitem="@layout/item_common_flex_single_selection" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEstablishmentUsage"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isBuildingSubTypeAvailable &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/textViewARBuildingUsage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvBuildingSubType"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSAutoCompleteEditText
+                        android:id="@+id/etEstablishmentUsage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_establishment_usage"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:paddingStart="@dimen/std_space_normal"
+                        android:paddingEnd="@dimen/std_space_normal"
+                        android:text="@{viewModel.establishmentUsage}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.establishmentUsageList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewARBuildingUsage"
+                    android:text="@{viewModel.ar_building_usage_hint}"
+                    style="@style/AppCommonARHint"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    app:layout_constraintBottom_toTopOf="@id/tvBuildingUsage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; viewModel.isARBuildingUsageVisible? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/layoutEstablishmentUsage"/>
+
+
+                <TextView
+                    android:id="@+id/tvBuildingUsage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_txt_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/building_usage"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgBuildingUsage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewARBuildingUsage"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <RadioGroup
+                    android:id="@+id/rgBuildingUsage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.isPointStatusBuilding  &amp;&amp; !viewModel.isSubTypeRelatedBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvMainBuilding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvBuildingUsage"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbrgBuildingOwned"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/building_usage_owned"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbrgBuildingRented"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/building_usage_rented"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/tvMainBuilding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_txt_medium"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/property_main_building"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; viewModel.isBuildingTypeEducational ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgMainBuilding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgBuildingUsage"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <RadioGroup
+                    android:id="@+id/rgMainBuilding"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; viewModel.isBuildingTypeEducational ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvElectricity"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvMainBuilding"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbrgMainBuildingYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbrgMainBuildingNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutElectricityConsumerNumber"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.isElectricityAvailable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvBathroom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgElectricity"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etElectricityConsumerNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_consumer_number"
+                        android:inputType="text"
+                        android:maxLength="13"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.consumerNumber}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnConsumerNoInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.isElectricityAvailable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutElectricityConsumerNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutElectricityConsumerNumber"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutElectricityConsumerNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutElectricityConsumerNumber"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrElectricityConsumerNumber"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable &amp;&amp; viewModel.isElectricityAvailable &amp;&amp; !viewModel.isTeleCall ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutElectricityConsumerNumber"
+                    app:layout_constraintEnd_toEndOf="@id/layoutElectricityConsumerNumber"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutElectricityConsumerNumber"
+                    app:layout_constraintTop_toTopOf="@id/layoutElectricityConsumerNumber"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <TextView
+                    android:id="@+id/tvBathroom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:drawableEnd="@drawable/ic_info"
+                    android:drawablePadding="@dimen/std_space_mini"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:text="@string/live_hood_bathroom"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/std_txt_medium_x"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.isPointStatusBuilding  &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable   &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/rgBathroom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutElectricityConsumerNumber"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <RadioGroup
+                    android:id="@+id/rgBathroom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_small"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable   &amp;&amp; !viewModel.isSubTypeRelatedBuilding? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/tvLatrine"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvBathroom"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <RadioButton
+                        android:id="@+id/rbBathroomYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/std_space_small"
+                        android:text="@string/cmn_yes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbBathroomNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_no"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                    <RadioButton
+                        android:id="@+id/rbBathroomNr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/std_space_small"
+                        android:text="@string/cmn_nr"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        android:visibility="@{viewModel.doorStatusPermanentDoorClosedGateLockedDoorClosed||viewModel.doorStatusNC  ? View.VISIBLE : View.GONE}" />
+
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutOwnershipEducational"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; viewModel.isBuildingUnderStateGov &amp;&amp; viewModel.isBuildingTypeEducational  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutDroneId"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutLandmarkSubCategory"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etOwnershipEducational"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_ownership_education"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.ownershipEducational}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.ownershipEducationList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnOwnershipEduInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp; viewModel.isBuildingUnderStateGov &amp;&amp; viewModel.isBuildingTypeEducational  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutOwnershipEducational"
+                    app:layout_constraintEnd_toEndOf="@id/layoutOwnershipEducational"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutOwnershipEducational"
+                    app:layout_constraintTop_toTopOf="@id/layoutOwnershipEducational"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nrOwnershipEducational"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                    android:padding="@dimen/std_space_small"
+                    android:scaleType="fitXY"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusDemolishedUnusable  &amp;&amp;  viewModel.isBuildingUnderStateGov &amp;&amp; viewModel.isBuildingTypeEducational  ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutOwnershipEducational"
+                    app:layout_constraintEnd_toEndOf="@id/layoutOwnershipEducational"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutOwnershipEducational"
+                    app:layout_constraintTop_toTopOf="@id/layoutOwnershipEducational"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:srcCompat="@drawable/ic_no_data" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutDroneId"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:paddingStart="@dimen/zero_dp"
+                    android:paddingEnd="@dimen/std_edt_txt_height_medium"
+                    app:layout_constraintBottom_toTopOf="@id/layoutIds"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutOwnershipEducational"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etDroneId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_drone_id"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.droneId}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnDroneIdInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutDroneId"
+                    app:layout_constraintEnd_toEndOf="@id/layoutDroneId"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutDroneId"
+                    app:layout_constraintTop_toTopOf="@id/layoutDroneId"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/nearDroneId"
+                    android:layout_width="@dimen/std_edt_txt_height_medium"
+                    android:layout_height="@dimen/std_edt_txt_height_medium"
+                    android:onClick="@{(v)->viewModel.onNearClick(v)}"
+                    android:padding="@dimen/std_space_mini"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutDroneId"
+                    app:layout_constraintEnd_toEndOf="@id/layoutDroneId"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutDroneId"
+                    app:layout_constraintTop_toTopOf="@id/layoutDroneId"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:srcCompat="@drawable/ic_near_icon" />
+
+
+                <LinearLayout
+                    android:id="@+id/layoutIds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@id/layoutUId"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutDroneId">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/std_space_medium"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txtNewPropertyId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/std_space_mini"
+                            android:drawableEnd="@drawable/ic_info"
+                            android:drawablePadding="@dimen/std_space_medium"
+                            android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                            android:text="@string/property_new_property_id"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/std_txt_medium_x"
+                            android:textStyle="bold"
+                            android:visibility="@{viewModel.isPointStatusBuilding ? View.VISIBLE : View.GONE}" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textviewNewPropertyCheck"
+                            android:textColor="@color/checkButtonColor"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:drawableRight="@drawable/ic_check"
+                            android:drawablePadding="@dimen/std_space_micro"
+                            android:padding="@dimen/std_space_micro"
+                            android:visibility="@{viewModel.isCheckVisible &amp;&amp; viewModel.isPointStatusBuilding? View.VISIBLE : View.GONE}"
+                            android:textStyle="bold"
+                            android:onClick="@{(v)->viewModel.onCheckClick(v)}"
+                            android:text="@string/cmn_check_btn_title" />
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.isPointStatusBuilding ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/layoutNewPropertyId1"
+                                style="@style/AppCommonTextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/std_space_small"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:layout_marginEnd="@dimen/std_space_small"
+                                android:layout_marginBottom="@dimen/std_space_small"
+                                android:alpha="0.5">
+
+                                <in.ults.gisurvey.utils.IPMSEditText
+                                    android:id="@+id/etNewPropertyId1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:enabled="false"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                                    android:text="@{viewModel.newPropertyID1}"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/std_txt_medium" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/btnNearNewProperty"
+                                android:layout_width="@dimen/std_edt_txt_height_medium"
+                                android:layout_height="@dimen/std_edt_txt_height_medium"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/std_space_micro"
+                                android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                                android:padding="@dimen/std_space_medium"
+                                app:layout_constraintHorizontal_bias="1"
+                                app:srcCompat="@drawable/ic_near_icon" />
+                        </RelativeLayout>
+
+                        <FrameLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/layoutNewPropertyId2"
+                                style="@style/AppCommonTextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/std_space_small"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:layout_marginEnd="@dimen/std_space_small"
+                                android:layout_marginBottom="@dimen/std_space_small"
+                                android:alpha="0.5">
+
+                                <in.ults.gisurvey.utils.IPMSEditText
+                                    android:id="@+id/etNewPropertyId2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:enabled="false"
+                                    android:hint="@string/property_new_property_id2"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                                    android:text="@{viewModel.newPropertyID2}"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/std_txt_medium" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.isPointStatusBuilding ? View.VISIBLE : View.GONE}">
+
+                        <FrameLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/layoutNewPropertyId3"
+                                style="@style/AppCommonTextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/std_space_small"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:layout_marginEnd="@dimen/std_space_small"
+                                android:layout_marginBottom="@dimen/std_space_small">
+
+                                <in.ults.gisurvey.utils.IPMSEditText
+                                    android:id="@+id/etNewPropertyId3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/property_new_property_id3"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                                    android:text="@{viewModel.newPropertyID3}"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/std_txt_medium" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </FrameLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/layoutNewPropertyId4"
+                                style="@style/AppCommonTextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/std_space_small"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:layout_marginEnd="@dimen/std_space_small"
+                                android:layout_marginBottom="@dimen/std_space_small">
+
+                                <in.ults.gisurvey.utils.IPMSEditText
+                                    android:id="@+id/etNewPropertyId4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/property_new_property_id4"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                                    android:text="@{viewModel.newPropertyID4}"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/std_txt_medium" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/btnNaNewProprty4"
+                                android:layout_width="@dimen/std_edt_txt_multi_line_h_min_small"
+                                android:layout_height="@dimen/std_edt_txt_multi_line_h_min_small"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/std_space_micro"
+                                android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                                android:padding="@dimen/std_space_medium"
+                                app:layout_constraintHorizontal_bias="1"
+                                app:srcCompat="@drawable/ic_no_data" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/std_space_medium"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/txtOldPropertyId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/std_space_mini"
+                            android:layout_marginTop="@dimen/std_space_medium"
+                            android:drawablePadding="@dimen/std_space_medium"
+                            android:text="@string/property_old_property_id"
+                            android:layout_centerVertical="true"
+                            android:textAlignment="viewStart"
+                            android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusOnGoing &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof  ? View.VISIBLE : View.GONE}"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/std_txt_medium_x"
+                            android:textStyle="bold" />
+<!--                        android:visibility="@{viewModel.isOldPropIdEnabled &amp;&amp; viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusOnGoing &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof  ? View.VISIBLE : View.GONE}"-->
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textviewOldPropertyCheck"
+                            android:textColor="@color/checkButtonColor"
+                            android:textSize="@dimen/std_txt_medium"
+                            android:drawableRight="@drawable/ic_check"
+                            android:drawablePadding="@dimen/std_space_micro"
+                            android:padding="@dimen/std_space_micro"
+                            android:visibility="@{viewModel.isWidgetVisible  ? View.VISIBLE : View.GONE}"
+
+                            android:textStyle="bold"
+                            android:onClick="@{(v)->viewModel.onCheckClick(v)}"
+                            android:text="@string/cmn_check_btn_title" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layoutOldPropertyIdvalues"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; !viewModel.isBuildStatusOnGoing &amp;&amp; !viewModel.isPropertyStatusOngoingWithoutRoof ? View.VISIBLE : View.GONE}">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/std_edt_txt_height_medium"
+                            android:orientation="horizontal">
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".1">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/layoutOldropertyId1"
+                                    style="@style/AppCommonTextInputLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/std_space_small"
+                                    android:layout_marginTop="@dimen/std_space_small"
+                                    android:layout_marginEnd="@dimen/std_space_small"
+                                    android:layout_marginBottom="@dimen/std_space_small"
+                                    android:alpha="0.5">
+
+                                    <in.ults.gisurvey.utils.IPMSEditText
+                                        android:id="@+id/etOldPropertyId1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="@string/property_new_property_id2"
+                                        android:inputType="number"
+                                        android:maxLines="1"
+                                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                                        android:enabled="false"
+                                        android:text="@{viewModel.oldPropertyID1}"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/std_txt_medium" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".1">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/layoutOldPropertyId2"
+                                    style="@style/AppCommonTextInputLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/std_space_small"
+                                    android:layout_marginTop="@dimen/std_space_small"
+                                    android:layout_marginEnd="@dimen/std_space_small"
+                                    android:alpha="0.5"
+                                    android:layout_marginBottom="@dimen/std_space_small">
+
+                                    <in.ults.gisurvey.utils.IPMSEditText
+                                        android:id="@+id/etOldPropertyId2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="@string/property_new_property_id3"
+                                        android:inputType="number"
+                                        android:maxLines="1"
+                                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                                        android:enabled="false"
+                                        android:text="@{viewModel.oldPropertyID2}"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/std_txt_medium" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </FrameLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".1">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/layoutOldPropertyId3"
+                                    style="@style/AppCommonTextInputLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/std_space_small"
+                                    android:layout_marginTop="@dimen/std_space_small"
+                                    android:layout_marginEnd="@dimen/std_space_small"
+                                    android:layout_marginBottom="@dimen/std_space_small"
+                                    android:alpha="0.5">
+
+                                    <in.ults.gisurvey.utils.IPMSEditText
+                                        android:id="@+id/etOldPropertyId3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="@string/property_new_property_id4"
+                                        android:inputType="text"
+                                        android:maxLines="1"
+                                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                                        android:enabled="false"
+                                        android:text="@{viewModel.oldPropertyID3}"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/std_txt_medium" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/btnNaOldProprty3"
+                                    android:layout_width="@dimen/std_edt_txt_multi_line_h_min_small"
+                                    android:layout_height="@dimen/std_edt_txt_multi_line_h_min_small"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="@dimen/std_space_micro"
+                                    android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                                    android:padding="@dimen/std_space_medium"
+                                    app:layout_constraintHorizontal_bias="1"
+                                    app:srcCompat="@drawable/ic_no_data" />
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/nrOldPropertyIdValue"
+                            android:layout_width="@dimen/std_edt_txt_height_medium"
+                            android:layout_height="@dimen/std_edt_txt_height_medium"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                            android:padding="@dimen/std_space_small"
+                            android:scaleType="fitXY"
+                            app:srcCompat="@drawable/ic_no_data" />
+
+                    </RelativeLayout>
+
+
+
+
+                    <TextView
+                        android:id="@+id/txtNearPropertyId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/std_space_mini"
+                        android:layout_marginTop="@dimen/std_space_medium"
+                        android:drawablePadding="@dimen/std_space_medium"
+                        android:text="@string/property_near_property_number"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium_x"
+                        android:textStyle="bold"
+                        android:visibility="@{viewModel.isPointStatusUnwanted ? View.VISIBLE : View.GONE}" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.isPointStatusUnwanted ? View.VISIBLE : View.GONE}">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/layoutNearPropertyId1"
+                                style="@style/AppCommonTextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/std_space_small"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:layout_marginEnd="@dimen/std_space_small"
+                                android:layout_marginBottom="@dimen/std_space_small"
+                                android:alpha="0.5">
+
+                                <in.ults.gisurvey.utils.IPMSEditText
+                                    android:id="@+id/etNearPropertyId1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:enabled="false"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                                    android:text="@{viewModel.nearPropertyID1}"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/std_txt_medium" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/btnNearNearPropertyNo"
+                                android:layout_width="@dimen/std_edt_txt_height_medium"
+                                android:layout_height="@dimen/std_edt_txt_height_medium"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/std_space_micro"
+                                android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                                android:padding="@dimen/std_space_medium"
+                                app:layout_constraintHorizontal_bias="1"
+                                app:srcCompat="@drawable/ic_near_icon" />
+                        </RelativeLayout>
+
+                        <FrameLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/layoutNearPropertyId2"
+                                style="@style/AppCommonTextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/std_space_small"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:layout_marginEnd="@dimen/std_space_small"
+                                android:layout_marginBottom="@dimen/std_space_small"
+                                android:alpha="0.5">
+
+                                <in.ults.gisurvey.utils.IPMSEditText
+                                    android:id="@+id/etNearPropertyId2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:enabled="false"
+                                    android:hint="@string/property_new_property_id2"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                                    android:text="@{viewModel.nearPropertyID2}"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/std_txt_medium" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.isPointStatusUnwanted ? View.VISIBLE : View.GONE}">
+
+                        <FrameLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/layoutNearPropertyId3"
+                                style="@style/AppCommonTextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/std_space_small"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:layout_marginEnd="@dimen/std_space_small"
+                                android:layout_marginBottom="@dimen/std_space_small">
+
+                                <in.ults.gisurvey.utils.IPMSEditText
+                                    android:id="@+id/etNearPropertyId3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/property_new_property_id3"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                                    android:text="@{viewModel.nearPropertyID3}"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/std_txt_medium" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </FrameLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/layoutNearPropertyId4"
+                                style="@style/AppCommonTextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/std_space_small"
+                                android:layout_marginTop="@dimen/std_space_small"
+                                android:layout_marginEnd="@dimen/std_space_small"
+                                android:layout_marginBottom="@dimen/std_space_small">
+
+                                <in.ults.gisurvey.utils.IPMSEditText
+                                    android:id="@+id/etNearPropertyId4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/property_new_property_id4"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:minHeight="@dimen/std_edt_txt_height_medium"
+                                    android:text="@{viewModel.nearPropertyID4}"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/std_txt_medium" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/btnNaNearProprty4"
+                                android:layout_width="@dimen/std_edt_txt_multi_line_h_min_small"
+                                android:layout_height="@dimen/std_edt_txt_multi_line_h_min_small"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/std_space_micro"
+                                android:onClick="@{(v)->viewModel.onNRClick(v)}"
+                                android:padding="@dimen/std_space_medium"
+                                app:layout_constraintHorizontal_bias="1"
+                                app:srcCompat="@drawable/ic_no_data" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutUId"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:alpha="0.5"
+                    android:visibility="@{viewModel.isPointStatusBuilding  &amp;&amp; !viewModel.isSubTypeRelatedBuilding ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@id/layoutRemarks"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutIds"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etUId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="@string/property_u_id"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.uID}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutRemarks"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_space_mini"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; viewModel.isNewPropertyRemarkAvailable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutUId"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/etRemarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/property_remarks"
+                        android:minHeight="@dimen/std_edt_txt_height_medium"
+                        android:text="@{viewModel.remarks}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/std_txt_medium"
+                        app:adapter="@{viewModel.remarksList}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNewPropertyIdRemarksInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    android:padding="@dimen/std_space_medium"
+                    android:visibility="@{viewModel.isPointStatusBuilding &amp;&amp; viewModel.isNewPropertyRemarkAvailable ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutRemarks"
+                    app:layout_constraintEnd_toEndOf="@id/layoutRemarks"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutRemarks"
+                    app:layout_constraintTop_toTopOf="@id/layoutRemarks"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.property.PropertyViewModel" />
+    </data>
+
+
+</layout>

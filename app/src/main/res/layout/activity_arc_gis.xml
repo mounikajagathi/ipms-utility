@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.survey.arcgis.ArcGisViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.esri.arcgisruntime.mapping.view.MapView
+            android:id="@+id/mapView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnPreviousLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/btnCurrentLocation"
+            app:layout_constraintEnd_toEndOf="@id/mapView"
+            app:layout_constraintHorizontal_bias=".95"
+            app:layout_constraintStart_toStartOf="@id/mapView"
+            app:layout_constraintTop_toTopOf="@id/mapView"
+            app:layout_constraintVertical_bias=".9"
+            android:tint="@color/colorBlack"
+            app:backgroundTint="@color/colorWhite"
+            android:onClick="@{()->viewModel.previousLocationOnClick()}"
+            app:srcCompat="@drawable/ic_prevoius_location" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnCurrentLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/mapView"
+            app:layout_constraintEnd_toEndOf="@id/mapView"
+            app:layout_constraintHorizontal_bias=".95"
+            app:layout_constraintStart_toStartOf="@id/mapView"
+            app:layout_constraintTop_toTopOf="@id/btnPreviousLocation"
+            app:layout_constraintVertical_bias=".9"
+            android:tint="@color/colorBlack"
+            app:backgroundTint="@color/colorWhite"
+            android:onClick="@{()->viewModel.currentLocationOnClick()}"
+            app:srcCompat="@drawable/ic_current_location" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnColorDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/mapView"
+            app:layout_constraintEnd_toStartOf="@id/btnCurrentLocation"
+            app:layout_constraintHorizontal_bias=".95"
+            app:layout_constraintStart_toStartOf="@id/mapView"
+            app:layout_constraintTop_toTopOf="@id/btnPreviousLocation"
+            app:layout_constraintVertical_bias=".9"
+            android:tint="@color/colorBlack"
+            app:backgroundTint="@color/colorWhite"
+            android:onClick="@{()->viewModel.colourDetailsOnClick()}"
+            app:srcCompat="@drawable/ic_info" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cmnNextButtonColor"
+            android:onClick="@{()->viewModel.onNextClick()}"
+            android:padding="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_medium"
+            android:text="@string/cmn_next_button"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/std_txt_medium_xx"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mapView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

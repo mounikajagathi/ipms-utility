@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.utils.adapters.FlexRecycleViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/std_space_small"
+            android:layout_marginTop="@dimen/std_space_small"
+            android:layout_marginEnd="@dimen/std_space_small"
+            android:layout_marginBottom="@dimen/std_space_small"
+            android:background="@drawable/selector_rectangle_radio_btn"
+            android:paddingStart="@dimen/std_space_medium"
+            android:paddingTop="@dimen/std_space_small"
+            android:paddingEnd="@dimen/std_space_medium"
+            android:paddingBottom="@dimen/std_space_small"
+            android:text="@{viewModel.content}"
+            android:textAllCaps="true"
+            android:textColor="@drawable/selector_rectangle_radio_btn_text_color"
+            android:textSize="@dimen/std_txt_medium" />
+
+    </FrameLayout>
+
+
+</layout>

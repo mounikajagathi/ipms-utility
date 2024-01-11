@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/txt_sync_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/std_space_medium"
+        android:layout_marginTop="@dimen/std_space_medium"
+        android:text="@string/sync_status_sync_started"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/std_txt_large"
+        app:layout_constraintBottom_toTopOf="@id/txt_image_upload_count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_dialog_sync"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+    <TextView
+        android:id="@+id/txt_image_upload_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/std_space_medium"
+        android:text=""
+        android:visibility="invisible"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/std_txt_medium_xx"
+        app:layout_constraintBottom_toTopOf="@id/img_sync_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_sync_status"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_dialog_sync"
+        android:layout_width="@dimen/sync_progress_image_size"
+        android:layout_height="@dimen/sync_progress_image_size"
+        android:layout_marginTop="@dimen/std_space_large"
+        android:layout_marginBottom="@dimen/std_space_large"
+        app:layout_constraintBottom_toTopOf="@id/txt_sync_status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_sync"
+        app:tint="@color/colorAccent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_sync_close"
+        android:layout_width="@dimen/sync_close_size"
+        android:layout_height="@dimen/sync_close_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".95"
+        app:srcCompat="@drawable/ic_sync_close" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.ults.gisurvey.ui.main.utility.taxistand.TaxiStandViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsvTaxiStandDetails"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layoutBtnContainer"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorWhite">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"
+                android:padding="@dimen/standard_spacing_medium">
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/flow_utility"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:constraint_referenced_ids="layoutTaxiStandPlace,layoutTaxiStandLocation,layoutTaxiStandParkingType,layoutTaxiStandCapacity,layoutTaxiStandAuthorised,layoutTaxiStandAuthDetails,layoutRemarks,layoutTaxiStandImage,imgTaxiStand,"
+                    app:flow_verticalGap="@dimen/standard_spacing_mini"
+                    app:flow_verticalStyle="packed"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTaxiStandPlace"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etPlace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/taxi_stand_details_place"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium">
+
+                    </in.ults.gisurvey.utils.IPMSEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTaxiStandLocation"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/taxi_stand_details_location"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium">
+
+                    </in.ults.gisurvey.utils.IPMSEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTaxiStandParkingType"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/srParkingType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/taxi_stand_details_parking_type"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium"
+                        app:adapter="@{viewModel.taxiStandParkingTypeList}">
+
+                    </in.ults.gisurvey.utils.IPMSSpinner>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTaxiStandCapacity"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etCapacity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/taxi_stand_details_capacity"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium">
+
+                    </in.ults.gisurvey.utils.IPMSEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTaxiStandAuthorised"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSSpinner
+                        android:id="@+id/srTaxiStandAuthorised"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/taxi_stand_details_authorised"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium"
+                        app:adapter="@{viewModel.taxiStandAuthorisedList}">
+
+                    </in.ults.gisurvey.utils.IPMSSpinner>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTaxiStandAuthDetails"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etAuthDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/taxi_stand_details_auth_details"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/standard_edt_txt_height_medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium">
+
+                    </in.ults.gisurvey.utils.IPMSEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutRemarks"
+                    style="@style/AppCommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_regular">
+
+                    <in.ults.gisurvey.utils.IPMSEditText
+                        android:id="@+id/etRemarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="top"
+                        android:hint="@string/taxi_stand_details_remarks"
+                        android:inputType="textMultiLine"
+                        android:maxLength="100"
+                        android:minHeight="@dimen/standard_edt_txt_height_max"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/standard_text_size_medium">
+
+                    </in.ults.gisurvey.utils.IPMSEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/layoutTaxiStandImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/taxi_stand_details_photo_1"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgTaxiStand"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/standard_image_height_large"
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_property_image" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutTaxiStandPlaceInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxiStandPlace"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxiStandPlace"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxiStandPlace"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxiStandPlace"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutTaxiStandLocationInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxiStandLocation"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxiStandLocation"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxiStandLocation"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxiStandLocation"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutTaxiStandParkingTypeInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxiStandParkingType"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxiStandParkingType"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxiStandParkingType"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxiStandParkingType"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutTaxiStandCapacityInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxiStandCapacity"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxiStandCapacity"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxiStandCapacity"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxiStandCapacity"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutTaxiStandAuthorisedInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxiStandAuthorised"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxiStandAuthorised"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxiStandAuthorised"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxiStandAuthorised"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutTaxiStandAuthDetailsInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutTaxiStandAuthDetails"
+                    app:layout_constraintEnd_toEndOf="@id/layoutTaxiStandAuthDetails"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutTaxiStandAuthDetails"
+                    app:layout_constraintTop_toTopOf="@id/layoutTaxiStandAuthDetails"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/layoutRemarksInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/std_space_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutRemarks"
+                    app:layout_constraintEnd_toEndOf="@id/layoutRemarks"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="@id/layoutRemarks"
+                    app:layout_constraintTop_toTopOf="@id/layoutRemarks"
+
+                    android:onClick="@{(v)->viewModel.onInfoClick(v)}"
+                    app:layout_constraintVertical_bias=".5"
+                    app:srcCompat="@drawable/ic_info" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/layoutBtnContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPartialSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:background="@color/cmnPartialSaveButtonColor"
+                android:onClick="@{()->viewModel.onPartialSaveClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_partial_save_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:background="@color/cmnNextButtonColor"
+                android:onClick="@{()->viewModel.onNextClick()}"
+                android:padding="@dimen/std_space_medium"
+                android:paddingTop="@dimen/std_space_medium"
+                android:text="@string/cmn_next_button"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/std_txt_medium_xx" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>

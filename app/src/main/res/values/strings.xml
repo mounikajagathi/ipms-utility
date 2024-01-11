@@ -1,0 +1,1898 @@
+<resources>
+    <string name="app_name">IPMS</string>
+    <string name="version">"version"</string>
+    <string name="app_title">IPMS-DRISHTI-STANDARD-V30</string>
+    <string name="submit_button">Submit</string>
+
+    <!--Toolbar menus-->
+    <string name="map">map</string>
+
+
+    <!--Drawer-->
+    <string name="open_drawer">Drawer Open</string>
+    <string name="close_drawer">Drawer Close</string>
+
+    <!--Drawer Menus-->
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="completed_survey">Completed Survey</string>
+    <string name="synced_survey">Synced Survey</string>
+    <string name="survey_point">Map</string>
+    <string name="logout">Logout</string>
+    <string name="fetch_survey_points">Get Survey Points</string>
+    <string name="server_survey_details">Server Survey Details</string>
+    <string name="daily_report">Daily Report</string>
+
+    <!--App Message-->
+    <string name="api_default_error">Server down please try again later.</string>
+    <string name="connection_error">No internet connection.</string>
+
+    <!--Play Store-->
+    <string name="app_google_play_store_link">"https://play.google.com/store/apps/details?id="</string>
+    <string name="app_market_link">"market://details?id="</string>
+
+    <!--Empty State-->
+    <string name="retry">Retry</string>
+
+    <!--Common -->
+    <string name="cmn_next_button">Submit</string>
+    <string name="cmn_partial_save_button">Save</string>
+    <string name="cmn_save_button">Save</string>
+    <string name="cmn_go_back">Go Back</string>
+    <string name="cmn_exit_survey">Exit Survey</string>
+    <string name="cmn_complete_survey_button">Complete Survey</string>
+    <string name="cmn_submit_survey_button">Submit Survey</string>
+    <string name="cmn_edit">Edit</string>
+    <string name="cmn_yes">YES</string>
+    <string name="cmn_no">NO</string>
+    <string name="cmn_nr">NR</string>
+    <string name="cmn_na">NA</string>
+    <string name="cmn_no_land">NO LAND</string>
+    <string name="cmn_delete">Delete</string>
+    <string name="cmn_near_na">NA NEAR</string>
+    <string name="cmn_near_nr">NR NEAR</string>
+    <string name="cmn_near_clear">CLEAR</string>
+    <string name="cmn_warning">Warning</string>
+    <string name="cmn_continue">Continue Survey</string>
+    <string name="cmn_change">Change Data</string>
+    <string name="cmn_check_btn_title">CHECK</string>
+    <string name="cmn_no_value">NO VALUE</string>
+    <string name="cmn_confirm">CONFIRM</string>
+    <string name="cmn_cancel">CANCEL</string>
+    <string name="cmn_close">Close</string>
+    <string name="cmn_video">VIDEO</string>
+    <string name="cmn_clear">Clear</string>
+    <string name="cmn_count">TOTAL COUNT : </string>
+    <string name="cmn_completed">COMPLETED</string>
+
+    <!--Message-->
+    <string name="msg_building_id">Building Id already exist, Do you want to edit the existing survey ?</string>
+    <string name="msg_building_id_exist_on_server">Building Id already exist in server, Please check the data ?</string>
+    <string name="msg_change_point_status">Are you sure you want to remove this survey ?</string>
+    <string name="msg_change_floor_count">Are you sure to change floor Count ?</string>
+    <string name="msg_change_property_count">താങ്കൾക് പ്രോപ്പർട്ടി ഡിലീറ്റ് ചെയ്യണമെങ്കിൽ സർവ്വേ പേജിൽ നിന്നും ഡിലീറ്റ് ചെയ്‌യേണ്ടത് ആണ്</string>
+    <string name="msg_delete_property_alert">Are you really want to delete this property ?</string>
+    <string name="msg_edit_property_alert">Are you really want to edit this property ?</string>
+    <string name="msg_edit_survey_alert">Are you really want to edit this survey ?</string>
+    <string name="msg_edit_success">Successfully added to partial survey</string>
+    <string name="msg_not_change_location">Can\'t able to edit selected Location ?</string>
+    <string name="msg_change_building_status">Are you sure to change Building Status ?</string>
+    <string name="msg_change_door_status">Are you sure to change Door Status ?</string>
+    <string name="msg_change_building_sub_type">Are you sure to change Building Sub Type ?</string>
+    <string name="msg_no_member">Are you sure there is no members ?</string>
+    <string name="msg_change_location">Are you sure to change Location ?</string>
+    <string name="msg_go_back_survey">The entered survey details will be lost, Are you sure do you want to go back?</string>
+    <string name="msg_live_hood_lack_of_water_warning">വാട്ടർ കണക്ഷൻ NO എന്നും കിണറിലെ വെള്ളത്തിന്റെ ലഭ്യത SEASONAL  ആയിട്ടും കുടിവെള്ളത്തിന്റെ ലഭ്യത കുറവ്  NO അഥവാ ഇല്ല  എന്നാണ് കൊടുത്തിരിക്കുന്നത്. കൊടുത്തിരിക്കുന്നത് ശരിയായ ഉത്തരങ്ങൾ അല്ല എങ്കിൽ ആവിശ്യമായ മാറ്റങ്ങൾ വരുത്തുക.</string>
+    <string name="msg_livehood_card_white_warning">റേഷൻ കാർഡ് നിറം വെള്ളയും Latrine/Bathroom/Electricity എന്നത് No എന്നും ആണ് കൊടുത്തിരിക്കുന്നത് . ഡാറ്റ ശെരിയാണോ എന്നെ ഉറപ്പ്  വരുത്തുക.</string>
+    <string name="msg_livehood_card_yellow_pink_warning">റേഷൻ കാർഡ് നിറം പിങ്ക് / മഞ്ഞ  എന്നതും AC ഉണ്ട്  എന്നും ആണ് കൊടുത്തിരിക്കുന്നത് . ഡാറ്റ ശെരിയാണോ എന്നെ ഉറപ്പ്  വരുത്തുക.</string>
+    <string name="msg_select_ward_no_aert">Please select ward number from settings</string>
+    <string name="no_data">No server survey data available</string>
+
+    <!--Toolbar Title-->
+    <string name="toolbar_home">@string/app_name</string>
+    <string name="toolbar_map">Map</string>
+    <string name="toolbar_point_status">Point Status</string>
+    <string name="toolbar_floor_count">Floor Details</string>
+    <string name="toolbar_ground_floor_selection">Building Layout</string>
+    <string name="toolbar_survey_grid">Survey</string>
+    <string name="toolbar_property">Property Details</string>
+    <string name="toolbar_owner">Owner Details</string>
+    <string name="toolbar_location">Location Details</string>
+    <string name="toolbar_images">Common Details</string>
+    <string name="toolbar_road">Road Details</string>
+    <string name="toolbar_establishment">Establishment Details</string>
+    <string name="toolbar_live_hood">Livelihood Details</string>
+    <string name="toolbar_more">More Details</string>
+    <string name="toolbar_profile">Profile</string>
+    <string name="toolbar_sync_grid">Sync</string>
+    <string name="toolbar_sync_list">Sync</string>
+    <string name="toolbar_basement">Basement Area</string>
+    <string name="toolbar_member">Member Details</string>
+    <string name="toolbar_building">Building Details</string>
+    <string name="toolbar_tax">Tax Details</string>
+    <string name="toolbar_selection"></string>
+    <string name="toolbar_tenant">Tenant Details</string>
+    <string name="toolbar_survey_list">Surveys</string>
+    <string name="toolbar_completed_list">Completed Surveys</string>
+    <string name="toolbar_synced_list">Synced Surveys</string>
+    <string name="toolbar_settings">Settings</string>
+    <string name="toolbar_about">About Us</string>
+    <string name="toolbar_server_survey">Server Survey Details</string>
+    <string name="toolbar_survey_point">Map</string>
+    <string name="toolbar_complete_survey">Survey Details</string>
+    <string name="toolbar_surveyor">Surveyor</string>
+    <string name="toolbar_daily_report">Daily Report</string>
+    <string name="toolbar_utility">Utility Dashboard</string>
+    <string name="toolbar_utility_bridge">Bridge Details</string>
+    <string name="toolbar_utility_bus_stop">Bus Stop Details</string>
+    <string name="toolbar_utility_canal">Canal Line Details</string>
+    <string name="toolbar_utility_culvert">Culvert Details</string>
+    <string name="toolbar_utility_divider">Divider Details</string>
+    <string name="toolbar_utility_drainage">Drainage Details</string>
+    <string name="toolbar_utility_garbage_point">Garbage Point Details</string>
+    <string name="toolbar_utility_high_mast">High Mast Light Details</string>
+    <string name="toolbar_utility_low_mast">Low Mast Light Details</string>
+    <string name="toolbar_utility_park">Park Details</string>
+    <string name="toolbar_utility_parking">Parking Area Details</string>
+    <string name="toolbar_utility_playground">Playground Details</string>
+    <string name="toolbar_utility_pond">Pond Details</string>
+    <string name="toolbar_utility_road">Road Details</string>
+    <string name="toolbar_utility_junction">Road Junction Details</string>
+    <string name="toolbar_utility_side_walk">Road Side Walk Details</string>
+    <string name="toolbar_utility_signboard">Road Signboard Details</string>
+    <string name="toolbar_utility_stadium">Stadium Details</string>
+    <string name="toolbar_utility_street_light">Street Light Details</string>
+    <string name="toolbar_utility_street_tap">Street Tap Details</string>
+    <string name="toolbar_utility_tank">Tank Details</string>
+    <string name="toolbar_utility_taxi_stand">Taxi Stand Details</string>
+    <string name="toolbar_utility_transformer">Transformer Details</string>
+    <string name="toolbar_utility_well">Well Details</string>
+
+    <!--Login-->
+    <string name="login_title">Login</string>
+    <string name="login_login">Login</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_forgot_password">Forgot Password?</string>
+
+    <!-- Forget Password -->
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="forgot_password_reset">Reset Password</string>
+    <string name="forgot_password_email">Email Address</string>
+
+    <!-- Server URL -->
+    <string name="serverurl_title">Server URL</string>
+    <string name="serverurl_verify">Verify</string>
+    <string name="serverurl_hint">Enter server URL</string>
+    <string name="serverurl_port">Enter port number</string>
+
+
+    <!--Profile Page-->
+    <string name="profile_surveyor_name">Surveyor Name</string>
+    <string name="profile_mobile_code">Mobile Code</string>
+    <string name="profile_surveyor_id">Surveyor ID</string>
+    <string name="profile_reporting_to">Reporting To</string>
+    <string name="profile_assigned_code">Assigned Code</string>
+
+
+    <!--    Map indiacation dialog-->
+    <string name="map_dialog_title">COLOUR CODE</string>
+    <string name="map_dialog_border_colour">BORDER COLOUR</string>
+    <string name="map_dialog_db_point">POINT FROM MOBILE DEVICE</string>
+    <string name="map_dialog_server_point">POINT FROM SERVER</string>
+    <string name="map_dialog_inner_colour">INNER COLOUR AND SHAPES</string>
+    <string name="map_dialog_dc_gl">DOOR CLOSED/GATE LOCKED</string>
+    <string name="map_dialog_nc">NON COORPERATION</string>
+    <string name="map_dialog_do">DOOR OPEN</string>
+    <string name="map_dialog_PDC">PERMANENT DOOR CLOSED</string>
+    <string name="map_dialog_unwanted">UNWANTED</string>
+    <string name="map_dialog_demolished">DEMOLISHED</string>
+    <string name="map_dialog_landmark">LANDMARK</string>
+    <string name="map_dialog_unusable">UNUSABLE</string>
+    <string name="map_dialog_na">NA</string>
+
+
+    <!--    Ward selection-->
+    <string name="ward_selection_title">Select wards for getting server survey points (Maximum 4 wards)</string>
+    <string name="ward_selection_list_empty_error">Select atleast one ward</string>
+    <string name="ward_selection_list_exceed_error">More than 4 wards selection not allowed</string>
+    <string name="ward_selection_alert">Do you want to add more wards for getting survey points</string>
+    <string name="ward_selection_error">Please select ward for getting survey points</string>
+    <string name="ward_selection_hint">Selected ward for survey : </string>
+
+
+    <!--Home Page-->
+    <string name="home_assigned">Assigned</string>
+    <string name="home_completed">Completed</string>
+    <string name="home_partial_survey">Are you ready to start Partial Survey</string>
+    <string name="home_new_survey">Are you ready to start New Survey</string>
+    <string name="home_err_district">Please select District / Localbody / Ward Number from settings.</string>
+    <string name="home_err_tpk">Please select TPK file from settings.</string>
+    <string name="home_err_surveyor_name">Please provide surveyor name.</string>
+    <string name="home_err_mobile_code">Please provide mobile code.</string>
+
+    <!--Partial Survey-->
+    <string name="partial_survey_id">Survey ID</string>
+
+
+    <!--Map Page-->
+    <string name="map_q_field_id1">Localbody ID</string>
+    <string name="map_q_field_id2">Ward No</string>
+    <string name="map_q_field_id3">SL No</string>
+
+    <!--Point Status Page-->
+    <string name="building_chk_unwanted">UNWANTED</string>
+    <string name="building_chk_building">BUILDING</string>
+    <string name="building_chk_land_mark">LANDMARK</string>
+
+    <!--Floor Count Page-->
+    <string name="floor_count_count_of_floor">Count of Floors</string>
+    <string name="floor_count_count_of_property">Count of Properties</string>
+
+    <!--Ground Floor Selection-->
+    <string name="floor_number_txt">FLOOR :</string>
+    <string name="floor_basement_number_txt">BASEMENT :</string>
+    <string name="floor_number_ground_floor_txt">GROUND FLOOR</string>
+    <string name="floor_number_ground_floor_number">0</string>
+
+    <!--Basement-->
+    <string name="basement_title">Fill up common basement area of each basements.</string>
+    <string name="basement_number">Basement Number</string>
+    <string name="basement_area">Area</string>
+    <string name="basement_no">Basement No : -</string>
+
+    <!--Location Page-->
+    <string name="location_district">District</string>
+    <string name="location_local_body">Local Body</string>
+    <string name="location_ward_name">Ward Name</string>
+    <string name="location_ward_number">Ward Number</string>
+    <string name="location_village_name">Village Name</string>
+    <string name="location_street_name">Street Name</string>
+    <string name="location_place_name">Place Name</string>
+    <string name="location_post_office">Post Office</string>
+    <string name="location_building_zone">Building Zone</string>
+    <string name="location_pincode">Pincode</string>
+    <string name="location_ward_no_warning">Ward number in survey id and ward number provided here are different. Please check the data.</string>
+    <string name="location_flood_hint">Is flood affected?</string>
+    <string name="location_water_level_hit">Water level hit (in Meters)</string>
+
+    <!--Image Page-->
+    <string name="image_photo_1">Photo 1</string>
+    <string name="image_photo_2">Photo 2</string>
+    <string name="image_photo_3">Plan Image</string>
+    <string name="image_informed_by">Informed By</string>
+    <string name="image_cooperative_survey">Cooperative with Survey</string>
+    <string name="image_remarks">Remarks</string>
+    <string name="image_surveyor_name">Surveyor Name</string>
+    <string name="image_extra_remarks">Extra Remarks(Maximum 250 characters allowed)</string>
+
+    <!--Survey Grid-->///..
+    <string name="survey_grid_select_filling_details">Select and Start Filling Details</string>
+    <string name="survey_grid_property">Property</string>
+    <string name="survey_grid_owner">Owner</string>
+    <string name="survey_grid_road">Road</string>
+    <string name="survey_grid_establishment">Establishment</string>
+    <string name="survey_grid_tenant">Tenant</string>
+    <string name="survey_grid_tax">Tax</string>
+    <string name="survey_grid_member">Member</string>
+    <string name="survey_grid_live_hood">Livelihood</string>
+    <string name="survey_grid_agricultural">Agricultural</string>
+    <string name="survey_grid_building">Building</string>
+
+    <!--Property Page-->
+    <string name="property_survey_type"> Survey Type</string>
+    <string name="property_old_property_id">Old Property ID</string>
+    <string name="property_old_property_id_from_ar"> Old Property ID from AR : </string>
+    <string name="property_old_property_id_from_ar_warning">Please communicate with survey coordinator, beacuse there is no possibilty of getting Old property id value for Ongoing buiding </string>
+    <string name="property_old_property_id_from_field">Old Property ID from Field</string>
+    <string name="property_u_id">UID</string>
+    <string name="property_new_property_id">New Property ID</string>
+    <string name="property_consumer_number">Consumer Number</string>
+    <string name="property_near_property_number">Near Property Number</string>
+    <string name="property_remarks">New Property ID Remarks</string>
+    <string name="property_land_mark">Landmark</string>
+    <string name="property_land_mark_name">Landmark Name</string>
+    <string name="property_toilet_waste_disposal">Toilet Waste Disposal</string>
+    <string name="property_ownership_education">Ownership of the Educational Building ?</string>
+    <string name="property_drone_id"> Drone ID</string>
+    <string name="property_main_building">Main Building</string>
+    <string name="property_land_mark_category">Landmark Category</string>
+    <string name="property_land_mark_sub_category">Landmark Sub Category</string>
+    <string name="property_building_under">Property Under</string>
+    <string name="property_building_status">Property Status</string>
+    <string name="property_door_status">Door Status</string>
+    <string name="property_building_type">Property Type</string>
+    <string name="property_building_sub_type">Property Sub Type</string>
+    <string name="property_establishment_usage">Establishment Usage</string>
+    <string name="property_property">Property</string>
+    <string name="property_new_property_id2">Ward NO</string>
+    <string name="property_new_property_id3">Property NO</string>
+    <string name="property_new_property_id4">Sub NO</string>
+    <string name="property_old_property_id1">Ward Number</string>
+    <string name="property_old_property_id2">Property NO</string>
+    <string name="property_old_property_id3">Sub NO</string>
+    <string name="property_ac_warning">\u25CF വൈദുതി ഇല്ലാത്ത കെട്ടിടത്തിന്  AC ഉണ്ട് എന്ന് കൊടുത്തിരിക്കുന്നത്. ഡാറ്റ ശരിയാണോ എന്ന് വിലയിരുത്തുക . തെറ്റാണെങ്കിൽ ആവിശ്യമായ മാറ്റങ്ങൾ വരുത്തുക. അല്ലാത്ത പക്ഷം സർവ്വേ തുടരുക. </string>
+    <string name="property_electricity_warning">\u25CF PLEASE CONFIRM ELECTRICITY CONNECTION - NO ( ബിൽഡിങ്ങ് സ്റ്റാറ്റസ് (BUILDING  STATUS) COMPLETED,REPAIR,EXTENSION എന്നിവയിൽ ഏതെങ്കിലും ഒന്നുമാണ് ,പക്ഷെ  വൈദ്യുതി(ELECTRICITY ) കണക്ഷൻ ഇല്ല  എന്നുമാണ് ഡാറ്റ കൊടുത്തിരിക്കുന്നത് . കൊടുത്തിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക)</string>
+    <string name="property_latrine_warning">\u25CF PLEASE CONFIRM LATRINE - NO (ബിൽഡിങ്ങ് ടൈപ്പ് റസിഡൻഷ്യൽ (RESIDENTIAL) എന്നും ബിൽഡിങ്ങ് സ്റ്റാറ്റസ് (BUILDING  STATUS) COMPLETED,REPAIR,EXTENSION എന്നിവയിൽ ഏതെങ്കിലും ഒന്നുമാണ് ,പക്ഷെ  ശൗചാലയം (LATRINE ) ഇല്ല  എന്നുമാണ് ഡാറ്റ കൊടുത്തിരിക്കുന്നത് . കൊടുത്തിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക)</string>
+    <string name="property_bathroom_warning">\u25CF PLEASE CONFIRM BATHROOM - NO (ബിൽഡിങ്ങ് ടൈപ്പ് റസിഡൻഷ്യൽ (RESIDENTIAL) എന്നും ബിൽഡിങ്ങ് സ്റ്റാറ്റസ് (BUILDING  STATUS) COMPLETED,REPAIR,EXTENSION എന്നിവയിൽ ഏതെങ്കിലും ഒന്നുമാണ് ,പക്ഷെ  കുളിമുറി (BATHROOM) ഇല്ല  എന്നുമാണ് ഡാറ്റ കൊടുത്തിരിക്കുന്നത് . കൊടുത്തിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക.)</string>
+    <string name="property_id_warning">\u25CF Old Property Id  ഉം New Property Id  ഉം  തമ്മിൽ വത്യാസം ഇല്ല .  കൊടുത്തിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക.</string>
+    <string name="proprty_not_found">Entered property not found in AR Sheet</string>
+    <string name="property_id_confirm_btn_text">Confirm</string>
+    <string name="property_id_decline_btn_text">Wrong entry, retry</string>
+    <string name="property_not_ar_condition1">Not in AR because new property</string>
+    <string name="property_not_ar_condition2">Not in AR but in field</string>
+    <string name="property_not_ar_dismiss">Wrong entry, retry</string>
+    <string name="property_id_old_id_same_btn_text">Old Property ID in AR and field are same</string>
+    <string name="property_id_old_id_wrong_in_field_btn_text">Old Property ID wrong in field</string>
+    <string name="property_id_old_id_change_owner_same_btn_text">Owner Details same and Old Property ID change</string>
+    <string name="property_id_old_id_nr_btn_text">Old Property ID not received from field</string>
+    <string name="property_id_old_id_not_in_ar_new_prop_btn_text">Old Property ID not in AR and field becuase of it is a new property</string>
+    <string name="property_id_old_id_not_in_ar_bt_field_btn_text">Old Property ID not in AR but in field </string>
+    <string name="property_id_old_id_change_owner_change_btn_text"> Owner Details  and Old Property ID  change</string>
+    <string name="property_id_old_id_in_ar_not_in_field_btn_text"> Old Property ID not in field but in AR </string>
+    <string name="property_owner_status_selection">Please choose owner status</string>
+
+    <string name="property_id_old_id_same_owner_expire_btn_text">Old property id Same/Owner Expired</string>
+    <string name="property_id_new_id_change_owner_same_btn_text">New property id Different/Owner details same</string>
+    <string name="property_id_new_id_same_owner_change_btn_text">New property id Same/Owner details different</string>
+    <string name="property_owner_details">Owner Details</string>
+    <string name="property_owner_selection_validation_error">Please select owner details</string>
+    <string name="property_owner_rd_1">Owner details same in both AR and field</string>
+    <string name="property_owner_rd_2">Owner details changed in field</string>
+    <string name="property_owner_rd_3">Owner details not in AR</string>
+    <string name="property_duplication_with_server">New property id is already exist in server, Please check the data ?</string>
+
+    <!--Owner Page-->
+    <string name="owner_name">Name</string>
+    <string name="owner_occupation">Occupation</string>
+    <string name="owner_house_name">House Name/Number</string>
+    <string name="owner_street_name">Street Name/Place Name</string>
+    <string name="owner_state">State</string>
+    <string name="owner_post_office">Post Office</string>
+    <string name="owner_email">Email</string>
+    <string name="owner_pin_code">Pincode</string>
+    <string name="owner_land_line">Landline</string>
+    <string name="owner_mobile">Mobile</string>
+    <string name="owner_ar_address">OWNER ADDRESS FROM AR</string>
+    <string name="owner_tele_call_number">Tele Call Number</string>
+
+    <!--Road Page-->
+    <string name="road_near_road">Path to Property Entrance</string>
+    <string name="road_road_width">Road Width</string>
+    <string name="road_road_type">Path Type</string>
+    <string name="road_ar_name_hint">Road Name from AR Sheet: </string>
+    <string name="road_ar_type_hint">Road Type from AR Sheet: </string>
+
+
+    <!--Establishment Page-->
+    <string name="establishment_establishment_name">Establishment Name</string>
+    <string name="establishment_establishment_type">Establishment Type</string>
+    <string name="establishment_in_charge">In Charge</string>
+    <string name="establishment_in_charge_role">In Charge Role</string>
+    <string name="establishment_establishment_year">Establishment Year</string>
+    <string name="establishment_employee_count">Employee Count</string>
+    <string name="establishment_license_number">License Number</string>
+    <string name="establishment_gst_number_status">GST Number Status</string>
+    <string name="establishment_email">Incharge Email</string>
+    <string name="establishment_land_line">Incharge Landline</string>
+    <string name="establishment_mobile">Incharge Mobile</string>
+
+
+    <!--Tenant Page-->
+    <string name="tenant_tenant_name">Tenant Name</string>
+    <string name="tenant_phone_number">Phone Number</string>
+    <string name="tenant_land_line">Landline</string>
+    <string name="tenant_amount">Amount</string>
+    <string name="tenant_house_name">House Name/Number</string>
+    <string name="tenant_street_name">Street Name/Place Name</string>
+    <string name="tenant_survey_number">Tenant Survey Number</string>
+    <string name="tenant_state">State</string>
+    <string name="tenant_post_office">Post Office</string>
+    <string name="tenant_email">Email</string>
+    <string name="tenant_pin_code">Pincode</string>
+    <string name="tenant_native">Native</string>
+    <string name="tenant_status">Tenant Status</string>
+
+    <!--Tax Page-->
+    <string name="tax_tax_number">Tax Receipt Number</string>
+    <string name="tax_amount">Tax Amount</string>
+    <string name="tax_year">Tax Paid Year</string>
+    <string name="tax_date">Tax Paid Date</string>
+    <string name="tax_annual">Annual Tax Amount</string>
+    <string name="tax_ar_annual_hint">Tax Total Amount from AR Sheet : </string>
+
+
+    <!--Member Page-->
+    <string name="member_title">Member</string>
+    <string name="member_name">Name</string>
+    <string name="member_education">Education</string>
+    <string name="member_education_type">Education Type</string>
+    <string name="member_job">Job</string>
+    <string name="member_job_loss">Job loss due to corona</string>
+    <string name="member_job_type">Job Type</string>
+    <string name="member_nri">NRI ?</string>
+    <string name="member_nrk">NRK ?</string>
+    <string name="member_disability">Disability</string>
+    <string name="member_disability_percent">Disability Percent</string>
+    <string name="member_disease">Disease</string>
+    <string name="member_pension">Pension</string>
+    <string name="member_age">Age in Years</string>
+    <string name="member_age_month">Age in Months</string>
+    <string name="member_martial_status">Martial Status</string>
+    <string name="member_gender">Gender</string>
+    <string name="member_no_of_members">No Of Members</string>
+    <string name="member_year">Years</string>
+    <string name="member_month">Month</string>
+    <string name="member_student">Student ?</string>
+    <string name="member_empty_warning">Door Status = Open എന്നും Building Type = Residential എന്നും Building Status  = Completed/Ongoing എന്നും ആണ് കൊടുത്തിരിക്കുന്നത്. ഈ സാഹചര്യത്തിൽ കുടുംബാഗങ്ങളുടെ എണ്ണം 0 എന്ന് ആയിരിക്കില്ല .തന്നിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക .</string>
+
+    <string name="member_child_job">Nil</string>
+    <string name="member_child_marital_status">Single</string>
+    <string name="member_child_pension">No</string>
+    <string name="member_child_jobloss">No</string>
+    <string name="member_no_job">NIL</string>
+    <string name="member_nr_job">NR</string>
+    <string name="member_child_education">Nil</string>
+    <string name="member_child_education_type">Nil</string>
+
+    <!--Livelihood Page-->
+    <string name="live_hood_ration_card">Ration Card</string>
+    <string name="live_hood_ration_card_number">Ration Card Number</string>
+    <string name="live_hood_building_details">Residential Building Details</string>
+    <string name="live_hood_bathroom">Bathroom</string>
+    <string name="live_hood_kwa_water">Water Connection</string>
+    <string name="live_hood_water_connection_type">Water Connection Type</string>
+    <string name="live_hood_water_supply_duration">Water Supply Duration(Days per Week)</string>
+    <string name="live_hood_lack_drinking_water">Lack of Drinking water</string>
+    <string name="live_hood_gas_connection">Gas Connection</string>
+    <string name="live_hood_rain_water_harvest">Rain Water Harvesting</string>
+    <string name="live_hood_solar_panel">Solar Panel</string>
+    <string name="live_hood_water_source_type">Water Source Type</string>
+    <string name="live_hood_other_water_source">Other Water Source</string>
+    <string name="live_hood_water_connection">Water Connection</string>
+    <string name="live_hood_well_details">Well Details</string>
+    <string name="live_hood_bank_account">Bank Account</string>
+    <string name="live_hood_cast">Caste</string>
+    <string name="live_hood_religion">Religion</string>
+    <string name="live_hood_pet_dog">Pet</string>
+    <string name="live_hood_cattle">Cattles</string>
+    <string name="live_hood_no_of_cattles">No of Cattles</string>
+    <string name="live_hood_no_of_poultry">No of Poultry</string>
+    <string name="live_hood_paultry">Poultry</string>
+    <string name="live_hood_other_facility">Is any of the following facility available ?</string>
+    <string name="live_hood_mem_count">Members Count</string>
+    <string name="live_hood_swimming_pool">Swimming Pool</string>
+    <string name="live_hood_swimming_pool_area">Pool Area</string>
+
+
+    <!-- More details page -->
+    <string name="more_well_perennial_details">Well Water Availability</string>
+    <string name="more_well_perennial">PERENNIAL</string>
+    <string name="more_well_seasonal">SEASONAL</string>
+    <string name="more_type_of_land">Type of Land</string>
+    <string name="more_well_polluted">POLLUTED</string>
+    <string name="more_building_under_scheme">Building under any Scheme</string>
+    <string name="more_plot_area">Plot Area (In Cent)</string>
+    <string name="more_well_perennial_month">Corresponding Month</string>
+    <string name="more_thozhilurapp">Thozhilurapp </string>
+    <string name="more_kudumbasree">Kudumbasree</string>
+    <string name="more_health_insurance">Government Health Insurance</string>
+    <string name="more_plastic_waste_management">Plastic Waste Management</string>
+    <string name="more_liquid_waste_management">Liquid Waste Management</string>
+    <string name="more_organic_waste_management">Organic Waste Management</string>
+    <string name="more_no_of_vehicles">No of Vehicles</string>
+    <string name="more_vehicle_type">Vehicle Type</string>
+    <string name="more_vehicle_usage">Vehicle Usage</string>
+    <string name="more_family_data_submission_warning">Please submit family member details before submitting More screen data</string>
+    <string name="warning_building_scheme">ഗവൺമെന്റ് ജോലിയുള്ള(JOB CATEGORY) ഒരാൾക്കു ഭവന നിർമാണങ്ങൾക് ഫണ്ട്(BUILDING UNDER ANY SCHEME) അനുവദിക്കില്ല. ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക.(NOTE : ജോലി കിട്ടുന്നതിന് മുന്നേ ഫണ്ട് അനുവധിക്കാം, ഈ വ്യക്തി  റേഷൻ കാർഡിൽ അംഗമല്ലെങ്കിലും ഫണ്ട് അനുവധിക്കാം )</string>
+
+
+    <!--Building Details Page-->
+    <string name="building_name">Building Name</string>
+    <string name="building_colony_name">Colony/ Residence Association Name/Number</string>
+    <string name="building_pathway_area">Pathway Area</string>
+    <string name="building_any_structure_change">Any Structural Change Done</string>
+    <string name="building_structure_change_year">Year Of Change</string>
+    <string name="building_any_roof_type_change">Any Change Done To Roof Type</string>
+    <string name="building_roof_type_change_year">Year Of Change</string>
+    <string name="building_other_property_details">Other Building Property Details</string>
+    <string name="building_survey_number">Survey Number</string>
+    <string name="building_how_many_years">How Many Years ?</string>
+    <string name="building_number_of_rooms">Number of Rooms</string>
+    <string name="building_construction_year">Year Of Construction</string>
+    <string name="building_structure_type">Structure Type</string>
+    <string name="building_structure_type_normal">NORMAL</string>
+    <string name="building_structure_type_flat">FLAT</string>
+    <string name="building_no_of_floor">Number of Floors</string>
+    <string name="building_usage">Property Usage</string>
+    <string name="building_electricity">Electricity</string>
+    <string name="building_latrine">Toilet</string>
+    <string name="building_air_conditioner">Air Conditioner</string>
+    <string name="building_centralised_ac">CENTRALISED AC</string>
+    <string name="building_split_ac">SPLIT AC</string>
+    <string name="building_usage_owned">OWNED</string>
+    <string name="building_usage_rented">RENTED</string>
+    <string name="building_other">Other Building ?</string>
+    <string name="building_floor_type_250_sqft">Higher Floor Type > 250 Sqmtr?</string>
+    <string name="building_floor_type">Floor Type</string>
+    <string name="building_wall_type">Wall Type</string>
+    <string name="building_no_of_roof_type">No Of Roof Type</string>
+    <string name="building_roof_total_percent">Roof Total %</string>
+    <string name="building_roof_type">Roof Type</string>
+    <string name="building_roof_type_percent">Roof Type %</string>
+    <string name="building_floor_number">Floor Number</string>
+    <string name="building_area">Area</string>
+    <string name="building_car_porch">Car Porch/Parking</string>
+    <string name="building_car_porch_area">Car Porch/ Parking Area</string>
+    <string name="building_common_stair">Common Stair/ Stair Room</string>
+    <string name="building_stair"> Stair</string>
+    <string name="building_common_stair_area">Common Stair Area</string>
+    <string name="building_stair_area">Stair Area</string>
+    <string name="building_area_remarks">Area Remarks</string>
+    <string name="building_age_hint">Building Age From AR Sheet : </string>
+    <string name="building_roof_hint">Roof Details From AR Sheet : </string>
+    <string name="building_floor_details_hint">Floor Details From AR Sheet : </string>
+    <string name="building_Modification_hint">Modification Status From AR Sheet : </string>
+    <string name="building_usage_ar_hint">Building usage from AR sheet : </string>
+    <string name="building_ac_ar_hint">AC from AR sheet : </string>
+    <string name="building_livehood_screen_warning">Please submit livehood details before building details submission</string>
+    <string name="building_livehood_establishment_warning">Please submit livehood details and establishment details before building details submission</string>
+    <string name="building_establishment_screen_warning">Please submit establishment details before building details submission</string>
+    <string name="building_ration_floortype_waring">റേഷൻ കാർഡ് നിറം പിങ്ക് /മഞ്ഞ എന്നും Higher Floor  Type > 250 എന്നും ആണ് കൊടുത്തിരിക്കുന്നത് . തന്നിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പുവരുത്തുക.</string>
+    <string name="building_clay_tile_waring">നിർമ്മാണ വര്ഷം 2000 ഇൽ  മുകളിലും മേൽക്കൂരയുടെ ഭൂരിഭാഗവും Clay Tile എന്നും ആണ്  കൊടുത്തിരിക്കുന്നത് . കൊടുത്ത  ഡാറ്റ ശരി ആണോ എന്നെ ഉറപ്പു വരുത്തുക </string>
+
+    <!--    server survey details-->
+    <string name="property_id">Property ID</string>
+    <string name="server_survey_drone_id_hint">Drone Id</string>
+    <string name="server_survey_new_prop_id_hint">New Property Id</string>
+    <string name="server_survey_id_hint">Survey Id</string>
+    <string name="server_survey_empty">No survey data received from server</string>
+    <string name="server_survey_search_empty">No property found</string>
+
+    <!--Settings Page-->
+    <string name="settings_default_value">Default Values</string>
+    <string name="settings_surveyor_details">Surveyor Details</string>
+    <string name="settings_district">District</string>
+    <string name="settings_local_body">Local Body</string>
+    <string name="settings_ward_number">Ward Number</string>
+    <string name="settings_survey_points_ward_number">Select more wards for server survey points</string>
+    <string name="settings_reporting">Reporting</string>
+    <string name="settings_role">Role</string>
+    <string name="settings_default">Not set</string>
+    <string name="settings_sync">Sync</string>
+    <string name="settings_tpk">TPK File</string>
+    <string name="settings_backup">Backup Survey</string>
+    <string name="settings_live_location">Live Location</string>
+    <string name="settings_backup_select">Backup Survey to Mobile Storage</string>
+    <string name="settings_tpk_location">Select TPK File Location</string>
+    <string name="settings_sync_with_server">Sync Data With Server</string>
+    <string name="settings_surveyor">Surveyor</string>
+    <string name="settings_mobile_code">Mobile Code</string>
+    <string name="settings_tpk_file_error">Please select valid TPK file.</string>
+    <string name="settings_fetch">Restore Survey from Mobile Storage</string>
+    <string name="settings_fetch_success">Successfully restored data from mobile storage</string>
+    <string name="settings_txt_file_error">Please select valid text file.</string>
+    <string name="settings_fetch_alert">Can\'t restore data.Database already contain survey details</string>
+    <string name="settings_fetching_failed">Data restoring Failed.</string>
+    <string name="settings_ar">AR File</string>
+    <string name="settings_ar_location">Select AR File Location</string>
+    <string name="settings_no_internet_alert_ward_selection">Need internet connection to change ward</string>
+
+
+    <string name="settings_no_data_to_sync">No data for syncing.</string>
+    <string name="settings_backup_failed">Backup Failed.</string>
+    <string name="settings_backup_no_data">No data for backup..</string>
+    <string name="settings_backup_successfully">Backup Successfully.</string>
+
+    <string name="settings_info_video">Video Folder</string>
+    <string name="settings_info_video_location">Select Video File Location</string>
+    <string name="settings_info_video_file_error">Please select valid video file.</string>
+
+
+    <!--Image Picker-->
+    <string name="img_pkr_select_options">Select Options</string>
+    <string name="img_pkr_camera">Camera</string>
+    <string name="img_pkr_gallery">Gallery</string>
+    <string name="img_pkr_remove">Remove</string>
+    <string name="open_camera_using">Open Camera Using</string>
+
+    <!--About Us-->
+    <string name="about_powered_by">Powered By</string>
+
+
+    <!--Validations field login-->
+    <string name="enter_username">Please enter your username.</string>
+    <string name="enter_password">Please enter your password.</string>
+    <string name="enter_q_field_id">Please enter Building ID.</string>
+    <string name="enter_q_field_id1">Please enter Building ID 1.</string>
+    <string name="enter_q_field_id2">Please enter Building ID 2.</string>
+    <string name="enter_q_field_id3">Please enter Building ID 3.</string>
+    <string name="enter_valid_building_id">Please enter valid Building ID.</string>
+
+    <!--Validations field forgot password-->
+    <string name="enter_email_address">Please enter your registered email address.</string>
+    <string name="enter_valid_email_address">Please enter a valid email address.</string>
+
+    <!--Validations server url-->
+    <string name="enter_server_url">Please enter server url.</string>
+    <string name="enter_port_no">Please enter port number.</string>
+    <string name="wrong_address">Please check entered server URL</string>
+    <string name="server_issue">Something went wrong in server, try again later</string>
+    <string name="socket_issue">Please check entered socket</string>
+    <string name="survey_point_success_msg">Successfully saved server survey points</string>
+
+    <!-- validation field building check-->
+    <string name="select_point_status">Please select point status</string>
+
+    <!-- validation field ground floor selection-->
+    <string name="error_ground_floor">Please select ground floor</string>
+
+    <!-- validation field building-->
+    <string name="error_building_name">Please enter building name</string>
+    <string name="error_year_of_construction">Please enter year of construction</string>
+    <string name="error_colony_name">Please enter colony / association name</string>
+    <string name="error_survey_number">Please enter survey number.</string>
+    <string name="error_structural_change">Please select any structural change</string>
+    <string name="error_structural_change_year">Please enter structural change year</string>
+    <string name="error_structural_change_year_valid">Please enter valid structural change year</string>
+    <string name="error_roof_type_change">Please select roof type change</string>
+    <string name="error_roof_type_change_year">Please enter roof type change year</string>
+    <string name="error_roof_type_change_year_valid">Please enter valid roof type change year</string>
+    <string name="error_pathway_area">Please enter pathway area</string>
+    <string name="error_other_building_details">Please enter other building details</string>
+    <string name="error_valid_year_of_construction">Please enter valid year of construction</string>
+    <string name="error_no_of_rooms">Please enter no of rooms"</string>
+    <string name="error_no_of_floor">Please enter no of floors"</string>
+    <string name="error_basement_number">Please select basement number</string>
+    <string name="error_floor_number">Please select floor number</string>
+    <string name="error_floor_number_already_selected">Floor number already selected</string>
+    <string name="error_floor_area">Please enter floor area</string>
+    <string name="error_basement_area">Please enter basement area</string>
+    <string name="error_no_of_basement">Please enter no of basements</string>
+    <string name="error_other_buildings">Please select other buildings</string>
+    <string name="error_higher_floor_type">Please select higher floor type</string>
+    <string name="error_floor_type">Please select floor type</string>
+    <string name="error_wall_type">Please select wall type</string>
+    <string name="error_roof_total">Please enter roof total percent</string>
+    <string name="error_valid_roof_total">Roof total should not be greater than 100</string>
+    <string name="error_roof_total_mismatch">Roof total percent mismatch</string>
+    <string name="error_no_of_roof_type">Please enter number of roof type</string>
+    <string name="error_roof_type">Please select roof type</string>
+    <string name="error_vehicle_type_item">Please select vehicle type</string>
+    <string name="error_vehicle_usage_item">Please select vehicle usage</string>
+    <string name="error_roof_type_already_selected">Roof type already selected</string>
+    <string name="error_roof_percent">Please enter roof percent</string>
+    <string name="error_structure_type">Please select structure type</string>
+    <string name="error_car_porch">Please select parking</string>
+    <string name="error_car_porch_area">Please enter parking area</string>
+    <string name="error_common_stair">Please select Common stair</string>
+    <string name="error_common_stair_area">Please enter stair room area</string>
+    <string name="error_stair">Please select Stair</string>
+    <string name="error_area_remarks">Please enter area remarks"</string>
+    <string name="error_year_of_roof_change">കെട്ടിടം പണിത വര്ഷം(CONSTRUCTION YEAR) മേൽക്കൂരയിൽ  മാറ്റം  വരുത്തിയ വർഷത്തേക്കാൾ(ROOF CHANGE YEAR) കുറവാണു. ഡാറ്റ വിലയിരുത്തി ആവിശ്യമായ മാറ്റങ്ങൾ വരുത്തുക</string>
+    <string name="error_construction_establishment_year">കെട്ടിടം പണിത വര്ഷം(CONSTRUCTION YEAR) സ്ഥാപനം തുടങ്ങിയ  വർഷത്തേക്കാൾ(ESTABLISHMENT YEAR) കുറവാണു. ഡാറ്റ വിലയിരുത്തി ആവിശ്യമായ മാറ്റങ്ങൾ വരുത്തുക </string>
+    <string name="error_year_of_structural_change">(കെട്ടിടം പണിത വര്ഷം(CONSTRUCTION YEAR) ഘടനാപരമായ മാറ്റം വരുത്തിയ   വർഷത്തേക്കാൾ(STRUCTURE CHANGE YEAR) കുറവാണു. ഡാറ്റ വിലയിരുത്തി ആവിശ്യമായ മാറ്റങ്ങൾ വരുത്തുക</string>
+
+
+    <!-- validation field establishment-->
+    <string name="error_establishment_name">Please enter establishment name.</string>
+    <string name="error_establishment_type">Please enter establishment type.</string>
+    <string name="error_establishment_year">Please enter establishment year.</string>
+    <string name="error_valid_establishment_year">Please enter valid establishment year.</string>
+    <string name="error_in_charge">Please enter incharge name.</string>
+    <string name="error_in_charge_role">Please enter incharge role.</string>
+    <string name="error_employee_count">Please enter employee count.</string>
+    <string name="error_license_number">Please enter license number.</string>
+    <string name="error_gst_status">Please select gst status details</string>
+    <string name="error_establishment_email">Please enter email address.</string>
+    <string name="error_valid_email">Please enter valid email address.</string>
+    <string name="error_establishment_mobile">Please enter mobile number.</string>
+    <string name="error_valid_mobile">Please enter valid mobile number.</string>
+    <string name="error_establishment_landline">Please enter landline number.</string>
+    <string name="error_valid_land_line">Please enter valid landline number.</string>
+
+
+    <!-- validation field live hood-->
+    <string name="error_religion">Please enter religion</string>
+    <string name="error_cast">Please enter cast</string>
+    <string name="error_ration_card">Please enter ration card"</string>
+    <string name="error_ration_card_number">Please enter ration card number</string>
+    <string name="error_valid_ration_card_number">Please enter a valid 10 digit ration card number</string>
+    <string name="error_bank_account">Please select bank account</string>
+    <string name="error_other_facility">Please select other facility</string>
+    <string name="error_pet_dog">Please select pet</string>
+    <string name="error_bathroom">Please select bathroom</string>
+    <string name="error_kwa_water">Please select water connection</string>
+    <string name="error_water_connection_type">Please select water connection type</string>
+    <string name="error_water_supply_duration">Please select water supply duration(Days per Week)</string>
+    <string name="error_gas_connection">Please select gas connection</string>
+    <string name="error_lack_drinking">Please select lack of drinking water</string>
+    <string name="error_solar">Please select solar panel</string>
+    <string name="error_rain_water_harvest">Please select rain water harvesting</string>
+    <string name="error_water_source_type">Please select water source type</string>
+    <string name="error_well_details">Please select well details</string>
+    <string name="error_water_conection">Please select water conection</string>
+    <string name="error_other_water_resource">Please select other water resource</string>
+    <string name="error_cattle">Please select cattles</string>
+    <string name="error_no_of_cattle">Please enter number of cattles</string>
+    <string name="error_no_of_poultry">Please enter number of poultry</string>
+    <string name="error_poultry">Please select poultry</string>
+    <string name="error_no_water_source">ബിൽഡിങ്ങ് ടൈപ്പ് റസിഡൻഷ്യൽ (RESIDENTIAL) എന്നും ബിൽഡിങ്ങ് സ്റ്റാറ്റസ് (BUILDING  STATUS) COMPLETED,REPAIR,EXTENSION എന്നിവയിൽ ഏതെങ്കിലും ഒന്നുമാണ് ,പക്ഷെ  ജല സ്രോതസുകൾ ഒന്നുമില്ല എന്നുമാണ് ഡാറ്റ കൊടുത്തിരിക്കുന്നത് . കൊടുത്തിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക.</string>
+    <!-- validation field more details -->
+    <string name="error_type_land">Please enter type of land</string>
+    <string name="error_building_under_scheme">Please enter building under any scheme</string>
+    <string name="error_plot_area">Please enter plot area</string>
+    <string name="error_well_perennial">Please select well water availability</string>
+    <string name="error_well_perennial_month">Please select corresponding months</string>
+    <string name="error_no_of_members">Please enter number of members</string>
+    <string name="error_swimming_pool">Please select swimming pool</string>
+    <string name="error_swimming_pool_area">Please enter swimming pool area</string>
+
+
+    <string name="error_kudumbasree">Please select kudumbasree</string>
+    <string name="error_health_insurance">Please select health insurance</string>
+    <string name="error_thozhilurapp">Please select thozhilurapp</string>
+
+    <string name="error_plastic_waste_management">Please select plastic waste management</string>
+    <string name="error_liquid_waste_management">Please select liquid waste management</string>
+    <string name="error_organic_waste_management">Please select organic waste management</string>
+
+    <!-- validation field location-->
+    <string name="error_district">Please select district from settings</string>
+    <string name="error_local_body">Please select local body from settings</string>
+    <string name="error_ward_number">Please select ward number</string>
+    <string name="error_street_name">Please enter street name</string>
+    <string name="error_place_name">Please enter place name</string>
+    <string name="error_village_name">Please select village name</string>
+    <string name="error_post_office">Please select post office</string>
+    <string name="error_building_zone">Please select building zone</string>
+    <string name="error_flood_status">Please select flood affected</string>
+    <string name="error_water_level_hit">Please enter water level hit</string>
+
+    <!-- validation field image-->
+    <string name="error_informed_by">Please select informed by</string>
+    <string name="error_surveyor_name">Please select surveyor name</string>
+    <string name="error_remarks">Please enter remarks</string>
+    <string name="error_surveyor_selection">Please select surveyor name from settings</string>
+    <string name="error_cooperative_survey">Please select cooperative survey</string>
+    <string name="error_image_path1">Please capture photo 1</string>
+    <string name="error_image_path2">Please capture photo 2</string>
+    <string name="error_image_path3">Please capture Plan Image</string>
+
+
+    <!-- validation field owner -->
+    <string name="error_owner_name">Please enter owner name.</string>
+    <string name="error_owner_occupation">Please select owner occupation.</string>
+    <string name="error_owner_house_name">Please enter owner house name.</string>
+    <string name="error_owner_street_name">Please enter street name.</string>
+    <string name="error_owner_state">Please enter state.</string>
+    <string name="error_owner_post">Please enter post office.</string>
+    <string name="error_owner_pincode">Please enter pincode.</string>
+    <string name="error_owner_valid_pincode">Pincode must be 6 digit.</string>
+    <string name="error_owner_mobile">Please enter mobile.</string>
+    <string name="error_owner_enter_land_line">Please enter landline number.</string>
+    <string name="error_owner_valid_land_line">Please enter valid landline number.</string>
+    <string name="error_owner_valid_mobile">Please enter valid mobile number.</string>
+    <string name="error_enter_owner_email">Please enter email address.</string>
+    <string name="error_owner_valid_email">Please enter a valid email address.</string>
+    <string name="error_tele_call_number">Please enter tele call number</string>
+    <string name="error_valid_tele_call_number">Please enter valid tele call number</string>
+
+
+    <!-- validation field property -->
+    <string name="error_property_old_id1">Please enter old ward number.</string>
+    <string name="error_property_old_id2">Please enter old property no.</string>
+    <string name="error_property_old_id3">Please enter old sub no.</string>
+    <string name="error_property_new_id3">Please enter new property no.</string>
+    <string name="error_property_new_id4">Please enter new sub no.</string>
+    <string name="error_property_old_id">Please enter old property id.</string>
+    <string name="error_property_valid_old_id">Please enter a valid old property id.</string>
+    <string name="error_property_new_id">Please enter new property id.</string>
+    <string name="error_property_new_id_remarks">Please enter new property id remarks.</string>
+    <string name="error_property_valid_new_id">Please enter a valid new property id.</string>
+    <string name="error_old_prop_na_nr">For old property id check ward no and property number can not be NA/NR</string>
+    <string name="error_near_property_number">Please enter near property number.</string>
+    <string name="error_landmark">Please select landmark</string>
+    <string name="error_done_id">Please enter done id.</string>
+    <string name="error_near_property_id3">Please enter near property number.</string>
+    <string name="error_near_property_id4">Please enter near property sub no.</string>
+    <string name="error_duplicate_new_propertyId">New property id value alredy existing.</string>
+    <string name="error_landmark_name">Please enter landmark name.</string>
+    <string name="error_landmark_category">Please select landmark category.</string>
+    <string name="error_landmark_sub_category">Please select landmark sub category.</string>
+    <string name="error_duplicate_old_propertyId">Old property id value alredy existing.</string>
+    <string name="error_ownership_education">Please enter ownership of educational building.</string>
+    <string name="error_door_status">Please select door status</string>
+    <string name="error_building_usage">Please select property usage</string>
+    <string name="error_building_under">Please select property under</string>
+    <string name="error_building_status">Please select property status</string>
+    <string name="error_building_type">Please select property type</string>
+    <string name="error_building_subtype">Please select property sub type</string>
+    <string name="error_establishment_usage">Please select establishment usage</string>
+    <string name="error_electricity">Please select electricity</string>
+    <string name="error_enter_consumer_number">Please enter consumer number.</string>
+    <string name="error_consumer_number">Consumer number must be 13 digit</string>
+    <string name="error_main_building">Please select main building</string>
+    <string name="error_latrine">Please select toilet</string>
+    <string name="error_toilet_waste_disposal">Please select toilet waste disposal.</string>
+    <string name="error_centralised_ac">Please select air conditioner</string>
+    <string name="error_xls_file_format">Please select valid xls file.</string>
+    <string name="error_ar_file_empty">Please select AR file from settings.</string>
+    <string name="error_survey_type">Please select survey type</string>
+
+    <!-- validation field road -->
+    <string name="error_near_road">Please enter path to property entrance.</string>
+    <string name="error_road_type">Please enter road type.</string>
+    <string name="error_road_width">Please enter road width.</string>
+
+
+    <!-- validation field tenant -->
+    <string name="error_tenant_name">Please enter tenant name.</string>
+    <string name="error_tenant_house_name">Please enter house name.</string>
+    <string name="error_tenant_street_name">Please enter street name.</string>
+    <string name="error_tenant_survey_number">Please enter tenant survey number.</string>
+    <string name="error_tenant_state">Please enter state.</string>
+    <string name="error_tenant_post">Please enter post office.</string>
+    <string name="error_tenant_pincode">Please enter pincode.</string>
+    <string name="error_tenant_valid_pincode">Pincode must be 6 digit.</string>
+    <string name="error_tenant_mobile">Please enter mobile number.</string>
+    <string name="error_tenant_valid_mobile">Please enter valid mobile number.</string>
+    <string name="error_tenant_enter_land_line">Please enter landline number.</string>
+    <string name="error_tenant_valid_land_line">Please enter valid landline number.</string>
+    <string name="error_enter_tenant_email">Please enter email address.</string>
+    <string name="error_tenant_valid_email">Please enter a valid email address.</string>
+    <string name="error_tenant_amount">Please enter amount.</string>
+    <string name="error_tenant_native">Please select tenant native</string>
+    <string name="error_tenant_status">Please select tenant status</string>
+
+    <!-- validation field tax -->
+    <string name="error_tax_number">Please enter tax receipt number.</string>
+    <string name="error_tax_amount">Please enter tax amount.</string>
+    <string name="error_tax_paid_date">Please select tax paid date.</string>
+    <string name="error_tax_annual_amount">Please enter annual tax amount.</string>
+    <string name="error_tax_amount_lesser">Tax amount should be greater than annual tax amount.</string>
+    <string name="error_invalid_amount">Please enter valid amount</string>
+
+
+    <!-- validation field member -->
+    <string name="error_member_name">Please enter name</string>
+    <string name="error_member_age">Please enter age</string>
+    <string name="error_member_gender">Please enter gender</string>
+    <string name="error_member_martial_status">Please enter martial status</string>
+    <string name="error_member_nrk">Is the person NRK ?</string>
+    <string name="error_member_nri">Is the person NRI ?</string>
+    <string name="error_member_education">Please enter education</string>
+    <string name="error_member_education_type">Please enter education type</string>
+    <string name="error_member_job">Please enter job</string>
+    <string name="error_member_job_type">Please enter job type</string>
+    <string name="error_member_job_loss">Please enter job loss due to corona</string>
+    <string name="error_member_disease">Please enter disease</string>
+    <string name="error_member_disability">Please enter disability</string>
+    <string name="error_member_disability_percentage">Please enter disability percentage</string>
+    <string name="error_member_student">Is the person Student ?</string>
+    <string name="error_member_pension">Please enter pension</string>
+    <string name="error_member_pension_already_selected">Pension already selected.</string>
+    <string name="error_member_disease_already_selected">Disease already selected.</string>
+    <string name="error_member">Please</string>
+    <string name="member_avivahitha_pension_error">GENDER - സ്ത്രീ(FEMALE) ഉം  MARITAL STATUS - SINGLE ഉം  ആയാൽ മാത്രമേ  അവിവാഹിത പെൻഷൻ AVIVAHITHA PENSION കിട്ടുകയുള്ളൂ.കൊടുത്തിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക.</string>
+    <string name="member_male_widow_pension_error">GENDER - പുരുഷൻ  (MALE) എന്നും പെൻഷൻ WIDOW PENSION എന്നുമാണ് കൊടുത്തിരിക്കുന്നത് .കൊടുത്തിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക.(NOTE  : പുരുഷന്‌ ഒരിക്കലും WIDOW PENSION കിട്ടില്ല</string>
+    <string name="member_oldage_pension_error">GENDER - വയസ് (AGE ) 60 തിൽ കുറവും  പെൻഷൻ OLD AGE PENSION എന്നുമാണ് കൊടുത്തിരിക്കുന്നത് .കൊടുത്തിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക.(NOTE  : 60 വയസിൽ കുറവുള്ള ഒരാൾക്കു ഒരിക്കലും OLD AGE PENSION കിട്ടില്ല</string>
+    <string name="member_female_widow_pension_warning"> MARITAL STATUS - MARRIED, MARRIED,SINGLE,DIVORCED/SEPARATED എന്നിവയിൽ ഏതെങ്കിലും ഒന്നും GENDER  സ്ത്രീ (FEMALE) എന്നുമാവുമ്പോൾ WIDOW PENSION ലഭിക്കാൻ സാധ്യത കുറവാണു.കൊടുത്തിരിക്കുന്ന ഡാറ്റ ശരിയാണോ എന്ന് ഉറപ്പു വരുത്തുക.</string>
+
+
+    <!--Validation Error Arc Gis-->
+    <string name="error_arc_gis_select_location">Please select location on map.</string>
+    <string name="error_fetch_location">Unable to fetch location details.</string>
+    <string name="error_surveyor">Please select surveyor name</string>
+    <string name="error_mobile_code">Please enter mobile code</string>
+    <string name="error_no_prevois_location">No previous location available</string>
+
+    <!--Info-->
+    <string name="info_building_id">കെട്ടിട നമ്പർ [മാതൃക : KLM-വാർഡ് നമ്പർ-നമ്പർ] <KLM-XX-XX></KLM-XX-XX></string>
+    <string name="info_select_ground_floor">കെട്ടിടത്തിന്റെ താഴത്തെ നില തിരഞ്ഞെടുക്കുക\nSelect ground floor of the building</string>
+    <string name="info_property_status">കെട്ടിടത്തിന്റെ അവസ്ഥ\nOngoing: നിർമ്മാണം ഇപ്പോഴും നടക്കുന്നു
+            \nOngoing Without Roof:മേൽക്കൂര ഇല്ല. നിർമ്മാണം ഇപ്പോഴും നടക്കുന്നു
+            \nExtension: നിലവിലുള്ള കെട്ടിടത്തിന്റെ വിപുലീകരണം നടക്കുന്നു\nRepair: നിലവിലുള്ള കെട്ടിടത്തിന്റെ അറ്റകുറ്റപ്പണി നടക്കുന്നു
+            \nCompleted: കെട്ടിട നിർമ്മാണം പൂർത്തിയായി\nDemolished: കെട്ടിടം പൊളിച്ചുമാറ്റി\nUnusable: കെട്ടിടം ഉപയോഗശൂന്യമാണ്</string>
+    <string name="info_door_status">ഇൻഫോർമറിനെ അടിസ്ഥാനമാക്കിയുള്ള വാതിൽ നില
+            \nDoor Open: വാതിൽ തുറന്നുകിടക്കുന്നു\nDoor Closed: ആ സമയത്തേക്ക് വാതിൽ അടച്ചിരിക്കുന്നു
+            \nGate locked: ഗേറ്റ് പൂട്ടി കിടക്കുന്നു\nPermanently Door Closed: വളരെക്കാലമായി വാതിൽ അടച്ചിരിക്കുന്നു
+            \nNon Co operation: സർവ്വേക് വേണ്ടി സഹകരിക്കുന്നില്ല.</string>
+    <string name="info_property_under">ആരുടെ കീഴിലാണ് കെട്ടിടം\nState Government: സംസ്ഥാന സർക്കാർ
+        \nCentral Government: കേന്ദ്ര സർക്കാർ\nCooperative: സഹകരണ\nAutonomous: സ്വയംഭരണാധികാരം
+        \nSemi- autonomous: അർദ്ധ സ്വയംഭരണാധികാരം\nPublic: പൊതു മേഖല\nPrivate: സ്വകാര്യ ഉടമസ്ഥാവകാശം
+        \nSemi: ഭാഗികമായി പൊതു ഉടമസ്ഥാവകാശവും ഭാഗികമായി സ്വകാര്യ ഉടമസ്ഥാവകാശവും\nOther: മറ്റുള്ളവ</string>
+    <string name="info_property_type">കെട്ടിട വിഭാഗം\nResidential - പാർപ്പിടാവശ്യം\nCommercial - വാണിജ്യാവശ്യം\nIndustrial - വ്യാവസായികാവശ്യം
+        \nEducation -  വിദ്യാഭ്യാസസംബന്ധമായവ\nHealth Services - ആരോഗ്യ സേവനങ്ങൾക്കുള്ളവ\nPublic And Semi Public - പൊതു മേഖലയോ അർദ്ധ പൊതുമേഖലയോ
+        \nReligious - മതപരമായവ\nRecreational - വിനോദാവശ്യത്തിനുള്ളവ\nPublic Utility - പൊതു സേവനങ്ങൾ\nCommunication - ആശയവിനിമയമായി ബന്ധപ്പെട്ടവ
+        \nOffice - ഓഫീസ്  കെട്ടിടങ്ങൾ</string>
+    <string name="info_property_subtype">കെട്ടിട ഉപവിഭാഗം\n</string>
+    <string name="info_property_usage">കെട്ടിടം ഉപയോഗിക്കുന്നത് വാടകയ്ക്കാണോ സ്വന്തമായാണോ ?</string>
+    <string name="info_electricity">വൈദ്യുതി</string>
+    <string name="info_consumer_no">ഉപഭോക്തൃ നമ്പർ</string>
+    <string name="info_latrine">ശൗചാലയം ഉണ്ടോ ?</string>
+    <string name="info_toilet_waste_disposal">ടോയ്‌ലറ്റ് മാലിന്യ നിർമാർജന രീതി\n[കോൺക്രീറ്റ്, ഫൈബർഗ്ലാസ് അല്ലെങ്കിൽ പ്ലാസ്റ്റിക് എന്നിവ ഉപയോഗിച്ച് നിർമ്മിച്ച അറ
+        Septic tank, ബാക്കിയുള്ളവ Soak pit ആണ്]</string>
+    <string name="info_centralised_ac">AC ഉണ്ടോ ? ഉണ്ടെങ്കിൽ ഏതു തരം  ?</string>
+    <string name="info_main_building">പ്രധാന കെട്ടിടമാണോ (ഓഫീസ് കെട്ടിടം ആണോ)?</string>
+    <string name="info_ownership_educational">വിദ്യാഭ്യാസ കെട്ടിടത്തിന്റെ ഉടമസ്ഥാവകാശം ആർക്കാണ് ?</string>
+    <string name="info_drone_id">ഡ്രോൺ ഇമേജിലേ ഐ ഡി രേഖപെടുത്തുക. ഡ്രോൺ ഐ ഡി ഇല്ലാത്ത പക്ഷം  Near എന്ന് ടൈപ്പ് ചെയ്തതിനു ശേഷം  തൊട്ടടുത്തുള്ള ഡ്രോൺ ഐ ഡി നൽകുക. (ഉദാഹരണം : Near 123 )</string>
+    <string name="info_new_property_Id">പുതിയ പ്രോപ്പർട്ടി ID
+        \n[മാതൃക : വാർഡ് നമ്പർ /വീട് നമ്പർ/സബ്  നമ്പർ] (വിശദാംശങ്ങളൊന്നും ലഭ്യമല്ലെങ്കിൽ ദയവായി Near ID നൽകുക;
+        \nമാതൃക : Na Near XX/XXX/X  അല്ലെങ്കിൽ Nr Near XX/XXX/X എന്ന് സന്ദർഭോചിതമായി നൽകുക, കാരണം വിശദമാക്കുക)</string>
+
+    <string name="info_new_property_id_remarks">New Property ID ഇല്ലാത്തതിന്റെ കാരണം വിശദമാക്കുക
+        \nNon-Cooperative - നിസ്സഹകരണം\nNew property - പുതിയ കെട്ടിടം ആയതിനാൽ New Property ID ലഭിച്ചിട്ടില്ല
+        \nDon\'t know - New Property ID അറിയില്ല\nOther - മറ്റു കാരണങ്ങൾ</string>
+    <string name="info_religion">മതം</string>
+    <string name="info_cast">ജാതി</string>
+    <string name="info_ration_card">റേഷൻ കാർഡിന്റെ നിറം </string>
+    <string name="info_ration_card_no">റേഷൻ കാർഡ് നമ്പർ  </string>
+    <string name="info_bathroom">കുളിമുറി സൗകര്യം ഉണ്ടോ ?</string>
+    <string name="info_water_connection">വാട്ടർ കണക്ഷൻ ഉണ്ടോ ?</string>
+    <string name="info_water_conn_type">വാട്ടർ കണക്ഷൻ തരം</string>
+    <string name="info_water_supply_duration">ആഴ്ചയിൽ വെള്ളം ലഭ്യമാകുന്ന ദിവസങ്ങളുടെ എണ്ണം. ഒന്നിൽ കൂടുതൽ ഉണ്ട് എങ്കിൽ അവ എല്ലാം കൂടെ ആഴ്ചയിൽ ലഭ്യമാകുന്ന ദിവസങ്ങളുടെ എണ്ണം കൊടുക്കുക.എല്ലാ ദിവസവും കിട്ടുന്നു എങ്കിൽ 7 എന്നു കൊടുക്കുക</string>
+    <string name="info_survey_type">സർവേ തരം</string>
+
+    <string name="info_type_of_land">ഭൂമിയുടെ തരം</string>
+    <string name="info_plot_area_cent">കെട്ടിടം സ്ഥിതിചെയ്യുന്ന വസ്തുവിന്റെ വിസ്തീർണം (എത്ര സെൻറ് ?)</string>
+    <string name="info_vehicle_type">വാഹനത്തിന്റെ തരം?</string>
+    <string name="info_vehicle_usage">വാഹനത്തിന്റെ ഉപയോഗം</string>
+
+    <string name="info_building_under_scheme">താഴെ പറയുന്ന ഏതെങ്കിലും സർക്കാർ പദ്ധതിയിൽ ഉൾപ്പെട്ട കെട്ടിടം ആണോ?</string>
+    <string name="info_no_of_vehicle">വാഹനം ഉണ്ടെങ്കിൽ എണ്ണം എത്ര </string>
+    <string name="info_well_water_available">കിണറിലെ വെള്ളത്തിന്റെ ലഭ്യത?\nPerennial - എല്ലാ മാസവും ലഭിക്കും\nSeasonal - ചില മാസങ്ങളിൽ ലഭിക്കില്ല </string>
+    <string name="info_well_dry_month">കിണർ വെള്ളം ലഭിക്കാത്ത  മാസങ്ങൾ?</string>
+    <string name="info_thozhilurapp">തൊഴിലുറപ്പ് പദ്ധതിയിൽ അംഗത്വം ഉണ്ടോ ?</string>
+    <string name="info_kudumbasree">കുടുംബശ്രീ പ്രവർത്തനങ്ങളിൽ ഏർപ്പെടുന്നവർ ഉണ്ടോ?</string>
+    <string name="info_health_insurance">സർക്കാർ ആരോഗ്യ ഇൻഷുറൻസ് കാർഡ് ഉണ്ടോ?</string>
+    <string name="info_water_source_type">ജലസ്രോതസ്സ് തരം</string>
+    <string name="info_lack_drinking_water">കുടിവെള്ളക്ഷാമം ഉണ്ടോ?</string>
+    <string name="info_gas_connection">ഗ്യാസ് കണക്ഷൻ?</string>
+    <string name="info_rain_water_harvest">മഴവെള്ള സംഭരണം ഉണ്ടോ?</string>
+    <string name="info_solar_panel">സോളാർ പാനൽ ഉണ്ടോ ?</string>
+    <string name="info_well_details">ഏതു തരത്തിലുള്ള കിണറുകളാണ് ഉപയോഗിക്കുന്നത്. ഒന്നിൽ കൂടുതൽ സെലക്ട് ചെയ്യാം. ഒന്നുമില്ല എങ്കിൽ NO  എന്ന് കൊടുക്കുക.SAHRED WELL എന്നാൽ ഒന്നിൽ കൂടുതൽ ഉടമസ്ഥരുള്ള കിണർ എന്നാണ് .NEIGBUR WELL എന്നാൽ അയൽപക്കത്തുള്ള വീട്ടിലെ കിണർ ഉപയോഗിക്കുന്നവർ എന്നതാണ് . NEIGBUR WELL DUG ആണോ TUBE ആണോ എന്ന് നോക്കേണ്ടതില്ല</string>
+    <string name="info_water_connection_details">പൈപ്പ് മുഗേനയുള്ള വെള്ളത്തിന്റെ ലഭ്യത .  ഒന്നിൽ കൂടുതൽ സെലക്ട് ചെയ്യാം. ഒന്നുമില്ല എങ്കിൽ NO  എന്ന് കൊടുക്കുക.,</string>
+    <string name="info_other_water_source">വെള്ളത്തിന്റെ ലഭ്യതക്കു വേണ്ടി ഉപയോഗിക്കുന്ന മറ്റു ജല സ്രോതസുകൾ,ഒന്നിൽ കൂടുതൽ സെലക്ട് ചെയ്യാം. ഒന്നുമില്ല എങ്കിൽ NO  എന്ന് കൊടുക്കുക. PAID WATER എന്നാൽ പണം കൊടുത്തു സ്ഥിരമായി വാഹനങ്ങളിൽ  എത്തിക്കുകയോ വലിയ കുപ്പികളിൽ എത്തിക്കുകയോ  ചെയ്യുന്നതാണ്. ( വീട്ടിലേക്കുള്ള ആവിശ്യങ്ങൾക് ഉപയോഗിക്കുന്നത് മാത്രം ഉൾപ്പെടുത്തിയാൽ മതി , കൃഷിക്കോ മറ്റാവശ്യങ്ങൾക്കും ഉപയോഗിക്കുന്നത് ഉൾപെടുത്തേണ്ടതില്ല )</string>
+    <string name="info_other_facility">ഇനിപ്പറയുന്ന ഏതെങ്കിലും സൗകര്യങ്ങൾ  ലഭ്യമാണോ?</string>
+    <string name="info_waste_management_type">ജൈവ, പ്ലാസ്റ്റിക് , ഇലക്ട്രോണിക് മാലിന്യങ്ങൾ ഉത്പാദിപ്പിക്കുന്നുണ്ടെങ്കിൽ അവയുടെ സംസ്കരണ രീതി?</string>
+    <string name="info_plastic_waste_management">പ്ലാസ്റ്റിക് മാലിന്യങ്ങൾ ഉത്പാദിപ്പിക്കുന്നുണ്ടെങ്കിൽ അവയുടെ സംസ്കരണ രീതി?</string>
+    <string name="info_liquid_waste_management">ദ്രാവക മാലിന്യങ്ങൾ ഉത്പാദിപ്പിക്കുന്നുണ്ടെങ്കിൽ അവയുടെ സംസ്കരണ രീതി?</string>
+    <string name="info_organic_waste_management">ജൈവ മാലിന്യങ്ങൾ ഉത്പാദിപ്പിക്കുന്നുണ്ടെങ്കിൽ അവയുടെ സംസ്കരണ രീതി?</string>
+    <string name="info_pet">വളർത്തുമൃഗങ്ങൾ ഉണ്ടെങ്കിൽ തരം വ്യക്തമാക്കുക ?</string>
+    <string name="info_poultry">കോഴി വളർത്തൽ ഉണ്ടോ?</string>
+    <string name="info_num_poultry">കോഴികളുടെ എണ്ണം </string>
+    <string name="info_banck_account">ബാങ്ക് അക്കൗണ്ട് ഉണ്ടോ ?</string>
+    <string name="info_cattles">കന്നുകാലികളുണ്ടോ?</string>
+    <string name="info_num_cattles">കന്നുകാലികളുടെ എണ്ണം</string>
+    <string name="info_mem_count">അംഗങ്ങളുടെ എണ്ണം</string>
+    <string name="info_swimming_pool">നീന്തൽകുളം ഉണ്ടോ ?</string>
+    <string name="info_swimming_pool_area">നീന്തൽക്കുളത്തിന്റെ വിസ്തീർണം</string>
+
+    <string name="info_building_name">കെട്ടിടത്തിന്റെ പേര് </string>
+    <string name="info_water_level_hit">വെള്ളം കയറിയത്തിന്റെ അളവ് </string>
+    <string name="info_survey_no">ഉടമയുടെ സർവേ നമ്പർ  ( വിശദാംശങ്ങൾ‌ ലഭിച്ചില്ലെങ്കിൽ‌ ദയവായി NR ബട്ടൺ അമർത്തുക) </string>
+    <string name="info_year_of_construction">ഏതു വർഷമാണ് കെട്ടിടം നിർമ്മിച്ചത്?</string>
+    <string name="info_how_many_years">കെട്ടിടം നിര്മിച്ചിട്ട് എത്ര വർഷമായി ?</string>
+    <string name="info_no_of_rooms">മുറികളുടെ എണ്ണം</string>
+    <string name="info_no_of_floors">നിലകളുടെ എണ്ണം</string>
+    <string name="info_structure_type">കെട്ടിടത്തിന്റെ  ഘടന\nFlat - ഒന്നിൽ കൂടുതൽ പപ്രോപ്പർട്ടികൾ ഉണ്ടെങ്കിൽ
+        \nNormal - മേൽപറഞ്ഞവ അല്ലെങ്കിൽ</string>
+    <string name="info_car_porch">പാർക്കിംഗ് സൗകര്യം ഉണ്ടോ?</string>
+    <string name="info_porch_area">കാർ പോർച്  വിസ്തീർണം</string>
+    <string name="info_common_stair_area">സ്റ്റെയർ വിസ്തീർണം </string>
+    <string name="info_path_way_area">പാത്ത് വേ ഉണ്ടെങ്കിൽ അതിന്റെ വിസ്തീർണം രേഖപ്പെടുത്തുക ;
+        \nഇല്ലാത്ത പക്ഷം NA എന്നും വിസ്തീർണം അളക്കാൻ കഴിഞ്ഞില്ലെങ്കിൽ NR എന്നും രേഖപ്പെടുത്തുക   </string>
+    <string name="info_any_structural_change">കെട്ടിടത്തിൽ എന്തെങ്കിലും ഘടനാപരമായ മാറ്റം വരുത്തിയോ?</string>
+    <string name="info_any_structural_change_year">മാറ്റത്തിന്റെ വർഷം</string>
+    <string name="info_any_rooftype_change">മേൽക്കൂര തരത്തിൽ എന്തെങ്കിലും മാറ്റം വരുത്തിയോ?</string>
+    <string name="info_any_rooftype_change_year">മാറ്റത്തിന്റെ വർഷം</string>
+    <string name="info_other_building">ഉടമസ്ഥന് മറ്റ്  പ്രോപ്പർട്ടിയുണ്ടോ</string>
+    <string name="info_other_building_details">മറ്റേ പ്രോപ്പർട്ടിയുടെ വിശദശാംശങ്ങൾ </string>
+    <string name="info_floor_type">തറയുടെ തരം</string>
+    <string name="info_higher_floor_type">തറയുടെ തരം (granite, gracewood, italian marble, vitrified tile) ഇവ അണെങ്കിൽ, അവയുടെ ആകെ വിസ്തീർണം 250 sqmtr കൂടുതൽ ആണോ ?</string>
+    <string name="info_wall_type">ചുമരിന്റെ തരം </string>
+    <string name="info_roof_total_percent">മേൽക്കൂരയുടെ ആകെ ശതമാനം </string>
+    <string name="info_no_of_roof_type">എത്ര തരം മേൽക്കൂരകൾ ഉണ്ട്? </string>
+
+    <string name="info_near_road">കെട്ടിടത്തിന്റെ പ്രവേശന കവാടത്തിലേക്കുള്ള പാതയുടെ പേര് </string>
+    <string name="info_road_type">കെട്ടിടത്തിന്റെ പ്രവേശന കവാടത്തിലേക്കുള്ള പാതയുടെ തരം</string>
+    <string name="info_road_width">കെട്ടിടത്തിന്റെ പ്രവേശന കവാടത്തിലേക്കുള്ള പാതയുടെ വീതി</string>
+
+    <string name="info_tenant_name">വാടകക്കാരന്റെ പേര്</string>
+    <string name="info_tenant_house">വാടകക്കാരന്റെ വീട്</string>
+    <string name="info_tenant_street">വാടകക്കാരന്റെ സ്ഥലം</string>
+    <string name="info_tenant_survey_no">വാടകക്കാരന്റെ സർവേ നമ്പർ</string>
+    <string name="info_tenant_state">വാടകക്കാരന്റെ സംസ്ഥാനം</string>
+    <string name="info_tenant_post_office">വാടകക്കാരന്റെ പോസ്റ്റ് ഓഫീസ്</string>
+    <string name="info_tenant_pincode">വാടകക്കാരന്റെ പിൻകോഡ് </string>
+    <string name="info_tenant_phone">വാടകക്കാരന്റെ ഫോൺ നമ്പർ</string>
+    <string name="info_tenant_landline">വാടകക്കാരന്റെ ലാൻഡ് ഫോൺ നമ്പർ</string>
+    <string name="info_tenant_email">വാടകക്കാരന്റെ ഇമെയിൽ</string>
+    <string name="info_tenant_amount">വാടകത്തുക</string>
+    <string name="info_tenant_native">വാടകക്കാരന്റെ സ്വന്തം സ്ഥലം\nInside Kerala - കേരളം\nOutside Kerala - കേരളത്തിന് പുറത്തു്
+        \nInside LSGD - തദ്ദേശ സ്വയംഭരണപ്രദേശത്തിനുള്ളിൽ\nNR - ലഭ്യമല്ല</string>
+    <string name="info_tenant_status">വാടകക്കാരൻ ഭൂരഹിതനൊ ഭവനനരഹിതനോ ആണോ ?</string>
+
+
+    <string name="info_occupation">ഉടമയുടെ തൊഴിൽ ; ഉടമ വിദ്യാർത്ഥി ആണെങ്കിൽ student എന്ന് രേഖപ്പെടുത്തുക
+        ( വിശദാംശങ്ങൾ‌ ലഭിച്ചില്ലെങ്കിൽ‌ ദയവായി NR ബട്ടൺ അമർത്തുക )</string>
+    <string name="info_house_name">ഉടമയുടെ വീടിന്റെ പേര്  ( വിശദാംശങ്ങൾ‌ ലഭിച്ചില്ലെങ്കിൽ‌ ദയവായി NR ബട്ടൺ അമർത്തുക )</string>
+    <string name="info_street_name">ഉടമയുടെ സ്ഥലത്തിന്റെ പേര്  ( വിശദാംശങ്ങൾ‌ ലഭിച്ചില്ലെങ്കിൽ‌ ദയവായി NR ബട്ടൺ അമർത്തുക )</string>
+    <string name="info_post_office">ഉടമയുടെ പോസ്റ്റോഫീസ് ( വിശദാംശങ്ങൾ‌ ലഭിച്ചില്ലെങ്കിൽ‌ ദയവായി NR  ബട്ടൺ അമർത്തുക )</string>
+    <string name="info_pincode">ഉടമയുടെ പിൻ‌കോഡ്  ( വിശദാംശങ്ങൾ‌ ലഭിച്ചില്ലെങ്കിൽ‌ ദയവായി NR  ബട്ടൺ അമർത്തുക )</string>
+    <string name="info_email">ഇമെയിൽ ( വിശദാംശങ്ങൾ‌ ലഭിച്ചില്ലെങ്കിൽ‌ ദയവായി NR  ബട്ടൺ അമർത്തുക )</string>
+    <string name="info_landline">ഉടമയുടെ ലാൻഡ്‌ലൈൻ നമ്പർ</string>
+    <string name="info_mobile">ഉടമയുടെ ഫോൺ നമ്പർ( വിശദാംശങ്ങൾ‌ ലഭിച്ചില്ലെങ്കിൽ‌ ദയവായി NR  ബട്ടൺ അമർത്തുക )</string>
+    <string name="info_tele_call_number">ടെലികോൾ നമ്പർ</string>
+
+    <string name="info_tax_receipt_no">രസീത് നമ്പർ</string>
+    <string name="info_tax_amount">നികുതിയുടെ തുക</string>
+    <string name="info_tax_paid_date">നികുതി അടച്ച തീയതി</string>
+    <string name="info_tax_year">നികുതി അടച്ച വർഷം</string>
+    <string name="info_tax_annual_amount">വാർഷിക നികുതി തുക</string>
+
+    <string name="info_mem_name">അംഗത്തിന്റെ പേര്</string>
+    <string name="info_mem_age_year">അംഗത്തിന്റെ വയസ്</string>
+    <string name="info_mem_age_month">അംഗത്തിന്റെ വയസ്</string>
+    <string name="info_mem_job_info">തൊഴിൽ ; \nവിദ്യാർത്ഥി ആണെങ്കിൽ Student എന്ന് രേഖപ്പെടുത്തുക </string>
+    <string name="info_mem_job_loss_info">കൊറോണ കാരണം തൊഴിൽ നഷ്ടപെട്ടിട്ടുണ്ടോ ?</string>
+    <string name="info_mem_job_type_info">തൊഴിൽ വിഭാഗം </string>
+    <string name="info_mem_is_nrk">കേരളത്തിന് പുറത്തു താമസിക്കുന്ന  ആൾ ആണോ ?</string>
+    <string name="info_mem_is_nri">വ്യക്തി പ്രവാസി  ആണോ?</string>
+    <string name="info_mem_education">വിദ്യാഭ്യാസ വിഭാഗം</string>
+    <string name="info_mem_edu_type">വിദ്യാഭ്യാസ തരം</string>
+    <string name="info_mem_disability">വൈകല്യങ്ങൾ (എന്തെങ്കിലും ഉണ്ടെങ്കിൽ)</string>
+    <string name="info_mem_disability_percent">വൈകല്യതയുടെ ശതമാനം </string>
+    <string name="info_mem_student">വിദ്യാർത്ഥിയാണോ ?</string>
+
+    <string name="info_est_name">സ്ഥാപനത്തിന്റെ പേര്</string>
+    <string name="info_est_type">സ്ഥാപനത്തിൻറെ തരം ( ഏതു തരം വാണിജ്യ ആവശ്യത്തിനാണ് കെട്ടിടം ഉപയോഗിക്കുന്നത്?)</string>
+    <string name="info_est_year">സ്ഥാപനത്തിൻറെ വർഷം</string>
+    <string name="info_incharge">ചുമതലക്കാരന്റെ പേര് </string>
+    <string name="info_incharge_role">ചുമതലക്കാരന്റെ പദവി</string>
+    <string name="info_employee_count">ജീവനക്കാരുടെ എണ്ണം</string>
+    <string name="info_license_no">ലൈസൻസ് നമ്പർ (വിശദാംശങ്ങൾ‌ ലഭിച്ചില്ലെങ്കിൽ‌ ദയവായി NR നൽ‌കുക )</string>
+    <string name="info_est_gst_status">GST Number ഉണ്ടോ ?</string>
+    <string name="info_informed_by">അറിയിച്ചവർ</string>
+    <string name="info_cooperative">സർവേയുമായ് സഹകരിച്ചോ ?</string>
+    <string name="info_remarks">Remarks ൻറെ  സൈസ് 250  ക്ക്  മുകളിൽ വേണം എന്നു ഉണ്ടെങ്കിൽ വലത് വശത്തുള്ള Add Button ക്ലിക്ക് ചെയ്യുക.</string>
+    <string name="info_area_remarks">ഫ്ലോർ ഏരിയ അഭിപ്രായങ്ങൾ </string>
+
+
+    <!--Sync Page-->
+    <string name="sync_grid_title">Sync Survey</string>
+    <string name="sync_grid_dltn_error_msg">Deletion failed</string>
+    <string name="sync_grid_dltn_done_msg">Deletion done successfully</string>
+    <string name="sync_property_id">Property ID</string>
+    <string name="sync_status_sync_started">Sync started…</string>
+    <string name="sync_status_syncing_data">Syncing data to server…</string>
+    <string name="sync_status_successfully_synced">Successfully Synced</string>
+    <string name="sync_status_sync_failed">Syncing Failed</string>
+    <string name="sync_status_uploading_images">Uploading images to server…</string>
+    <string name="sync_label_completed">Completed</string>
+
+    <!--report-->
+    <string name="report_label_total_property_count">Property Count</string>
+    <string name="report_label_date">Date</string>
+    <string name="report_label_surveyor">Surveyor</string>
+    <string name="report_label_device_code">Device Code</string>
+    <string name="report_label_field_device_code">Field Device Code</string>
+    <string name="report_label_residential_details">Residential Total</string>
+    <string name="report_label_tele_call_residential_details">Tele Call Residential Total</string>
+    <string name="report_label_dc_count">DC</string>
+    <string name="report_label_do_count">DO</string>
+    <string name="report_label_pdc_count">PDC</string>
+    <string name="report_label_gl_count">GL</string>
+    <string name="report_label_nc_count">NC</string>
+    <string name="report_label_ong_count">OG</string>
+    <string name="report_label_owr_count">OWR</string>
+    <string name="report_label_sb_count">RB</string>
+    <string name="report_label_residential_property_count">TL</string>
+    <string name="report_label_non_residential_details">NonResidential Total</string>
+    <string name="report_label_tele_call_non_residential_details">Tele Call NonResidential Total</string>
+    <string name="report_label_other_details">Other Details</string>
+    <string name="report_label_tele_call_other_details">Tele Call Other Details</string>
+    <string name="report_label_demolished_count">Demolished</string>
+    <string name="report_label_unusable_count">Unusable</string>
+    <string name="report_label_unwanted_count">Unwanted</string>
+    <string name="report_label_landmark_count">Landmark</string>
+    <string name="report_label_ward_number">Ward Number</string>
+    <string name="report_colon">:</string>
+
+
+    <!--Road Utility-->
+    <string name="road_utility_details">Road Details</string>
+    <string name="road_utility_location">Road Location</string>
+    <string name="road_utility_road_name">Road Name</string>
+    <string name="road_utility_start_point">Start Point</string>
+    <string name="road_utility_end_point">End Point</string>
+    <string name="road_utility_road_material">Surface Type</string>
+    <string name="road_utility_road_category">Road Category</string>
+    <string name="road_utility_maintained_by">Maintained By</string>
+    <string name="road_utility_length_mtr">Length (mtr)</string>
+    <string name="road_utility_roadway_width_mtr">Width (mtr)</string>
+    <string name="road_utility_carriage_width_mtr">Carriage Width (mtr)</string>
+    <string name="road_utility_footpath">Footpath</string>
+    <string name="road_utility_footpath_cons_mat">Footpath Cons Mat</string>
+    <string name="road_utility_footpath_width_mtr">Footpath Width (mtr)</string>
+    <string name="road_utility_remarks">Remarks</string>
+    <string name="road_utility_photo">Photo</string>
+
+
+    <string name="err_road_utility_road_name">Please enter road name</string>
+    <string name="err_road_utility_start_point">Please enter start point</string>
+    <string name="err_road_utility_end_point">Please enter end point</string>
+    <string name="err_road_utility_road_material">Please select surface type</string>
+    <string name="err_road_utility_road_category">Please select road category</string>
+    <string name="err_road_utility_maintained_by">Please select maintained by</string>
+    <string name="err_road_utility_length_mtr">Please enter length in mtr</string>
+    <string name="err_road_utility_carriage_width_mtr">Please enter carriage width in mtr</string>
+    <string name="err_road_utility_roadway_width_mtr">Please enter width in mtr</string>
+    <string name="err_road_utility_footpath_width_mtr">Please enter footpath width in mtr</string>
+    <string name="err_road_utility_footpath">Please enter footpath</string>
+    <string name="err_road_utility_footpath_cons_mat">Please enter footpath cons mat</string>
+    <string name="err_road_utility_remarks">Please enter remarks</string>
+    <string name="err_road_utility_photo">Please select photo</string>
+
+    <string name="info_road_utility_location">റോഡ് സ്ഥാനം</string>
+    <string name="info_road_utility_road_name">റോഡ് പേര്</string>
+    <string name="info_road_utility_start_point">ആരംഭ പോയിന്റ്</string>
+    <string name="info_road_utility_end_point">അന്ത്യ പോയിന്റ്</string>
+    <string name="info_road_utility_road_material">റോഡ് ഉപയോഗിക്കുന്ന മാറ്റീരിയൽ</string>
+    <string name="info_road_utility_road_category">റോഡ് വിഭാഗം</string>
+    <string name="info_road_utility_maintained_by">പരിരക്ഷിക്കുന്നത്</string>
+    <string name="info_road_utility_length_mtr">നീളം (മീറ്റർ)</string>
+    <string name="info_road_utility_roadway_width_mtr">വഴിപാട് വൈഡ്ത് (മീറ്റർ)</string>
+    <string name="info_road_utility_carriage_width_mtr">ക്യാരിജ് വൈഡ്ത് (മീറ്റർ)</string>
+    <string name="info_road_utility_footpath">പാദയാത്ര</string>
+    <string name="info_road_utility_footpath_cons_mat">പാദയാത്ര നിർമ്മാണ ഉപകരണം</string>
+    <string name="info_road_utility_footpath_width_mtr">പാദയാത്ര വൈഡ്ത് (മീറ്റർ)</string>
+    <string name="info_road_utility_remarks">അഭിപ്രായങ്ങൾ എഴുതുക</string>
+    <string name="info_road_utility_photo">ഫോട്ടോ</string>
+
+
+    <!--Bridge Details-->
+    <string name="bridge_details_title">Bridge Details</string>
+    <string name="bridge_details_name">Bridge Name</string>
+    <string name="bridge_details_place">Place Name</string>
+    <string name="bridge_details_bridge_material">Bridge Material</string>
+    <string name="bridge_details_bridge_sub_type">Bridge Sub Type</string>
+    <string name="bridge_details_bridge_width">Bridge Width (mtr)</string>
+    <string name="bridge_details_bridge_length">Bridge Length (mtr)</string>
+    <string name="bridge_details_footpath_construction_material">Footpath Construction Material</string>
+    <string name="bridge_details_maintain_by">Maintain By</string>
+    <string name="bridge_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="bridge_details_photo_1">Photo</string>
+
+    <string name="err_bridge_details_name">Please enter bridge name</string>
+    <string name="err_bridge_details_place">Please enter place name</string>
+    <string name="err_bridge_details_bridge_material">Please select bridge material</string>
+    <string name="err_bridge_details_bridge_sub_type">Please select bridge sub type</string>
+    <string name="err_bridge_details_bridge_width">Please enter bridge width (mtr)</string>
+    <string name="err_bridge_details_bridge_length">Please enter bridge length (mtr)</string>
+    <string name="err_bridge_details_footpath_construction_material">Please enter footpath construction material</string>
+    <string name="err_bridge_details_maintain_by">Please enter maintain by</string>
+    <string name="err_bridge_details_remarks">Please enter remarks</string>
+    <string name="err_bridge_details_photo_1">Please select photo</string>
+
+    <string name="info_bridge_details_name">പാലം പേര്</string>
+    <string name="info_bridge_details_place">സ്ഥലം പേര്</string>
+    <string name="info_bridge_details_bridge_material">പാലം ഉപയോഗിക്കുന്ന മാറ്റീരിയൽ</string>
+    <string name="info_bridge_details_bridge_sub_type">പാലം ഉപവക്രം</string>
+    <string name="info_bridge_details_bridge_width">പാലം വൈഡ്ത് (മീറ്റർ)</string>
+    <string name="info_bridge_details_bridge_length">പാലം നീളം (മീറ്റർ)</string>
+    <string name="info_bridge_details_footpath_construction_material">പാദയാത്ര നിർമ്മാണ ഉപകരണം</string>
+    <string name="info_bridge_details_maintain_by">പരിരക്ഷിക്കുന്നത്</string>
+    <string name="info_bridge_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_bridge_details_photo_1">ഫോട്ടോ</string>
+
+
+    <!--Culvert Details-->
+    <string name="culvert_details_title">Culvert Details</string>
+    <string name="culvert_details_name">Culvert Name</string>
+    <string name="culvert_details_place">Place Name</string>
+    <string name="culvert_details_construction_material">Construction Material</string>
+    <string name="culvert_details_road_name">Road Name</string>
+    <string name="culvert_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="culvert_details_photo_1">Photo</string>
+
+    <string name="err_culvert_details_name">Please enter culvert name</string>
+    <string name="err_culvert_details_place">Please enter place name</string>
+    <string name="err_culvert_details_construction_material">Please enter construction material</string>
+    <string name="err_culvert_details_road_name">Please enter road name</string>
+    <string name="err_culvert_details_remarks">Please enter remarks</string>
+    <string name="err_culvert_details_photo_1">Please select photo</string>
+
+    <string name="info_culvert_details_name">കൾവേർട്ട് പേര്</string>
+    <string name="info_culvert_details_place">സ്ഥലം പേര്</string>
+    <string name="info_culvert_details_construction_material">നിർമ്മാണ ഉപകരണം</string>
+    <string name="info_culvert_details_road_name">റോഡ് പേര്</string>
+    <string name="info_culvert_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_culvert_details_photo_1">ഫോട്ടോ</string>
+
+
+    <!--Divider Details-->
+    <string name="divider_details_title">Divider Details</string>
+    <string name="divider_details_place">Place</string>
+    <string name="divider_details_road_name">Road Name</string>
+    <string name="divider_details_length">Length (mtr)</string>
+    <string name="divider_details_width">Width (mtr)</string>
+    <string name="divider_details_start_end">Start End</string>
+    <string name="divider_details_material">Divider Material</string>
+    <string name="divider_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="divider_details_photo_1">Photo</string>
+
+    <string name="err_divider_details_place">Please enter place</string>
+    <string name="err_divider_details_road_name">Please enter road name</string>
+    <string name="err_divider_details_length">Please enter length (mtr)</string>
+    <string name="err_divider_details_width">Please enter width (mtr)</string>
+    <string name="err_divider_details_start_end">Please enter start end</string>
+    <string name="err_divider_details_material">Please select divider material</string>
+    <string name="err_divider_details_remarks">Please enter remarks</string>
+    <string name="err_divider_details_photo_1">Please select photo</string>
+
+    <string name="info_divider_details_place">സ്ഥലം</string>
+    <string name="info_divider_details_road_name">റോഡ് പേര്</string>
+    <string name="info_divider_details_length">നീളം (മീറ്റർ)</string>
+    <string name="info_divider_details_width">വൈഡ്ത് (മീറ്റർ)</string>
+    <string name="info_divider_details_start_end">ആരംഭം അന്ത്യം</string>
+    <string name="info_divider_details_material">വിഭാജക ഉപകരണം</string>
+    <string name="info_divider_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_divider_details_photo_1">ഫോട്ടോ</string>
+
+
+    <!--SideWalk Details-->
+    <string name="side_walk_details_title">SideWalk Details</string>
+    <string name="side_walk_details_street_name">Street Name</string>
+    <string name="side_walk_details_length">Length (mtr)</string>
+    <string name="side_walk_details_width">Width (mtr)</string>
+    <string name="side_walk_details_start_end">Start End</string>
+    <string name="side_walk_details_placement">Placement</string>
+    <string name="side_walk_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="side_walk_details_photo_1">Photo</string>
+
+    <string name="err_side_walk_details_road_name">Please enter street name</string>
+    <string name="err_side_walk_details_length">Please enter length (mtr)</string>
+    <string name="err_side_walk_details_width">Please enter width (mtr)</string>
+    <string name="err_side_walk_details_start_end">Please enter start end</string>
+    <string name="err_side_walk_details_placement">Please enter placement</string>
+    <string name="err_side_walk_details_remarks">Please enter remarks</string>
+    <string name="err_side_walk_details_photo_1">Please select photo</string>
+
+    <string name="info_side_walk_details_street_name">സ്ട്രീറ്റ് പേര്</string>
+    <string name="info_side_walk_details_length">നീളം (മീറ്റർ)</string>
+    <string name="info_side_walk_details_width">വൈഡ്ത് (മീറ്റർ)</string>
+    <string name="info_side_walk_details_start_end">ആരംഭം അന്ത്യം</string>
+    <string name="info_side_walk_details_placement">പ്ലേസ്മെന്റ്</string>
+    <string name="info_side_walk_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_side_walk_details_photo_1">ഫോട്ടോ</string>
+
+
+    <!--Parking Details-->
+    <string name="parking_details_title">Parking Details</string>
+    <string name="parking_details_place">Place Name</string>
+    <string name="parking_details_type">Parking Type</string>
+    <string name="parking_details_capacity">Capacity</string>
+    <string name="parking_details_area">Area</string>
+    <string name="parking_details_parking_under">Parking Under</string>
+    <string name="parking_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="parking_details_photo_1">Photo</string>
+
+    <string name="err_parking_details_place">Please enter place</string>
+    <string name="err_parking_details_type">Please select parking type</string>
+    <string name="err_parking_details_capacity">Please enter capacity</string>
+    <string name="err_parking_details_area">Please enter area</string>
+    <string name="err_parking_details_parking_under">Please enter parking under</string>
+    <string name="err_parking_details_remarks">Please enter remarks</string>
+    <string name="err_parking_details_photo_1">Please select photo</string>
+
+    <string name="info_parking_details_place">സ്ഥലം പേര്</string>
+    <string name="info_parking_details_type">പാർക്കിംഗ് തരം</string>
+    <string name="info_parking_details_capacity">ക്യാപ്പസിറ്റി</string>
+    <string name="info_parking_details_area">പ്രദേശം</string>
+    <string name="info_parking_details_parking_under">താഴെ പാർക്കിംഗ്</string>
+    <string name="info_parking_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_parking_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Playground Details-->
+    <string name="playground_details_title">Playground Details</string>
+    <string name="playground_details_location">Location</string>
+    <string name="playground_details_name">Ground Name</string>
+    <string name="playground_details_type">Ground Type</string>
+    <string name="playground_details_area">Area</string>
+    <string name="playground_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="playground_details_photo_1">Photo</string>
+
+    <string name="err_playground_details_location">Please enter location</string>
+    <string name="err_playground_details_name">Please enter ground name</string>
+    <string name="err_playground_details_type">Please select ground type</string>
+    <string name="err_playground_details_area">Please enter area</string>
+    <string name="err_playground_details_area_validation">area should be 1 to 10</string>
+    <string name="err_playground_details_remarks">Please enter remarks</string>
+    <string name="err_playground_details_photo_1">Please select photo</string>
+
+    <string name="info_playground_details_location">സ്ഥാനം</string>
+    <string name="info_playground_details_name">മണ്ടപ പേര്</string>
+    <string name="info_playground_details_type">മണ്ടപ തരം</string>
+    <string name="info_playground_details_area">പ്രദേശം</string>
+    <string name="info_playground_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_playground_details_photo_1">ഫോട്ടോ</string>
+
+
+    <!--Road Junction Details-->
+    <string name="road_junction_details_title">Junction Details</string>
+    <string name="road_junction_details_name">Junction Name</string>
+    <string name="road_junction_details_location_details">Location</string>
+    <string name="road_junction_details_no_of_roads">No of Roads</string>
+    <string name="road_junction_details_pedestrian">Pedestrian</string>
+    <string name="road_junction_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="road_junction_details_photo_1">Photo</string>
+
+    <string name="err_road_junction_details_name">Please enter junction name</string>
+    <string name="err_road_junction_details_location_details">Please enter location</string>
+    <string name="err_road_junction_details_no_of_roads">Please enter no of roads</string>
+    <string name="err_road_junction_details_pedestrian">Please enter pedestrian</string>
+    <string name="err_road_junction_details_remarks">Please enter remarks</string>
+    <string name="err_road_junction_details_photo_1">Please select photo</string>
+
+    <string name="info_road_junction_details_name">ജങ്ക്ഷൻ പേര്</string>
+    <string name="info_road_junction_details_location_details">സ്ഥലം</string>
+    <string name="info_road_junction_details_no_of_roads">റോഡുകൾക്കുള്ള എണ്ണം</string>
+    <string name="info_road_junction_details_pedestrian">പെഡസ്ട്രിയൻ</string>
+    <string name="info_road_junction_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_road_junction_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Road Signboard Details-->
+    <string name="road_signboard_details_title">Signboard Details</string>
+    <string name="road_signboard_details_place">Place</string>
+    <string name="road_signboard_details_category">Category</string>
+    <string name="road_signboard_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="road_signboard_details_photo_1">Photo</string>
+
+    <string name="err_road_signboard_details_place">Please enter place</string>
+    <string name="err_road_signboard_details_category">Please select category</string>
+    <string name="err_road_signboard_details_remarks">Please enter remarks</string>
+    <string name="err_road_signboard_details_photo_1">Please select photo</string>
+
+    <string name="info_road_signboard_details_place">സ്ഥലം</string>
+    <string name="info_road_signboard_details_category">വിഭാഗം</string>
+    <string name="info_road_signboard_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_road_signboard_details_photo_1">ഫോട്ടോ</string>
+
+
+    <!--Drainage Details-->
+    <string name="drainage_details_title">Drainage Details</string>
+    <string name="drainage_details_drainage_name">Drainage Name</string>
+    <string name="drainage_details_place">Place</string>
+    <string name="drainage_details_drainage_street_name">Street Name</string>
+    <string name="drainage_details_drainage_length">Drainage Length</string>
+    <string name="drainage_details_Drainage_material">Drainage Material</string>
+    <string name="drainage_details_drainage_type">Drainage Type</string>
+    <string name="drainage_details_drainage_placement">Placement</string>
+    <string name="drainage_details_drainage_category">Category</string>
+    <string name="drainage_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="drainage_details_photo">Photo</string>
+
+
+    <string name="err_drainage_details_drainage_name">Please enter drainage name</string>
+    <string name="err_drainage_details_start_place">Please enter place</string>
+    <string name="err_drainage_details_drainage_street_name">Please enter street name</string>
+    <string name="err_drainage_details_drainage_material">Please enter drainage  material</string>
+    <string name="err_drainage_details_drainage_type">Please enter drainage type</string>
+    <string name="err_drainage_details_drainage_length">Please enter drainage length</string>
+    <string name="err_drainage_details_drainage_placement">Please enter placement</string>
+    <string name="err_drainage_details_drainage_category">Please select category</string>
+    <string name="err_drainage_details_remarks">Please enter remarks</string>
+    <string name="err_drainage_details_photo">Please select photo</string>
+
+    <string name="info_drainage_details_drainage_name">ഡ്രെയിനേജ് പേര്</string>
+    <string name="info_drainage_details_place">സ്ഥലം</string>
+    <string name="info_drainage_details_drainage_street_name">സ്ട്രീറ്റ് പേര്</string>
+    <string name="info_drainage_details_drainage_length">ഡ്രെയിനേജ് നീളം</string>
+    <string name="info_drainage_details_Drainage_material">ഡ്രെയിനേജ് ഉപകരണം</string>
+    <string name="info_drainage_details_drainage_type">ഡ്രെയിനേജ് തരം</string>
+    <string name="info_drainage_details_drainage_placement">പ്ലേസ്മെന്റ്</string>
+    <string name="info_drainage_details_drainage_category">വിഭാഗം</string>
+    <string name="info_drainage_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_drainage_details_photo">ഫോട്ടോ</string>
+
+
+    <!--Pond Details-->
+    <string name="pond_details_title">Pond Details</string>
+    <string name="pond_details_pond_name">Pond Name</string>
+    <string name="pond_details_location">Location</string>
+    <string name="pond_details_area">Area ( Sqr mtr )</string>
+    <string name="pond_details_capacity">Capacity ( cum )</string>
+    <string name="pond_details_usage">Usage</string>
+    <string name="pond_details_odour">Odour</string>
+    <string name="pond_details_pond_status">Pond Status</string>
+    <string name="pond_details_pond_type">Pond Type</string>
+    <string name="pond_details_present_condition">Present Condition</string>
+    <string name="pond_details_nature">Nature</string>
+    <string name="pond_details_sidewall">Sidewall</string>
+    <string name="pond_details_sidewall_type">Sidewall Type</string>
+    <string name="pond_details_pond_condition">Pond Condition</string>
+    <string name="pond_details_pond_width">Pond Width</string>
+    <string name="pond_details_pond_length">Pond Length</string>
+    <string name="pond_details_pond_owner">Pond Owner</string>
+    <string name="pond_details_purpose">Purpose</string>
+    <string name="pond_details_survey_no">Survey Number</string>
+    <string name="pond_details_color">Colour</string>
+    <string name="pond_details_maintain_by">Maintain By</string>
+    <string name="pond_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="pond_details_photo">Photo</string>
+
+
+    <string name="err_pond_details_pond_name">Please enter pond name</string>
+    <string name="err_pond_details_location">Please enter location</string>
+    <string name="err_pond_details_area">Please enter area</string>
+    <string name="err_pond_details_capacity">Please enter capacity</string>
+    <string name="err_pond_details_usage">Please select usage</string>
+    <string name="err_pond_details_odour">Please select odour</string>
+    <string name="err_pond_details_pond_status">Please select pond status</string>
+    <string name="err_pond_details_pond_type">Please select pond type</string>
+    <string name="err_pond_details_present_condition">Please select present condition</string>
+    <string name="err_pond_details_nature">Please select nature</string>
+    <string name="err_pond_details_sidewall">Please select sidewall</string>
+    <string name="err_pond_details_sidewall_type">Please select sidewall type</string>
+    <string name="err_pond_details_pond_condition">Please select pond condition</string>
+    <string name="err_pond_details_pond_width">Please enter pond width</string>
+    <string name="err_pond_details_pond_length">Please enter pond length</string>
+    <string name="err_pond_details_pond_owner">Please enter pond owner</string>
+    <string name="err_pond_details_purpose">Please enter purpose</string>
+    <string name="err_pond_details_survey_no">Please enter survey number</string>
+    <string name="err_pond_details_color">Please enter colour</string>
+    <string name="err_pond_details_maintain_by">Please enter maintain by</string>
+    <string name="err_pond_details_remarks">Please enter remarks</string>
+    <string name="err_pond_details_photo">Please select photo</string>
+
+    <string name="info_pond_details_pond_name">കുള പേര്</string>
+    <string name="info_pond_details_location">സ്ഥലം</string>
+    <string name="info_pond_details_area">പ്രദേശം (ചതുരശ്ര മീറ്റർ)</string>
+    <string name="info_pond_details_capacity">ക്ഷമത (സേന്റിമീറ്റർ)</string>
+    <string name="info_pond_details_usage">ഉപയോഗം</string>
+    <string name="info_pond_details_odour">മണം</string>
+    <string name="info_pond_details_pond_status">കുള അവസ്ഥ</string>
+    <string name="info_pond_details_pond_type">കുള തരം</string>
+    <string name="info_pond_details_present_condition">നിലവിലെ അവസ്ഥ</string>
+    <string name="info_pond_details_nature">സ്വഭാവം</string>
+    <string name="info_pond_details_sidewall">കുള പാര്‍ശ്വദീവാരം</string>
+    <string name="info_pond_details_sidewall_type">പാര്‍ശ്വദീവാര തരം</string>
+    <string name="info_pond_details_pond_condition">കുള അവസ്ഥ</string>
+    <string name="info_pond_details_pond_width">കുള വൈഡ്ത്</string>
+    <string name="info_pond_details_pond_length">കുള നീളം</string>
+    <string name="info_pond_details_pond_owner">കുള ഉടമ</string>
+    <string name="info_pond_details_purpose">ഉദ്ദേശം</string>
+    <string name="info_pond_details_survey_no">സർവേ നമ്പർ</string>
+    <string name="info_pond_details_color">നിറം</string>
+    <string name="info_pond_details_maintain_by">പരിരക്ഷിക്കുന്നത്</string>
+    <string name="info_pond_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_pond_details_photo">ഫോട്ടോ</string>
+
+    <!--bus stop Details-->
+    <string name="bus_stop_details_title">Bus Stop Details</string>
+    <string name="bus_stop_details_location">Location</string>
+    <string name="bus_stop_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="bus_stop_details_photo_1">Photo</string>
+
+    <string name="err_bus_stop_details_location">Please enter location</string>
+    <string name="err_bus_stop_details_remarks">Please enter remarks</string>
+    <string name="err_bus_stop_details_photo_1">Please select photo</string>
+
+    <string name="info_bus_stop_details_location">സ്ഥലം</string>
+    <string name="info_bus_stop_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമാവധി നീളം 100)</string>
+    <string name="info_bus_stop_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Canal line Details-->
+    <string name="canal_line_details_title">Canal Line Details</string>
+    <string name="canal_line_details_street_name">Street Name</string>
+    <string name="canal_line_details_location">Location</string>
+    <string name="canal_line_details_type">Type</string>
+    <string name="canal_line_details_sub_type">Sub Type</string>
+    <string name="canal_line_details_area">Area</string>
+    <string name="canal_line_details_canal_width">Canal Width</string>
+    <string name="canal_line_details_canal_condition">Condition</string>
+    <string name="canal_line_details_start_point">Start Point</string>
+    <string name="canal_line_details_end_point">End Point</string>
+    <string name="canal_line_details_sidewall">Sidewall</string>
+    <string name="canal_line_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="canal_line_details_photo_1">Photo</string>
+
+    <string name="err_canal_line_details_street_name">Please select street name</string>
+    <string name="err_canal_line_details_location">Please enter location</string>
+    <string name="err_canal_line_details_sub_type">Please select sub type</string>
+    <string name="err_canal_line_details_type">Please select type</string>
+    <string name="err_canal_line_details_area">Please enter area</string>
+    <string name="err_canal_line_details_canal_width">Please enter canal width</string>
+    <string name="err_canal_line_details_canal_condition">Please select condition</string>
+    <string name="err_canal_line_details_start_point">Please enter start point</string>
+    <string name="err_canal_line_details_end_point">Please enter end point</string>
+    <string name="err_canal_line_details_sidewall">Please enter sidewall</string>
+    <string name="err_canal_line_details_remarks">Please enter remarks</string>
+    <string name="err_canal_line_details_photo_1">Please select photo</string>
+
+    <string name="info_canal_line_details_street_name">സ്ട്രീറ്റ് പേര്</string>
+    <string name="info_canal_line_details_location">സ്ഥലം</string>
+    <string name="info_canal_line_details_type">തരം</string>
+    <string name="info_canal_line_details_sub_type">ഉപ തരം</string>
+    <string name="info_canal_line_details_area">പ്രദേശം</string>
+    <string name="info_canal_line_details_canal_width">കനാൽ വൈഡ്ത്</string>
+    <string name="info_canal_line_details_canal_condition">അവസ്ഥ</string>
+    <string name="info_canal_line_details_start_point">ആരംഭ പോയിന്റ്</string>
+    <string name="info_canal_line_details_end_point">അന്ത്യ പോയിന്റ്</string>
+    <string name="info_canal_line_details_sidewall">സൈഡ്‌വാൾ</string>
+    <string name="info_canal_line_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_canal_line_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Garbage Details-->
+    <string name="garbage_details_title">Garbage Details</string>
+    <string name="garbage_details_location">Location</string>
+    <string name="garbage_details_category">Category</string>
+    <string name="garbage_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="garbage_details_photo_1">Photo</string>
+
+    <string name="err_garbage_details_location">Please enter location</string>
+    <string name="err_garbage_details_category">Please enter category</string>
+    <string name="err_garbage_details_remarks">Please enter remarks</string>
+    <string name="err_garbage_details_photo_1">Please select photo</string>
+
+    <string name="info_garbage_details_location">സ്ഥലം</string>
+    <string name="info_garbage_details_category">വിഭാഗം</string>
+    <string name="info_garbage_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_garbage_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Park Details-->
+    <string name="park_details_title">Park Details</string>
+    <string name="park_details_location">Location</string>
+    <string name="park_details_name">Park Name</string>
+    <string name="park_details_area">Area</string>
+    <string name="park_details_survey_no">Survey Number</string>
+    <string name="park_details_park_type">Park Type</string>
+    <string name="park_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="park_details_photo_1">Photo</string>
+
+    <string name="err_park_details_location">Please enter location</string>
+    <string name="err_park_details_name">Please enter park name</string>
+    <string name="err_park_details_survey_no">Please select survey number</string>
+    <string name="err_park_details_area">Please select area</string>
+    <string name="err_park_details_type">Please select park type</string>
+    <string name="err_park_details_remarks">Please enter remarks</string>
+    <string name="err_park_details_photo_1">Please select photo</string>
+
+    <string name="info_park_details_location">സ്ഥലം</string>
+    <string name="info_park_details_name">പാർക്ക് പേര്</string>
+    <string name="info_park_details_area">പ്രദേശം</string>
+    <string name="info_park_details_survey_no">സർവേ നമ്പർ</string>
+    <string name="info_park_details_park_type">പാർക്ക് തരം</string>
+    <string name="info_park_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_park_details_photo_1">ഫോട്ടോ</string>
+
+    <!--stadium Details-->
+    <string name="stadium_details_title">Stadium Details</string>
+    <string name="stadium_details_name">Stadium Name</string>
+    <string name="stadium_details_location">Location</string>
+    <string name="stadium_details_address">Address</string>
+    <string name="stadium_details_no_gallery">Number Gallery</string>
+    <string name="stadium_details_gallery_capacity">Capacity</string>
+    <string name="stadium_details_area">Area</string>
+    <string name="stadium_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="stadium_details_photo_1">Photo</string>
+
+    <string name="err_stadium_details_name">Please enter stadium name</string>
+    <string name="err_stadium_details_location">Please enter location</string>
+    <string name="err_stadium_details_address">Please enter address</string>
+    <string name="err_stadium_details_no_gallery">Please enter number gallery</string>
+    <string name="err_stadium_details_gallery_capacity">Please enter gallery capacity</string>
+    <string name="err_stadium_details_area">Please enter area</string>
+    <string name="err_stadium_details_remarks">Please enter remarks</string>
+    <string name="err_stadium_details_photo_1">Please select photo</string>
+
+    <string name="info_stadium_details_name">സ്റ്റേഡിയം പേര്</string>
+    <string name="info_stadium_details_location">സ്ഥലം</string>
+    <string name="info_stadium_details_address">വിലാസം</string>
+    <string name="info_stadium_details_no_gallery">ഗാലറി എണ്ണം</string>
+    <string name="info_stadium_details_gallery_capacity">ക്ഷമത</string>
+    <string name="info_stadium_details_area">പ്രദേശം</string>
+    <string name="info_stadium_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_stadium_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Street Tap Details-->
+    <string name="street_tap_details_title">Street Tap Details</string>
+    <string name="street_tap_details_location">Location</string>
+    <string name="street_tap_details_address">Address</string>
+    <string name="street_tap_details_working_status">Working Status</string>
+    <string name="street_tap_details_funded_by">Funded By</string>
+    <string name="street_tap_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="street_tap_details_photo_1">Photo</string>
+
+    <string name="err_street_tap_details_location">Please enter location</string>
+    <string name="err_street_tap_details_address">Please enter address</string>
+    <string name="err_street_tap_details_working_status">Please enter working status</string>
+    <string name="err_street_tap_details_funded_by">Please enter funded by</string>
+    <string name="err_street_tap_details_remarks">Please enter remarks</string>
+    <string name="err_street_tap_details_photo_1">Please select photo</string>
+
+    <string name="info_street_tap_details_location">സ്ഥലം</string>
+    <string name="info_street_tap_details_address">വിലാസം</string>
+    <string name="info_street_tap_details_working_status">പ്രവർത്തന സ്ഥിതി</string>
+    <string name="info_street_tap_details_funded_by">അനുദാനം ചെയ്തത്</string>
+    <string name="info_street_tap_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_street_tap_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Street Light Details-->
+    <string name="street_light_details_title">Street Light Details</string>
+    <string name="street_light_details_location">Location</string>
+    <string name="street_light_details_address">Address</string>
+    <string name="street_light_details_working_status">Working Status</string>
+    <string name="street_light_details_funded_by">Funded By</string>
+    <string name="street_light_details_bulb_type">Bulb Type</string>
+    <string name="street_light_details_post_no">Post No</string>
+    <string name="street_light_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="street_light_details_photo_1">Photo</string>
+
+    <string name="err_street_light_details_location">Please enter location</string>
+    <string name="err_street_light_details_address">Please enter address</string>
+    <string name="err_street_light_details_working_status">Please enter working status</string>
+    <string name="err_street_light_details_funded_by">Please enter funded by</string>
+    <string name="err_street_light_details_bulb_type">Please select bulb type</string>
+    <string name="err_street_light_details_post_no">Please enter post no</string>
+    <string name="err_street_light_details_remarks">Please enter remarks</string>
+    <string name="err_street_light_details_photo_1">Please select photo</string>
+
+    <string name="info_street_light_details_location">സ്ഥലം</string>
+    <string name="info_street_light_details_address">വിലാസം</string>
+    <string name="info_street_light_details_working_status">പ്രവർത്തന സ്ഥിതി</string>
+    <string name="info_street_light_details_funded_by">അനുദാനം ചെയ്തത്</string>
+    <string name="info_street_light_details_bulb_type">ബൾബ് തരം</string>
+    <string name="info_street_light_details_post_no">പോസ്റ്റ് നമ്പർ</string>
+    <string name="info_street_light_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_street_light_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Tank Details-->
+    <string name="tank_details_title">Tank Details</string>
+    <string name="tank_details_location">Location</string>
+    <string name="tank_details_tank_owner">Tank Owner</string>
+    <string name="tank_details_capacity">Capacity</string>
+    <string name="tank_details_type">Water Tank Type</string>
+    <string name="tank_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="tank_details_photo_1">Photo</string>
+
+    <string name="err_tank_details_location">Please enter location</string>
+    <string name="err_tank_details_tank_owner">Please enter tank owner</string>
+    <string name="err_tank_details_capacity">Please enter capacity</string>
+    <string name="err_tank_details_tank_type">Please select water tank type</string>
+    <string name="err_tank_details_remarks">Please enter remarks</string>
+    <string name="err_tank_details_photo_1">Please select photo</string>
+
+    <string name="info_tank_details_location">സ്ഥലം</string>
+    <string name="info_tank_details_tank_owner">ടാങ്ക് ഓൺവർ</string>
+    <string name="info_tank_details_capacity">ക്ഷമത</string>
+    <string name="info_tank_details_type">വെള്ള ടാങ്ക് തരം</string>
+    <string name="info_tank_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_tank_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Taxi Stand Details-->
+    <string name="taxi_stand_details_title">Taxi Stand Details</string>
+    <string name="taxi_stand_details_place">Place Name</string>
+    <string name="taxi_stand_details_location">Location</string>
+    <string name="taxi_stand_details_parking_type">Parking Type</string>
+    <string name="taxi_stand_details_capacity">Capacity</string>
+    <string name="taxi_stand_details_authorised">Authorised</string>
+    <string name="taxi_stand_details_auth_details">Authorisation Details</string>
+    <string name="taxi_stand_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="taxi_stand_details_photo_1">Photo</string>
+
+    <string name="err_taxi_stand_details_place">Please enter place name</string>
+    <string name="err_taxi_stand_details_location">Please enter location</string>
+    <string name="err_taxi_stand_details_parking_type">Please select parking type</string>
+    <string name="err_taxi_stand_details_capacity">Please enter capacity</string>
+    <string name="err_taxi_stand_details_authorised">Please enter authorised</string>
+    <string name="err_taxi_stand_details_auth_details">Please enter authorisation details</string>
+    <string name="err_taxi_stand_details_remarks">Please enter remarks</string>
+    <string name="err_taxi_stand_details_photo_1">Please select photo</string>
+
+    <string name="info_taxi_stand_details_place">സ്ഥലം പേര്</string>
+    <string name="info_taxi_stand_details_location">സ്ഥലം</string>
+    <string name="info_taxi_stand_details_parking_type">പാർക്കിംഗ് തരം</string>
+    <string name="info_taxi_stand_details_capacity">ക്ഷമത</string>
+    <string name="info_taxi_stand_details_authorised">അനുമതി ലഭിച്ചത്</string>
+    <string name="info_taxi_stand_details_auth_details">അനുമതി വിവരങ്ങൾ</string>
+    <string name="info_taxi_stand_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_taxi_stand_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Transformer Details-->
+    <string name="transformer_details_title">Transformer Details</string>
+    <string name="transformer_details_location">Location</string>
+    <string name="transformer_details_category">Category</string>
+    <string name="transformer_details_transformer">Transformer Details</string>
+    <string name="transformer_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="transformer_details_photo_1">Photo</string>
+
+    <string name="err_transformer_details_location">Please enter location</string>
+    <string name="err_transformer_details_category">Please enter category</string>
+    <string name="err_transformer_details_transformer">Please enter transformer details</string>
+    <string name="err_transformer_details_remarks">Please enter remarks</string>
+    <string name="err_transformer_details_photo_1">Please select photo</string>
+
+    <string name="info_transformer_details_location">സ്ഥലം</string>
+    <string name="info_transformer_details_category">വിഭാഗം</string>
+    <string name="info_transformer_details_transformer">ട്രാൻസ്‌ഫോർമർ വിവരങ്ങൾ</string>
+    <string name="info_transformer_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_transformer_details_photo_1">ഫോട്ടോ</string>
+
+    <!--Well Details-->
+    <string name="well_details_title">Well Details</string>
+
+    <string name="well_details_owner">Well Owner</string>
+    <string name="well_details_well_purpose">Well Purpose</string>
+    <string name="well_details_location">Location</string>
+    <string name="well_details_cover">Well Cover</string>
+    <string name="well_details_survey_no">Survey Number</string>
+    <string name="well_details_near_road">Near Road</string>
+    <string name="well_details_re_water_availability_marks">Re Water Availability Marks</string>
+    <string name="well_details_status">Status</string>
+    <string name="well_details_seasonal">Seasonal</string>
+    <string name="well_details_type">Well Type</string>
+    <string name="well_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="well_details_photo_1">Photo</string>
+
+    <string name="err_well_details_owner">Please select owner</string>
+    <string name="err_well_details_well_purpose">Please select well purpose</string>
+    <string name="err_well_details_location">Please select location</string>
+    <string name="err_well_details_cover">Please select well cover</string>
+    <string name="err_well_details_survey_no">Please select survey number</string>
+    <string name="err_well_details_near_road">Please enter near road</string>
+    <string name="err_well_details_re_water_availability_marks">Please enter re water availability marks</string>
+    <string name="err_well_details_status">Please enter status</string>
+    <string name="err_well_details_seasonal">Please select seasonal</string>
+    <string name="err_well_details_type">Please select well type</string>
+    <string name="err_well_details_remarks">Please enter remarks</string>
+    <string name="err_well_details_photo_1">Please select photo</string>
+
+    <string name="info_well_details_owner">വെള്ളം ഓൺവർ</string>
+    <string name="info_well_details_well_purpose">വെള്ളം ഉപയോഗം</string>
+    <string name="info_well_details_location">സ്ഥലം</string>
+    <string name="info_well_details_cover">വെള്ളം കവർ</string>
+    <string name="info_well_details_survey_no">സർവേ നമ്പർ</string>
+    <string name="info_well_details_near_road">റോഡിനു സമീപം</string>
+    <string name="info_well_details_re_water_availability_marks">പുനർനിരക്കരണ വിളക്കുകൾ</string>
+    <string name="info_well_details_status">സ്ഥിതി</string>
+    <string name="info_well_details_seasonal">കാലാവധികൾ</string>
+    <string name="info_well_details_type">വെള്ളം തരം</string>
+    <string name="info_well_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_well_details_photo_1">ഫോട്ടോ</string>
+
+    <!--High mast tower Details-->
+    <string name="high_mast_details_title">High Mast Light Details</string>
+    <string name="high_mast_details_location">Location</string>
+    <string name="high_mast_details_address">Address</string>
+    <string name="high_mast_details_light_type">Light Type</string>
+    <string name="high_mast_details_funded_by">Funded By</string>
+    <string name="high_mast_details_working_status">Working Status</string>
+    <string name="high_mast_details_height">Height</string>
+    <string name="high_mast_details_No_of_bulbs">No Of Bulbs</string>
+    <string name="high_mast_details_vendor">Vendor</string>
+    <string name="high_mast_details_expire_date">Expiry Date</string>
+    <string name="high_mast_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="high_mast_details_photo_1">Photo 1</string>
+
+    <string name="err_high_mast_details_location">Please enter location</string>
+    <string name="err_high_mast_details_address">Please enter address</string>
+    <string name="err_high_mast_details_light_type">Please select light type</string>
+    <string name="err_high_mast_details_funded_by">Please enter funded by</string>
+    <string name="err_high_mast_details_working_status">Please select working status</string>
+    <string name="err_high_mast_details_height">Please enter height</string>
+    <string name="err_high_mast_details_height_val">Height should be from 1 to 10 </string>
+    <string name="err_high_mast_details_no_of_bulbs">Please enter no of bulbs</string>
+    <string name="err_high_mast_details_vendor">Please enter vendor</string>
+    <string name="err_high_mast_details_expire_date">Please select expiry date</string>
+    <string name="err_high_mast_details_remarks">Please enter remarks</string>
+    <string name="err_high_mast_details_photo_1">Please select photo 1</string>
+
+    <string name="info_high_mast_details_location">സ്ഥലം</string>
+    <string name="info_high_mast_details_address">വിലാസം</string>
+    <string name="info_high_mast_details_light_type">പ്രകാശ തരം</string>
+    <string name="info_high_mast_details_funded_by">അനുദാനം ചെയ്തത്</string>
+    <string name="info_high_mast_details_working_status">പ്രവർത്തന സ്ഥിതി</string>
+    <string name="info_high_mast_details_height">ഉയരം</string>
+    <string name="info_high_mast_details_No_of_bulbs">ബൾബുകൾക്കുള്ള എണ്ണം</string>
+    <string name="info_high_mast_details_vendor">വിപണി</string>
+    <string name="info_high_mast_details_expire_date">കാലാവധി കാലാവധി</string>
+    <string name="info_high_mast_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_high_mast_details_photo_1">ഫോട്ടോ 1</string>
+
+    <!--Low mast tower Details-->
+    <string name="low_mast_details_title">Low Mast Light Details</string>
+    <string name="low_mast_details_location">Location</string>
+    <string name="low_mast_details_address">Address</string>
+    <string name="low_mast_details_light_type">Light Type</string>
+    <string name="low_mast_details_funded_by">Funded By</string>
+    <string name="low_mast_details_working_status">Working Status</string>
+    <string name="low_mast_details_warranty">Warranty</string>
+    <string name="low_mast_details_vendor">Vendor</string>
+    <string name="low_mast_details_expire_date">Expiry Date</string>
+    <string name="low_mast_details_amc">AMC</string>
+    <string name="low_mast_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="low_mast_details_photo_1">Photo 1</string>
+
+    <string name="err_low_mast_details_location">Please enter location</string>
+    <string name="err_low_mast_details_address">Please enter address</string>
+    <string name="err_low_mast_details_light_type">Please select light type</string>
+    <string name="err_low_mast_details_funded_by">Please enter funded by</string>
+    <string name="err_low_mast_details_working_status">Please select working status</string>
+    <string name="err_low_mast_details_warranty">Please select warranty</string>
+    <string name="err_low_mast_details_vendor">Please enter vendor</string>
+    <string name="err_low_mast_details_expire_date">Please select expiry date</string>
+    <string name="err_low_mast_details_amc">Please enter AMC</string>
+    <string name="err_low_mast_details_remarks">Please enter remarks</string>
+    <string name="err_low_mast_details_photo_1">Please select photo 1</string>
+
+    <string name="info_low_mast_details_location">സ്ഥലം</string>
+    <string name="info_low_mast_details_address">വിലാസം</string>
+    <string name="info_low_mast_details_light_type">പ്രകാശ തരം</string>
+    <string name="info_low_mast_details_funded_by">അനുദാനം ചെയ്തത്</string>
+    <string name="info_low_mast_details_working_status">പ്രവർത്തന സ്ഥിതി</string>
+    <string name="info_low_mast_details_warranty">വാരാന്ത്യം</string>
+    <string name="info_low_mast_details_vendor">വിപണി</string>
+    <string name="info_low_mast_details_expire_date">കാലാവധി കാലാവധി</string>
+    <string name="info_low_mast_details_amc">എ.എം.സി.</string>
+    <string name="info_low_mast_details_remarks">അഭിപ്രായങ്ങൾ എഴുതുക (പരമിതമായ നീളം 100)</string>
+    <string name="info_low_mast_details_photo_1">ഫോട്ടോ 1</string>
+
+    <string-array name="utility">
+        <item>Bridge</item>
+        <item>Bus\nStop</item>
+        <item>Canal\nLine</item>
+        <item>Culvert</item>
+        <item>Divider</item>
+        <item>Drainage</item>
+        <item>Garbage\nPoint</item>
+        <item>High Mast\nLight</item>
+        <item>Low Mast\nLight</item>
+        <item>Park</item>
+        <item>Parking\nArea</item>
+        <item>Playground</item>
+        <item>Pond</item>
+        <item>Road</item>
+        <item>Road\nJunction</item>
+        <item>Road\nSide Walk</item>
+        <item>Road\nSignboard</item>
+        <item>Stadium</item>
+        <item>Street\nLight</item>
+        <item>Street\nTap</item>
+        <item>Tank</item>
+        <item>Taxi\nStand</item>
+        <item>Transformer</item>
+        <item>Well</item>
+    </string-array>
+
+    <integer-array name="utility_images">
+        <item>@drawable/ic_bridge</item>
+        <item>@drawable/ic_bus_stop</item>
+        <item>@drawable/ic_canal</item>
+        <item>@drawable/ic_culvert</item>
+        <item>@drawable/ic_divider</item>
+        <item>@drawable/ic_drainage</item>
+        <item>@drawable/ic_garbage</item>
+        <item>@drawable/ic_high_mast_light</item>
+        <item>@drawable/ic_low_mast_light</item>
+        <item>@drawable/ic_park</item>
+        <item>@drawable/ic_parking</item>
+        <item>@drawable/ic_playground</item>
+        <item>@drawable/ic_pond</item>
+        <item>@drawable/ic_road</item>
+        <item>@drawable/ic_junction</item>
+        <item>@drawable/ic_sidewalk</item>
+        <item>@drawable/ic_signboard</item>
+        <item>@drawable/ic_stadium</item>
+        <item>@drawable/ic_street_light</item>
+        <item>@drawable/ic_water_tap</item>
+        <item>@drawable/ic_water_tank</item>
+        <item>@drawable/ic_taxi</item>
+        <item>@drawable/ic_transformer</item>
+        <item>@drawable/ic_water_well</item>
+    </integer-array>
+
+
+</resources>
